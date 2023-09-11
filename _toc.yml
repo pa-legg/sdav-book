@@ -1,0 +1,26 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: 00-toc
+chapters:
+- file: 01-intro
+- file: 02-workflow
+- file: 03-statistics
+- file: 04-machinelearning
+- file: 05-visualisation
+- file: 06-visualanalytics
+- file: 07-textanalytics
+- file: 08-fileandimageanalysis
+- file: 09-furtherresearch
+- file: activity-01-intro
+- file: activity-02-hello
+- file: activity-03-clustering
+- file: activity-04-regression
+- file: activity-05-neuralnet
+- file: activity-06-visualisation
+- file: activity-07-violinplot
+- file: activity-08-interaction
+- file: activity-09-recommender
+- file: activity-10-text
+- file: activity-11-video
