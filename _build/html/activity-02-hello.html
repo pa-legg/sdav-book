@@ -1,0 +1,1474 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Activity 2 - Hello, Security Analytics &#8212; Security Data Analytics and Visualisation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'activity-02-hello';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Activity 3 - Clustering" href="activity-03-clustering.html" />
+    <link rel="prev" title="Activity 1 - Python Primer" href="activity-01-intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-toc.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uwecyber.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/uwecyber.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-toc.html">
+                    Security Data Analytics and Visualisation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-intro.html">1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-workflow.html">2: A Pipeline Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-statistics.html">3: Statistical Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-machinelearning.html">4: Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="05-visualisation.html">5: Visualisation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-visualanalytics.html">6: Visual Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07-textanalytics.html">7: Text Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-fileandimageanalysis.html">8: File, Image and Video Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-furtherresearch.html">9: Future Research Directions</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-01-intro.html">Activity 1 - Python Primer</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Activity 2 - Hello, Security Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-03-clustering.html">Activity 3 - Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-04-regression.html">Activity 4 - Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-05-neuralnet.html">Activity 5 - Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-06-visualisation.html">Activity 6 - Visualisation</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-07-violinplot.html">Activity 7 - Violin Plots and Parallel Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-08-interaction.html">Activity 8 - Interaction and Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-09-recommender.html">Activity 9 - Recommender Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-10-text.html">Activity 10: Text Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-11-video.html">Activity 11 - File Visualisation and Video Visualisation</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book/issues/new?title=Issue%20on%20page%20%2Factivity-02-hello.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/activity-02-hello.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Activity 2 - Hello, Security Analytics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ploting-our-data">Ploting our data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-exploration">Further Exploration</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="activity-2-hello-security-analytics">
+<h1>Activity 2 - Hello, Security Analytics<a class="headerlink" href="#activity-2-hello-security-analytics" title="Permalink to this heading">#</a></h1>
+<p>For this “Hello World” example, you are working on a problem given to you by the manager of the Security Operations Center (SOC). It seems the SOC analysts are becoming inundated with “trivial” alerts ever since a new data set of indicators was introduced into the Security Information and Event Management (SIEM) system. They have asked for your help in reducing the number of “trivial” alerts with- out sacrificing visibility.</p>
+<p>This is a good problem to tackle through data analysis, and we should be able to form a solid, practical question to ask after we perform some exploratory data analysis and hopefully arrive at an answer that helps out the SOC.</p>
+<section id="loading-in-data">
+<h2>Loading in Data<a class="headerlink" href="#loading-in-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1"># read in the data into a pandas data frame</span>
+<span class="n">avRep</span> <span class="o">=</span> <span class="s2">&quot;./data/reputation.data&quot;</span>
+<span class="n">av</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">avRep</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># make smarter column names</span>
+<span class="n">av</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;IP&quot;</span><span class="p">,</span><span class="s2">&quot;Reliability&quot;</span><span class="p">,</span><span class="s2">&quot;Risk&quot;</span><span class="p">,</span><span class="s2">&quot;Type&quot;</span><span class="p">,</span><span class="s2">&quot;Country&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;Locale&quot;</span><span class="p">,</span><span class="s2">&quot;Coords&quot;</span><span class="p">,</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">av</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                     IP  Reliability  Risk           Type Country  Locale  \
+0        222.76.212.189            4     2  Scanning Host      CN  Xiamen   
+1        222.76.212.185            4     2  Scanning Host      CN  Xiamen   
+2        222.76.212.186            4     2  Scanning Host      CN  Xiamen   
+3           5.34.246.67            6     3       Spamming      US     NaN   
+4         178.94.97.176            4     5  Scanning Host      UA  Merefa   
+...                 ...          ...   ...            ...     ...     ...   
+258621  179.244.194.219            4     2       Spamming      BR     NaN   
+258622   216.99.159.166            4     2  Scanning Host      US  Walnut   
+258623   216.99.159.169            3     2  Scanning Host      US  Walnut   
+258624   216.99.159.176            3     2  Scanning Host      US  Walnut   
+258625   216.99.159.117            3     3  Scanning Host      US  Walnut   
+
+                              Coords   x  
+0         24.4797992706,118.08190155  11  
+1         24.4797992706,118.08190155  11  
+2         24.4797992706,118.08190155  11  
+3                         38.0,-97.0  12  
+4        49.8230018616,36.0507011414  11  
+...                              ...  ..  
+258621                   -10.0,-55.0  12  
+258622  34.0115013123,-117.853500366  11  
+258623  34.0115013123,-117.853500366  11  
+258624  34.0115013123,-117.853500366  11  
+258625  34.0115013123,-117.853500366  11  
+
+[258626 rows x 8 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">av</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>,IP,Reliability,Risk,Type,Country,Locale,Coords,x
+0,222.76.212.189,4,2,Scanning Host,CN,Xiamen,&quot;24.4797992706,118.08190155&quot;,11
+1,222.76.212.185,4,2,Scanning Host,CN,Xiamen,&quot;24.4797992706,118.08190155&quot;,11
+2,222.76.212.186,4,2,Scanning Host,CN,Xiamen,&quot;24.4797992706,118.08190155&quot;,11
+3,5.34.246.67,6,3,Spamming,US,,&quot;38.0,-97.0&quot;,12
+4,178.94.97.176,4,5,Scanning Host,UA,Merefa,&quot;49.8230018616,36.0507011414&quot;,11
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span> 
+<span class="c1"># display the first 10 lines of the dataframe as formatted HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">av</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to_html</span><span class="p">())</span>
+
+<span class="c1">### This is actually deprecated - we can instead just say &#39;av&#39; to see this output</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>IP</th>
+      <th>Reliability</th>
+      <th>Risk</th>
+      <th>Type</th>
+      <th>Country</th>
+      <th>Locale</th>
+      <th>Coords</th>
+      <th>x</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>222.76.212.189</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>CN</td>
+      <td>Xiamen</td>
+      <td>24.4797992706,118.08190155</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>222.76.212.185</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>CN</td>
+      <td>Xiamen</td>
+      <td>24.4797992706,118.08190155</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>222.76.212.186</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>CN</td>
+      <td>Xiamen</td>
+      <td>24.4797992706,118.08190155</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.34.246.67</td>
+      <td>6</td>
+      <td>3</td>
+      <td>Spamming</td>
+      <td>US</td>
+      <td>NaN</td>
+      <td>38.0,-97.0</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>178.94.97.176</td>
+      <td>4</td>
+      <td>5</td>
+      <td>Scanning Host</td>
+      <td>UA</td>
+      <td>Merefa</td>
+      <td>49.8230018616,36.0507011414</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>66.2.49.232</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>US</td>
+      <td>Union City</td>
+      <td>37.5962982178,-122.065696716</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>222.76.212.173</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>CN</td>
+      <td>Xiamen</td>
+      <td>24.4797992706,118.08190155</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>222.76.212.172</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>CN</td>
+      <td>Xiamen</td>
+      <td>24.4797992706,118.08190155</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>222.76.212.171</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>CN</td>
+      <td>Xiamen</td>
+      <td>24.4797992706,118.08190155</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>174.142.46.19</td>
+      <td>6</td>
+      <td>3</td>
+      <td>Spamming</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>24.4797992706,118.08190155</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">av</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>IP</th>
+      <th>Reliability</th>
+      <th>Risk</th>
+      <th>Type</th>
+      <th>Country</th>
+      <th>Locale</th>
+      <th>Coords</th>
+      <th>x</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>222.76.212.189</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>CN</td>
+      <td>Xiamen</td>
+      <td>24.4797992706,118.08190155</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>222.76.212.185</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>CN</td>
+      <td>Xiamen</td>
+      <td>24.4797992706,118.08190155</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>222.76.212.186</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>CN</td>
+      <td>Xiamen</td>
+      <td>24.4797992706,118.08190155</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.34.246.67</td>
+      <td>6</td>
+      <td>3</td>
+      <td>Spamming</td>
+      <td>US</td>
+      <td>NaN</td>
+      <td>38.0,-97.0</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>178.94.97.176</td>
+      <td>4</td>
+      <td>5</td>
+      <td>Scanning Host</td>
+      <td>UA</td>
+      <td>Merefa</td>
+      <td>49.8230018616,36.0507011414</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>258621</th>
+      <td>179.244.194.219</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Spamming</td>
+      <td>BR</td>
+      <td>NaN</td>
+      <td>-10.0,-55.0</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>258622</th>
+      <td>216.99.159.166</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>US</td>
+      <td>Walnut</td>
+      <td>34.0115013123,-117.853500366</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>258623</th>
+      <td>216.99.159.169</td>
+      <td>3</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>US</td>
+      <td>Walnut</td>
+      <td>34.0115013123,-117.853500366</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>258624</th>
+      <td>216.99.159.176</td>
+      <td>3</td>
+      <td>2</td>
+      <td>Scanning Host</td>
+      <td>US</td>
+      <td>Walnut</td>
+      <td>34.0115013123,-117.853500366</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>258625</th>
+      <td>216.99.159.117</td>
+      <td>3</td>
+      <td>3</td>
+      <td>Scanning Host</td>
+      <td>US</td>
+      <td>Walnut</td>
+      <td>34.0115013123,-117.853500366</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+<p>258626 rows × 8 columns</p>
+</div></div></div>
+</div>
+<p>Above we have looked at how you can load in a dataset, and then how you can print this in the notebook - either using <strong>print()</strong>, or the <strong>HTML</strong> function, or simply by giving the variable as the last command in the cell.</p>
+<p>Before going any deeper lets just look at the data so that we know what we are working with:</p>
+<ul class="simple">
+<li><p>Reliability, Risk, and x are integers.</p></li>
+<li><p>IP, Type, Country, Locale, and Coords are character strings.</p></li>
+<li><p>The IP address is stored in the dotted-quad notation, not in hostnames or decimal format.</p></li>
+<li><p>Each record is associated with a unique IP address, so there are 258,626 IP addresses (in this download).</p></li>
+<li><p>Each IP address has been geo-located into the latitude and longitude pair in the Coords field, but they are in a single field separated by a comma. You will have to parse that further if you want to use that field.</p></li>
+</ul>
+</section>
+<section id="descriptive-statistics">
+<h2>Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Permalink to this heading">#</a></h2>
+<p>What do we mean by descriptive statistics? As the name suggests, these essential describe the properties of our data. They help for summarisation, and for providing easier forms of comparison when consider two groups of data. You will likely be familiar with some of these concepts, but nevertheless, it is important to think further about how they can be used to summarise a data set (and also, if there are any potential issues are with using them and how we can overcome these?)</p>
+<p>Commonly used descriptive statistics include:</p>
+<ul class="simple">
+<li><p>Minimum and maximum values; taking the difference of these will give you the range (range = max - min)</p></li>
+<li><p>Median (the value at the middle of the dataset)</p></li>
+<li><p>First and third quartiles (the 25th and 75th percentiles, or you could think of it as the median value of the first and last halves of the data, respectively)</p></li>
+<li><p>Mean (sum of all  values divided by the number of count)</p></li>
+</ul>
+<p>Whilst we can calculate these “in code”, or use in-built functions such as <strong>np.mean()</strong>, Pandas provides a convenient <strong>describe()</strong> function that will perform all of these together.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Reliability&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    258626.000000
+mean          2.798040
+std           1.130419
+min           1.000000
+25%           2.000000
+50%           2.000000
+75%           4.000000
+max          10.000000
+Name: Reliability, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Risk&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    258626.000000
+mean          2.221362
+std           0.531571
+min           1.000000
+25%           2.000000
+50%           2.000000
+75%           2.000000
+max           7.000000
+Name: Risk, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Above, note how we can select the specific column using <strong>av[‘Reliability’]</strong> or <strong>av[‘Risk’]</strong>.</p>
+<p>An important note to make (from the Alienvault documentation) is that Risk and Reliability are scored 1-10, however these are ordinal values rather than numerical.</p>
+<p>What does this mean? Essentially, ordinal values denote order, however they are not quantities. Therefore, a score of 4 is not specifically twice the risk of 2, however it is greater.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factor_col</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">factor</span><span class="p">,</span><span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">rel_ct</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Reliability&#39;</span><span class="p">])</span>
+<span class="n">risk_ct</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Risk&#39;</span><span class="p">])</span>
+<span class="n">type_ct</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">])</span>
+<span class="n">country_ct</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">factor_col</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Reliability&#39;</span><span class="p">]))</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">factor_col</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Risk&#39;</span><span class="p">]))</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">factor_col</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">factor_col</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1       5612
+2     149117
+3      10892
+4      87040
+5          7
+6       4758
+7        297
+8         21
+9        686
+10       196
+dtype: int64
+1        39
+2    213852
+3     33719
+4      9588
+5      1328
+6        90
+7        10
+dtype: int64
+APT;Malware Domain                  1
+C&amp;C                               610
+C&amp;C;Malware Domain                 31
+C&amp;C;Malware IP                     20
+C&amp;C;Scanning Host                   7
+Malicious Host                   3770
+Malicious Host;Malware Domain       4
+Malicious Host;Malware IP           2
+Malicious Host;Scanning Host      163
+Malware Domain                   9274
+dtype: int64
+A1     267
+A2       2
+AE    1827
+AL       4
+AM       6
+AN       3
+AO     256
+AR    3046
+AT      51
+AU     155
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Above, we define our own function called <strong>factor_col()</strong> that will essentially identify all possible values within a given dataset, and count the number of occurrence for each. A similar function Pandas can called using <strong>group_by</strong>.</p>
+</section>
+<section id="ploting-our-data">
+<h2>Ploting our data<a class="headerlink" href="#ploting-our-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># sort by country</span>
+<span class="n">country_ct</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">])</span>
+
+<span class="c1"># plot the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># reduce chart junk</span>
+<span class="n">country_ct</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> 
+   <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Summary By Country&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1c6d202089ccc047f97570e91a262a291a12621d666c967d0af8aafd100f88c2.png" src="_images/1c6d202089ccc047f97570e91a262a291a12621d666c967d0af8aafd100f88c2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># reduce chart junk</span>
+<span class="n">factor_col</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Reliability&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Summary By &#39;Reliability&#39;&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4c201f0e6267b93e6d39b40349961b890a5446e673c0bb44b6dc3eff1067bed5.png" src="_images/4c201f0e6267b93e6d39b40349961b890a5446e673c0bb44b6dc3eff1067bed5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># reduce chart junk</span>
+<span class="n">factor_col</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Risk&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Summary By &#39;Risk&#39;&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3b5fbd63782fe1dd470ac632e839ce53ae912a6a9fde39da100efb0e363325a6.png" src="_images/3b5fbd63782fe1dd470ac632e839ce53ae912a6a9fde39da100efb0e363325a6.png" />
+</div>
+</div>
+<p>Above, we have created bar plots that show the values for each attribute, allowing us to examine these in greater detail.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top10</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> 
+<span class="c1"># calculate the % for each of the top 10</span>
+<span class="n">top10</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CN    0.265182
+US    0.194826
+TR    0.053970
+DE    0.038484
+NL    0.030666
+RU    0.024537
+GB    0.024332
+IN    0.021189
+FR    0.021069
+Name: Country, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that above, we have divided through by the <strong>length</strong> of the Country column, essentially giving a percentage of countries rather than absolute counts.</p>
+</section>
+<section id="further-exploration">
+<h2>Further Exploration<a class="headerlink" href="#further-exploration" title="Permalink to this heading">#</a></h2>
+<p>Perhaps we want to look at both risk and reliability together? We can use a crosstab to achieve this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">arange</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Risk&#39;</span><span class="p">],</span> <span class="n">av</span><span class="p">[</span><span class="s1">&#39;Reliability&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reliability    1       2     3      4   5     6    7   8    9   10
+Risk                                                              
+1               0       0    16      7   0     8    8   0    0   0
+2             804  149114  3670  57653   4  2084   85  11  345  82
+3            2225       3  6668  22168   2  2151  156   7  260  79
+4            2129       0   481   6447   0   404   43   2   58  24
+5             432       0    55    700   1   103    5   1   20  11
+6              19       0     2     60   0     8    0   0    1   0
+7               3       0     0      5   0     0    0   0    2   0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># graphical view of contingency table (swapping risk/reliability)</span>
+<span class="n">xtab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;Reliability&#39;</span><span class="p">],</span> <span class="n">av</span><span class="p">[</span><span class="s1">&#39;Risk&#39;</span><span class="p">])</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xtab</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">Greens</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">xtab</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span><span class="n">xtab</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">xtab</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span><span class="n">xtab</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Risk ~ Reliability&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d0b101878e93a263392bdc4ed8dcb6a515c756ce94ed875731391d044a9ff74b.png" src="_images/d0b101878e93a263392bdc4ed8dcb6a515c756ce94ed875731391d044a9ff74b.png" />
+</div>
+</div>
+<p>Ok, so this starts to highlight some interesting details about risk and reliability however it is lacking in context - can we identify risk/reliability against each type of alert as observed in the SOC? Let’s try below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Listing 3-23</span>
+<span class="c1"># require object: av (3-5)</span>
+<span class="c1"># See corresponding output in Figure 3-9</span>
+<span class="c1"># compute contingency table for Risk/Reliability factors which </span>
+<span class="c1"># produces a matrix of counts of rows that have attributes at</span>
+
+<span class="c1"># create new column as a copy of Type column</span>
+<span class="n">av</span><span class="p">[</span><span class="s1">&#39;newtype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">av</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span>
+
+<span class="c1"># replace multi-Type entries with “Multiples”</span>
+<span class="n">av</span><span class="p">[</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;newtype&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;Multiples&quot;</span>
+
+<span class="c1"># setup new crosstab structures</span>
+<span class="n">typ</span> <span class="o">=</span> <span class="n">av</span><span class="p">[</span><span class="s1">&#39;newtype&#39;</span><span class="p">]</span>
+<span class="n">rel</span> <span class="o">=</span> <span class="n">av</span><span class="p">[</span><span class="s1">&#39;Reliability&#39;</span><span class="p">]</span>
+<span class="n">rsk</span> <span class="o">=</span> <span class="n">av</span><span class="p">[</span><span class="s1">&#39;Risk&#39;</span><span class="p">]</span>
+
+<span class="c1"># compute crosstab making it split on the</span>
+<span class="c1"># new “type” column</span>
+<span class="n">xtab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">typ</span><span class="p">,</span> <span class="p">[</span> <span class="n">rel</span><span class="p">,</span> <span class="n">rsk</span> <span class="p">],</span> <span class="n">rownames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;typ&#39;</span><span class="p">],</span> <span class="n">colnames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rel&#39;</span><span class="p">,</span> <span class="s1">&#39;rsk&#39;</span><span class="p">])</span>
+
+
+
+<span class="c1"># the following print statement will show a huge text</span>
+<span class="c1"># representation of the contingency table. The output</span>
+<span class="c1"># is too large for the book, but is worth looking at </span>
+<span class="c1"># as you run through the exercise to see how useful </span>
+<span class="c1"># visualizations can be over raw text/numeric output</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">xtab</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rel                     1                               2      3                          4                                  5        6                        7                  8             9                     10            Multiples
+rsk                     2     3     4    5   6  7       2  3   1     2     3    4   5  6  1      2      3     4    5   6  7  2  3  5  1    2    3    4   5  6  1   2    3   4  5  2  3  4  5    2    3   4   5  6  7   2   3   4  5 Multiples
+typ                                                                                                                                                                                                                                          
+C&amp;C                     0     0     1    2   1  0       0  0   0     0     0  313  22  2  0      0      0    15   22   4  1  0  0  1  0    0    0   98  60  5  0   0    0   7  3  0  0  1  1    0    0  19  16  1  1   0   1   8  5         0
+Malicious Host          0     6    51   41   8  1       0  0   1   206  2250    7   2  0  0    152    512   336  138  30  2  1  0  0  1    3    8    8   4  0  0   0    0   0  0  0  0  0  0    0    2   0   0  0  0   0   0   0  0         0
+Malware Domain         12     1     0    0   0  0    7309  0   2   246    55    2   1  0  0     60     18     2    0   0  0  2  1  0  2  921  273   26   2  0  3  72   13   0  0  7  1  1  0  135   38   6   0  0  0  54   7   2  0         0
+Malware IP              0    23    11   15  10  2       0  3  12   415  4091   71   6  0  1    132    205   122   45  13  2  0  1  0  3   10  793  133  11  3  5   0  140  35  0  0  6  0  0    1   74  10   0  0  0   0  53  11  2         0
+Malware distribution    0     0     0    0   0  0       0  0   0     0     1    0   0  0  0      0      0     0    0   0  0  0  0  0  0    0    0    0   0  0  0   0    0   0  0  0  0  0  0    0    0   0   0  0  0   0   0   0  0         0
+Multiples               0     0     0    0   0  0       0  0   0     0     0    0   0  0  0      0      0     0    0   0  0  0  0  0  0    0    0    0   0  0  0   0    0   0  0  0  0  0  0    0    0   0   0  0  0   0   0   0  0       834
+Scanning Host         790  2189  2056  366   0  0  141543  0   1  2685   159   35  13  0  6  55654  21325  5931  488  13  0  1  0  0  2  611  107   23   1  0  0   0    0   0  0  2  0  0  0  150   22   7   0  0  0   0   0   0  0         0
+Spamming                1     2     9    7   0  0       1  0   0    22     9   17   6  0  0   1536     40    21    4   0  0  0  0  0  0  512  931  106  17  0  0   4    1   0  2  1  0  0  0   52  120  15   3  0  0  24  17   3  4         0
+</pre></div>
+</div>
+</div>
+</div>
+<p>This data is difficult to observe in tabular form - as discussed, there is simply too much and it is nested which also makes it challenging to follow.</p>
+<p>Instead, let’s consider a bar chart.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xtab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Risk ~ Reliabilty | Type&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9223fb03186f08d9c4d8769bf5aad837d62f0b6e6e8f35961e46795c4020ace4.png" src="_images/9223fb03186f08d9c4d8769bf5aad837d62f0b6e6e8f35961e46795c4020ace4.png" />
+</div>
+</div>
+<p>Excellent! We have a bar chart that shows the combined risk/reliability measures against each type of SOC alert. This starts to look useful. However, perhaps we want to exclude Scanning Host - we expect this behaviour on our network and showing this is making it harder to observe other details about the data. Let’s exclude this next.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we remove Scanning Host</span>
+<span class="n">rrt_df</span> <span class="o">=</span> <span class="n">av</span><span class="p">[</span><span class="n">av</span><span class="p">[</span><span class="s1">&#39;newtype&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Scanning Host&quot;</span><span class="p">]</span>
+
+<span class="c1"># And then we do the chart again</span>
+<span class="n">typ</span> <span class="o">=</span> <span class="n">rrt_df</span><span class="p">[</span><span class="s1">&#39;newtype&#39;</span><span class="p">]</span>
+<span class="n">rel</span> <span class="o">=</span> <span class="n">rrt_df</span><span class="p">[</span><span class="s1">&#39;Reliability&#39;</span><span class="p">]</span>
+<span class="n">rsk</span> <span class="o">=</span> <span class="n">rrt_df</span><span class="p">[</span><span class="s1">&#39;Risk&#39;</span><span class="p">]</span>
+<span class="n">xtab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">typ</span><span class="p">,</span> <span class="p">[</span> <span class="n">rel</span><span class="p">,</span> <span class="n">rsk</span> <span class="p">],</span> 
+       <span class="n">rownames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;typ&#39;</span><span class="p">],</span> <span class="n">colnames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rel&#39;</span><span class="p">,</span> <span class="s1">&#39;rsk&#39;</span><span class="p">])</span>
+<span class="n">xtab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+   <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Risk ~ Reliabilty | Type&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/13f07a9e341ec378b9dec195ba55ecad2d91b992c146fdb18c42f4b86beabfb7.png" src="_images/13f07a9e341ec378b9dec195ba55ecad2d91b992c146fdb18c42f4b86beabfb7.png" />
+</div>
+</div>
+<p>Ok this looks more interesting now. We see Malware Domain and Malware distribution cropping up, which would make sense - however we may not necessarily be interested in these for this particular story. Let’s exclude these and see what we are left with.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rrt_df</span> <span class="o">=</span> <span class="n">rrt_df</span><span class="p">[</span><span class="n">rrt_df</span><span class="p">[</span><span class="s1">&#39;newtype&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Malware distribution&quot;</span> <span class="p">]</span>
+<span class="n">rrt_df</span> <span class="o">=</span> <span class="n">rrt_df</span><span class="p">[</span><span class="n">rrt_df</span><span class="p">[</span><span class="s1">&#39;newtype&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Malware Domain&quot;</span> <span class="p">]</span>
+<span class="n">typ</span> <span class="o">=</span> <span class="n">rrt_df</span><span class="p">[</span><span class="s1">&#39;newtype&#39;</span><span class="p">]</span>
+<span class="n">rel</span> <span class="o">=</span> <span class="n">rrt_df</span><span class="p">[</span><span class="s1">&#39;Reliability&#39;</span><span class="p">]</span>
+<span class="n">rsk</span> <span class="o">=</span> <span class="n">rrt_df</span><span class="p">[</span><span class="s1">&#39;Risk&#39;</span><span class="p">]</span>
+<span class="n">xtab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">typ</span><span class="p">,</span> <span class="p">[</span> <span class="n">rel</span><span class="p">,</span> <span class="n">rsk</span> <span class="p">],</span>
+        <span class="n">rownames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;typ&#39;</span><span class="p">],</span> <span class="n">colnames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rel&#39;</span><span class="p">,</span> <span class="s1">&#39;rsk&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Count: </span><span class="si">%d</span><span class="s2">; Percent: </span><span class="si">%2.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rrt_df</span><span class="p">),</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rrt_df</span><span class="p">))</span>
+   <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">av</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+<span class="c1">## Count: 15171; Percent: 5.9%</span>
+
+<span class="n">xtab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Risk ~ Reliabilty | Type&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">xtab</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Count: 15171; Percent: 5.9%
+</pre></div>
+</div>
+<img alt="_images/3bac6b8cdc34c7cb78546e224b55d97710c20f6ae6a428962ca27f0cc5e68f3d.png" src="_images/3bac6b8cdc34c7cb78546e224b55d97710c20f6ae6a428962ca27f0cc5e68f3d.png" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>rel</th>
+      <th colspan="6" halign="left">1</th>
+      <th colspan="2" halign="left">2</th>
+      <th colspan="2" halign="left">3</th>
+      <th>...</th>
+      <th colspan="5" halign="left">9</th>
+      <th colspan="4" halign="left">10</th>
+      <th>Multiples</th>
+    </tr>
+    <tr>
+      <th>rsk</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>2</th>
+      <th>3</th>
+      <th>1</th>
+      <th>2</th>
+      <th>...</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>Multiples</th>
+    </tr>
+    <tr>
+      <th>typ</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>C&amp;C</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>19</td>
+      <td>16</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>8</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Malicious Host</th>
+      <td>0</td>
+      <td>6</td>
+      <td>51</td>
+      <td>41</td>
+      <td>8</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>206</td>
+      <td>...</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Malware IP</th>
+      <td>0</td>
+      <td>23</td>
+      <td>11</td>
+      <td>15</td>
+      <td>10</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>12</td>
+      <td>415</td>
+      <td>...</td>
+      <td>74</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>53</td>
+      <td>11</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Multiples</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>834</td>
+    </tr>
+    <tr>
+      <th>Spamming</th>
+      <td>1</td>
+      <td>2</td>
+      <td>9</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>22</td>
+      <td>...</td>
+      <td>120</td>
+      <td>15</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24</td>
+      <td>17</td>
+      <td>3</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 50 columns</p>
+</div></div></div>
+</div>
+<p>We have now managed to filter our data down to reveal aspects about malware IP, malicious hosts, as well as command and control servers, spamming addresses, and multiples (which would require a separate investigation). Importantly, we can gain more insight into these now, and we have worked logically through to filter unnecessary information for our story - we now want to learn more about the malware IPs since there are a great number of these. Also worth noting, we are now working with 5.9% of our original data (15171 rows) making it much more manageable to explore and find relavent details, rather than being inudated with irrelavent information. Our SOC team were struggling with the number of alerts they were dealing with - this workflow would allow them to manage the alerts much more effectively, and concentrate on the key details of interest.</p>
+<p>Having developed this in a Notebook for the purpose of exploration, we could easier export this as a Python script that would run periodically to filter our alerts as needed.</p>
+<p>This example should help to demonstrate the benefit of interactive analysis of the data, and how this can be used to rapidly design a suitable analysis workflow for deployment.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="activity-01-intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Activity 1 - Python Primer</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="activity-03-clustering.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Activity 3 - Clustering</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ploting-our-data">Ploting our data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-exploration">Further Exploration</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Phil Legg
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

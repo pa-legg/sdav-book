@@ -1,0 +1,928 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Activity 8 - Interaction and Animation &#8212; Security Data Analytics and Visualisation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"96fe7fb221ba45ddbf8d9dfb2034f881": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2714a84eff1a42b29d5a7e779077b123": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_07f8222ba2724ef582c9b35906b6790a", "IPY_MODEL_9c67e1d09cb547798e16215782f26abf", "IPY_MODEL_3068f1692357443daa254f6948a07832"], "layout": "IPY_MODEL_96fe7fb221ba45ddbf8d9dfb2034f881"}}, "846dffdcdeba4c9b810b25806e64330e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "109424d64be04e25891408351a767d76": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "07f8222ba2724ef582c9b35906b6790a": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "column", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_846dffdcdeba4c9b810b25806e64330e", "placeholder": "\u200b", "style": "IPY_MODEL_109424d64be04e25891408351a767d76", "value": "Daily lab-confirmed cases"}}, "9250c7ab03404d97aa5f77accf3049f1": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "20ea43a180f447a795bc912ee9888719": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "9c67e1d09cb547798e16215782f26abf": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "x", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_9250c7ab03404d97aa5f77accf3049f1", "max": 60, "min": -20, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_20ea43a180f447a795bc912ee9888719", "value": 20}}, "1845c367be184104ae9dba6322e7e4bb": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3068f1692357443daa254f6948a07832": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_1845c367be184104ae9dba6322e7e4bb", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {}, "data": {"text/plain": "       Area name  Area code Area type Specimen date  \\\n16     Wakefield  E08000036      ltla    2021-04-25   \n49     Sheffield  E08000019      ltla    2021-04-25   \n66     Wakefield  E08000036      ltla    2021-04-23   \n67     Wakefield  E08000036      ltla    2021-04-22   \n81     Sheffield  E08000019      ltla    2021-04-24   \n...          ...        ...       ...           ...   \n45292    Norfolk  E10000020      utla    2021-01-13   \n45293    Norfolk  E10000020      utla    2021-01-12   \n45294    Norfolk  E10000020      utla    2021-01-11   \n45295    Norfolk  E10000020      utla    2021-01-10   \n45296    Norfolk  E10000020      utla    2021-01-09   \n\n       Daily lab-confirmed cases  Cumulative lab-confirmed cases  \\\n16                            31                           25671   \n49                            27                           43611   \n66                            36                           25626   \n67                            31                           25590   \n81                            24                           43584   \n...                          ...                             ...   \n45292                        621                           28630   \n45293                        671                           28009   \n45294                        795                           27338   \n45295                        504                           26543   \n45296                        392                           26039   \n\n       Cumulative lab-confirmed cases rate  \n16                                  7370.1  \n49                                  7456.7  \n66                                  7357.2  \n67                                  7346.9  \n81                                  7452.1  \n...                                    ...  \n45292                               3153.9  \n45293                               3085.5  \n45294                               3011.6  \n45295                               2924.0  \n45296                               2868.5  \n\n[14276 rows x 7 columns]", "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Area name</th>\n      <th>Area code</th>\n      <th>Area type</th>\n      <th>Specimen date</th>\n      <th>Daily lab-confirmed cases</th>\n      <th>Cumulative lab-confirmed cases</th>\n      <th>Cumulative lab-confirmed cases rate</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>16</th>\n      <td>Wakefield</td>\n      <td>E08000036</td>\n      <td>ltla</td>\n      <td>2021-04-25</td>\n      <td>31</td>\n      <td>25671</td>\n      <td>7370.1</td>\n    </tr>\n    <tr>\n      <th>49</th>\n      <td>Sheffield</td>\n      <td>E08000019</td>\n      <td>ltla</td>\n      <td>2021-04-25</td>\n      <td>27</td>\n      <td>43611</td>\n      <td>7456.7</td>\n    </tr>\n    <tr>\n      <th>66</th>\n      <td>Wakefield</td>\n      <td>E08000036</td>\n      <td>ltla</td>\n      <td>2021-04-23</td>\n      <td>36</td>\n      <td>25626</td>\n      <td>7357.2</td>\n    </tr>\n    <tr>\n      <th>67</th>\n      <td>Wakefield</td>\n      <td>E08000036</td>\n      <td>ltla</td>\n      <td>2021-04-22</td>\n      <td>31</td>\n      <td>25590</td>\n      <td>7346.9</td>\n    </tr>\n    <tr>\n      <th>81</th>\n      <td>Sheffield</td>\n      <td>E08000019</td>\n      <td>ltla</td>\n      <td>2021-04-24</td>\n      <td>24</td>\n      <td>43584</td>\n      <td>7452.1</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>45292</th>\n      <td>Norfolk</td>\n      <td>E10000020</td>\n      <td>utla</td>\n      <td>2021-01-13</td>\n      <td>621</td>\n      <td>28630</td>\n      <td>3153.9</td>\n    </tr>\n    <tr>\n      <th>45293</th>\n      <td>Norfolk</td>\n      <td>E10000020</td>\n      <td>utla</td>\n      <td>2021-01-12</td>\n      <td>671</td>\n      <td>28009</td>\n      <td>3085.5</td>\n    </tr>\n    <tr>\n      <th>45294</th>\n      <td>Norfolk</td>\n      <td>E10000020</td>\n      <td>utla</td>\n      <td>2021-01-11</td>\n      <td>795</td>\n      <td>27338</td>\n      <td>3011.6</td>\n    </tr>\n    <tr>\n      <th>45295</th>\n      <td>Norfolk</td>\n      <td>E10000020</td>\n      <td>utla</td>\n      <td>2021-01-10</td>\n      <td>504</td>\n      <td>26543</td>\n      <td>2924.0</td>\n    </tr>\n    <tr>\n      <th>45296</th>\n      <td>Norfolk</td>\n      <td>E10000020</td>\n      <td>utla</td>\n      <td>2021-01-09</td>\n      <td>392</td>\n      <td>26039</td>\n      <td>2868.5</td>\n    </tr>\n  </tbody>\n</table>\n<p>14276 rows \u00d7 7 columns</p>\n</div>"}}]}}, "3df87b9213664914a4a18ee5f22e8a28": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "cfff19866c4f41c781f78dd2eae7997f": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "19fc9d9ee2b34b11b9dd3a7090ecf356": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "x", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_3df87b9213664914a4a18ee5f22e8a28", "max": 1000, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_cfff19866c4f41c781f78dd2eae7997f", "value": 10}}, "a94a0a3c2ea546c3a0666f3514886b74": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "64a43b06bbe3481584894cce98a30b20": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_503b86f743b14a2c8d35c65f85046288", "IPY_MODEL_19fc9d9ee2b34b11b9dd3a7090ecf356", "IPY_MODEL_ddbbd4cf58ff4f55a5f600c49a431570"], "layout": "IPY_MODEL_a94a0a3c2ea546c3a0666f3514886b74"}}, "b13f8cf9c396464da0cd4c7e51b06f48": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bda1a8c4ae394c18be395acd4e8ebdfd": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "503b86f743b14a2c8d35c65f85046288": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "column", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_b13f8cf9c396464da0cd4c7e51b06f48", "placeholder": "\u200b", "style": "IPY_MODEL_bda1a8c4ae394c18be395acd4e8ebdfd", "value": "Daily lab-confirmed cases"}}, "1b7d973ddd3f4ea0a76caf030a70401b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ddbbd4cf58ff4f55a5f600c49a431570": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_1b7d973ddd3f4ea0a76caf030a70401b", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {}, "data": {"text/plain": "       Area name  Area code Area type Specimen date  \\\n10     Wakefield  E08000036      ltla    2021-04-26   \n16     Wakefield  E08000036      ltla    2021-04-25   \n25     Sheffield  E08000019      ltla    2021-04-26   \n28     Wakefield  E08000036      ltla    2021-04-24   \n49     Sheffield  E08000019      ltla    2021-04-25   \n...          ...        ...       ...           ...   \n45292    Norfolk  E10000020      utla    2021-01-13   \n45293    Norfolk  E10000020      utla    2021-01-12   \n45294    Norfolk  E10000020      utla    2021-01-11   \n45295    Norfolk  E10000020      utla    2021-01-10   \n45296    Norfolk  E10000020      utla    2021-01-09   \n\n       Daily lab-confirmed cases  Cumulative lab-confirmed cases  \\\n10                            16                           25687   \n16                            31                           25671   \n25                            15                           43626   \n28                            14                           25640   \n49                            27                           43611   \n...                          ...                             ...   \n45292                        621                           28630   \n45293                        671                           28009   \n45294                        795                           27338   \n45295                        504                           26543   \n45296                        392                           26039   \n\n       Cumulative lab-confirmed cases rate  \n10                                  7374.7  \n16                                  7370.1  \n25                                  7459.3  \n28                                  7361.2  \n49                                  7456.7  \n...                                    ...  \n45292                               3153.9  \n45293                               3085.5  \n45294                               3011.6  \n45295                               2924.0  \n45296                               2868.5  \n\n[20257 rows x 7 columns]", "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Area name</th>\n      <th>Area code</th>\n      <th>Area type</th>\n      <th>Specimen date</th>\n      <th>Daily lab-confirmed cases</th>\n      <th>Cumulative lab-confirmed cases</th>\n      <th>Cumulative lab-confirmed cases rate</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>10</th>\n      <td>Wakefield</td>\n      <td>E08000036</td>\n      <td>ltla</td>\n      <td>2021-04-26</td>\n      <td>16</td>\n      <td>25687</td>\n      <td>7374.7</td>\n    </tr>\n    <tr>\n      <th>16</th>\n      <td>Wakefield</td>\n      <td>E08000036</td>\n      <td>ltla</td>\n      <td>2021-04-25</td>\n      <td>31</td>\n      <td>25671</td>\n      <td>7370.1</td>\n    </tr>\n    <tr>\n      <th>25</th>\n      <td>Sheffield</td>\n      <td>E08000019</td>\n      <td>ltla</td>\n      <td>2021-04-26</td>\n      <td>15</td>\n      <td>43626</td>\n      <td>7459.3</td>\n    </tr>\n    <tr>\n      <th>28</th>\n      <td>Wakefield</td>\n      <td>E08000036</td>\n      <td>ltla</td>\n      <td>2021-04-24</td>\n      <td>14</td>\n      <td>25640</td>\n      <td>7361.2</td>\n    </tr>\n    <tr>\n      <th>49</th>\n      <td>Sheffield</td>\n      <td>E08000019</td>\n      <td>ltla</td>\n      <td>2021-04-25</td>\n      <td>27</td>\n      <td>43611</td>\n      <td>7456.7</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>45292</th>\n      <td>Norfolk</td>\n      <td>E10000020</td>\n      <td>utla</td>\n      <td>2021-01-13</td>\n      <td>621</td>\n      <td>28630</td>\n      <td>3153.9</td>\n    </tr>\n    <tr>\n      <th>45293</th>\n      <td>Norfolk</td>\n      <td>E10000020</td>\n      <td>utla</td>\n      <td>2021-01-12</td>\n      <td>671</td>\n      <td>28009</td>\n      <td>3085.5</td>\n    </tr>\n    <tr>\n      <th>45294</th>\n      <td>Norfolk</td>\n      <td>E10000020</td>\n      <td>utla</td>\n      <td>2021-01-11</td>\n      <td>795</td>\n      <td>27338</td>\n      <td>3011.6</td>\n    </tr>\n    <tr>\n      <th>45295</th>\n      <td>Norfolk</td>\n      <td>E10000020</td>\n      <td>utla</td>\n      <td>2021-01-10</td>\n      <td>504</td>\n      <td>26543</td>\n      <td>2924.0</td>\n    </tr>\n    <tr>\n      <th>45296</th>\n      <td>Norfolk</td>\n      <td>E10000020</td>\n      <td>utla</td>\n      <td>2021-01-09</td>\n      <td>392</td>\n      <td>26039</td>\n      <td>2868.5</td>\n    </tr>\n  </tbody>\n</table>\n<p>20257 rows \u00d7 7 columns</p>\n</div>"}}]}}, "93b6eb3ea9ac476e922d40a9c79274c8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "aed1187efc9c49faa73b7b09264b5745": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_55ddbf96ae6044aba53d9f90b71abdfd", "IPY_MODEL_18779164baad486c9d63a8bce1daa310", "IPY_MODEL_1c502d8547f14291a29bd47f3e803dd4"], "layout": "IPY_MODEL_93b6eb3ea9ac476e922d40a9c79274c8"}}, "870db16b3cc24971835c96d3093b01d1": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "27b8f28a422641fea73f195c0b378d8e": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "55ddbf96ae6044aba53d9f90b71abdfd": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "column", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_870db16b3cc24971835c96d3093b01d1", "placeholder": "\u200b", "style": "IPY_MODEL_27b8f28a422641fea73f195c0b378d8e", "value": "Area name"}}, "a0615b0828994cfb8e771ed10510cbb7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f8640f34b4c844d5a7793505fc23dbfa": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "18779164baad486c9d63a8bce1daa310": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["Arun", "Ashford", "Babergh", "Barnsley", "Bassetlaw", "Bath and North East Somerset", "Bexley", "Blaby", "Blackpool", "Bolsover", "Bradford", "Brentwood", "Broadland", "Bromley", "Broxbourne", "Bury", "Calderdale", "Canterbury", "Castle Point", "Charnwood", "Chorley", "County Durham", "Craven", "Crawley", "Dacorum", "Doncaster", "Dorset", "Dudley", "East Hertfordshire", "East Northamptonshire", "East Suffolk", "Eastbourne", "Eden", "Enfield", "Epping Forest", "Exeter", "Fareham", "Fenland", "Folkestone and Hythe", "Forest of Dean", "Gosport", "Hackney and City of London", "Halton", "Hammersmith and Fulham", "Harrogate", "Hart", "Havant", "High Peak", "Hounslow", "Huntingdonshire", "Hyndburn", "Ipswich", "Isle of Wight", "Islington", "Kettering", "Kingston upon Thames", "Knowsley", "Lambeth", "Lewes", "Lichfield", "Luton", "Malvern Hills", "Manchester", "Mansfield", "Medway", "Melton", "Mid Suffolk", "Newark and Sherwood", "Newcastle upon Tyne", "Norfolk", "North East Derbyshire", "North East Lincolnshire", "North Hertfordshire", "North Lincolnshire", "North Somerset", "North Warwickshire", "Northampton", "Northumberland", "Norwich", "Oadby and Wigston", "Peterborough", "Portsmouth", "Redbridge", "Redditch", "Ribble Valley", "Richmondshire", "Rochdale", "Rother", "Rotherham", "Runnymede", "Rushcliffe", "Sandwell", "Scarborough", "Selby", "Sheffield", "South Bucks", "South Cambridgeshire", "South Derbyshire", "South Gloucestershire", "South Somerset", "South Staffordshire", "South Tyneside", "Southampton", "Southend-on-Sea", "Spelthorne", "Staffordshire Moorlands", "Stoke-on-Trent", "Sutton", "Swindon", "Tameside", "Tandridge", "Teignbridge", "Telford and Wrekin", "Tendring", "Tewkesbury", "Torbay", "Torridge", "Trafford", "Vale of White Horse", "Wakefield", "Walsall", "Warwick", "Watford", "Wellingborough", "West Lancashire", "Wigan", "Winchester", "Worthing", "Wychavon", "Wycombe", "Wyre", "York"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "x", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_a0615b0828994cfb8e771ed10510cbb7", "style": "IPY_MODEL_f8640f34b4c844d5a7793505fc23dbfa"}}, "8000cf0602ed417eae71f6145d0effd8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1c502d8547f14291a29bd47f3e803dd4": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_8000cf0602ed417eae71f6145d0effd8", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {}, "data": {"text/plain": "      Area name  Area code Area type Specimen date  Daily lab-confirmed cases  \\\n22802      Arun  E07000224      ltla    2021-04-26                          2   \n22803      Arun  E07000224      ltla    2021-04-25                          5   \n22804      Arun  E07000224      ltla    2021-04-24                          2   \n22805      Arun  E07000224      ltla    2021-04-23                          4   \n22806      Arun  E07000224      ltla    2021-04-22                          2   \n...         ...        ...       ...           ...                        ...   \n45169      Arun  E07000224      ltla    2020-07-31                          0   \n45170      Arun  E07000224      ltla    2020-07-30                          0   \n45171      Arun  E07000224      ltla    2020-07-29                          1   \n45172      Arun  E07000224      ltla    2020-07-28                          0   \n45175      Arun  E07000224      ltla    2020-07-26                          0   \n\n       Cumulative lab-confirmed cases  Cumulative lab-confirmed cases rate  \n22802                            8253                               5133.8  \n22803                            8251                               5132.6  \n22804                            8246                               5129.4  \n22805                            8244                               5128.2  \n22806                            8240                               5125.7  \n...                               ...                                  ...  \n45169                             330                                205.3  \n45170                             330                                205.3  \n45171                             330                                205.3  \n45172                             329                                204.7  \n45175                             329                                204.7  \n\n[316 rows x 7 columns]", "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Area name</th>\n      <th>Area code</th>\n      <th>Area type</th>\n      <th>Specimen date</th>\n      <th>Daily lab-confirmed cases</th>\n      <th>Cumulative lab-confirmed cases</th>\n      <th>Cumulative lab-confirmed cases rate</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>22802</th>\n      <td>Arun</td>\n      <td>E07000224</td>\n      <td>ltla</td>\n      <td>2021-04-26</td>\n      <td>2</td>\n      <td>8253</td>\n      <td>5133.8</td>\n    </tr>\n    <tr>\n      <th>22803</th>\n      <td>Arun</td>\n      <td>E07000224</td>\n      <td>ltla</td>\n      <td>2021-04-25</td>\n      <td>5</td>\n      <td>8251</td>\n      <td>5132.6</td>\n    </tr>\n    <tr>\n      <th>22804</th>\n      <td>Arun</td>\n      <td>E07000224</td>\n      <td>ltla</td>\n      <td>2021-04-24</td>\n      <td>2</td>\n      <td>8246</td>\n      <td>5129.4</td>\n    </tr>\n    <tr>\n      <th>22805</th>\n      <td>Arun</td>\n      <td>E07000224</td>\n      <td>ltla</td>\n      <td>2021-04-23</td>\n      <td>4</td>\n      <td>8244</td>\n      <td>5128.2</td>\n    </tr>\n    <tr>\n      <th>22806</th>\n      <td>Arun</td>\n      <td>E07000224</td>\n      <td>ltla</td>\n      <td>2021-04-22</td>\n      <td>2</td>\n      <td>8240</td>\n      <td>5125.7</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>45169</th>\n      <td>Arun</td>\n      <td>E07000224</td>\n      <td>ltla</td>\n      <td>2020-07-31</td>\n      <td>0</td>\n      <td>330</td>\n      <td>205.3</td>\n    </tr>\n    <tr>\n      <th>45170</th>\n      <td>Arun</td>\n      <td>E07000224</td>\n      <td>ltla</td>\n      <td>2020-07-30</td>\n      <td>0</td>\n      <td>330</td>\n      <td>205.3</td>\n    </tr>\n    <tr>\n      <th>45171</th>\n      <td>Arun</td>\n      <td>E07000224</td>\n      <td>ltla</td>\n      <td>2020-07-29</td>\n      <td>1</td>\n      <td>330</td>\n      <td>205.3</td>\n    </tr>\n    <tr>\n      <th>45172</th>\n      <td>Arun</td>\n      <td>E07000224</td>\n      <td>ltla</td>\n      <td>2020-07-28</td>\n      <td>0</td>\n      <td>329</td>\n      <td>204.7</td>\n    </tr>\n    <tr>\n      <th>45175</th>\n      <td>Arun</td>\n      <td>E07000224</td>\n      <td>ltla</td>\n      <td>2020-07-26</td>\n      <td>0</td>\n      <td>329</td>\n      <td>204.7</td>\n    </tr>\n  </tbody>\n</table>\n<p>316 rows \u00d7 7 columns</p>\n</div>"}}]}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'activity-08-interaction';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Activity 9 - Recommender Systems" href="activity-09-recommender.html" />
+    <link rel="prev" title="Activity 7 - Violin Plots and Parallel Coordinates" href="activity-07-violinplot.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-toc.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uwecyber.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/uwecyber.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-toc.html">
+                    Security Data Analytics and Visualisation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-intro.html">1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-workflow.html">2: A Pipeline Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-statistics.html">3: Statistical Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-machinelearning.html">4: Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="05-visualisation.html">5: Visualisation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-visualanalytics.html">6: Visual Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07-textanalytics.html">7: Text Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-fileandimageanalysis.html">8: File, Image and Video Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-furtherresearch.html">9: Future Research Directions</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-01-intro.html">Activity 1 - Python Primer</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-02-hello.html">Activity 2 - Hello, Security Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-03-clustering.html">Activity 3 - Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-04-regression.html">Activity 4 - Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-05-neuralnet.html">Activity 5 - Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-06-visualisation.html">Activity 6 - Visualisation</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-07-violinplot.html">Activity 7 - Violin Plots and Parallel Coordinates</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Activity 8 - Interaction and Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-09-recommender.html">Activity 9 - Recommender Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-10-text.html">Activity 10: Text Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-11-video.html">Activity 11 - File Visualisation and Video Visualisation</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book/issues/new?title=Issue%20on%20page%20%2Factivity-08-interaction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/activity-08-interaction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Activity 8 - Interaction and Animation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="activity-8-interaction-and-animation">
+<h1>Activity 8 - Interaction and Animation<a class="headerlink" href="#activity-8-interaction-and-animation" title="Permalink to this heading">#</a></h1>
+<p>We saw in our previous notebook how to create visualisations using matplotlib, seaborn, and pandas - however, in most cases these were static. We did get some interaction through the 3D plots and through using the Plotly library. Here, we are going to pursue this further, and look at how we can incorporate interaction and animation into our tools.</p>
+<p>In particular, interaction techniques are useful for creatng dashboards (visual analytics) interfaces. Animations can be useful for conveying the story, by linking multiple still images together or by showing the analytical process.</p>
+<p>In this example notebook, we demonstrate how to create interactive widgets that can be used to filter data from a dataframe, either based on range selection or by item selection. We also demonstrate how an animated GIF can be constructed by taking frames of a plot to build an animation. We use a live data set based on COVID-19 to illustrate the concepts in this notebook.</p>
+<p>Further details are in the following blog post: <a class="reference external" href="https://towardsdatascience.com/interactive-controls-for-jupyter-notebooks-f5c94829aee6">https://towardsdatascience.com/interactive-controls-for-jupyter-notebooks-f5c94829aee6</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ipywidgets
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ipywidgets in c:\users\pa-legg\anaconda3\lib\site-packages (7.6.5)
+Requirement already satisfied: nbformat&gt;=4.2.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipywidgets) (5.5.0)
+Requirement already satisfied: traitlets&gt;=4.3.1 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipywidgets) (5.1.1)
+Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipywidgets) (1.0.0)
+Requirement already satisfied: ipykernel&gt;=4.5.1 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipywidgets) (6.15.2)
+Requirement already satisfied: ipython-genutils~=0.2.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipywidgets) (0.2.0)
+Requirement already satisfied: ipython&gt;=4.0.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipywidgets) (7.31.1)
+Requirement already satisfied: widgetsnbextension~=3.5.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipywidgets) (3.5.2)
+Requirement already satisfied: nest-asyncio in c:\users\pa-legg\anaconda3\lib\site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.5.5)
+Requirement already satisfied: packaging in c:\users\pa-legg\anaconda3\lib\site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (21.3)
+Requirement already satisfied: pyzmq&gt;=17 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (23.2.0)
+Requirement already satisfied: jupyter-client&gt;=6.1.12 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (7.3.4)
+Requirement already satisfied: tornado&gt;=6.1 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (6.1)
+Requirement already satisfied: psutil in c:\users\pa-legg\anaconda3\lib\site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (5.9.0)
+Requirement already satisfied: matplotlib-inline&gt;=0.1 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (0.1.6)
+Requirement already satisfied: debugpy&gt;=1.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.5.1)
+Requirement already satisfied: pickleshare in c:\users\pa-legg\anaconda3\lib\site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (0.7.5)
+Requirement already satisfied: pygments in c:\users\pa-legg\anaconda3\lib\site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (2.15.1)
+Requirement already satisfied: backcall in c:\users\pa-legg\anaconda3\lib\site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (0.2.0)
+Requirement already satisfied: jedi&gt;=0.16 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (0.18.1)
+Requirement already satisfied: colorama in c:\users\pa-legg\anaconda3\lib\site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (0.4.5)
+Requirement already satisfied: decorator in c:\users\pa-legg\anaconda3\lib\site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (4.4.2)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (3.0.20)
+Requirement already satisfied: setuptools&gt;=18.5 in c:\users\pa-legg\anaconda3\lib\site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (63.4.1)
+Requirement already satisfied: jupyter_core in c:\users\pa-legg\anaconda3\lib\site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets) (4.11.1)
+Requirement already satisfied: fastjsonschema in c:\users\pa-legg\anaconda3\lib\site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets) (2.16.2)
+Requirement already satisfied: jsonschema&gt;=2.6 in c:\users\pa-legg\anaconda3\lib\site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets) (4.16.0)
+Requirement already satisfied: notebook&gt;=4.4.1 in c:\users\pa-legg\anaconda3\lib\site-packages (from widgetsnbextension~=3.5.0-&gt;ipywidgets) (6.4.12)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (0.8.3)
+Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,&gt;=0.14.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (0.18.0)
+Requirement already satisfied: attrs&gt;=17.4.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (21.4.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\pa-legg\anaconda3\lib\site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (2.8.2)
+Requirement already satisfied: entrypoints in c:\users\pa-legg\anaconda3\lib\site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (0.4)
+Requirement already satisfied: pywin32&gt;=1.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from jupyter_core-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (302)
+Requirement already satisfied: jinja2 in c:\users\pa-legg\anaconda3\lib\site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (3.1.2)
+Requirement already satisfied: argon2-cffi in c:\users\pa-legg\anaconda3\lib\site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (21.3.0)
+Requirement already satisfied: terminado&gt;=0.8.3 in c:\users\pa-legg\anaconda3\lib\site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.13.1)
+Requirement already satisfied: nbconvert&gt;=5 in c:\users\pa-legg\anaconda3\lib\site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (6.4.4)
+Requirement already satisfied: Send2Trash&gt;=1.8.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.8.0)
+Requirement already satisfied: prometheus-client in c:\users\pa-legg\anaconda3\lib\site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.14.1)
+Requirement already satisfied: wcwidth in c:\users\pa-legg\anaconda3\lib\site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (0.2.5)
+Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in c:\users\pa-legg\anaconda3\lib\site-packages (from packaging-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (3.0.9)
+Requirement already satisfied: jupyterlab-pygments in c:\users\pa-legg\anaconda3\lib\site-packages (from nbconvert&gt;=5-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.1.2)
+Requirement already satisfied: beautifulsoup4 in c:\users\pa-legg\anaconda3\lib\site-packages (from nbconvert&gt;=5-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (4.11.1)
+Requirement already satisfied: bleach in c:\users\pa-legg\anaconda3\lib\site-packages (from nbconvert&gt;=5-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (4.1.0)
+Requirement already satisfied: testpath in c:\users\pa-legg\anaconda3\lib\site-packages (from nbconvert&gt;=5-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.6.0)
+Requirement already satisfied: defusedxml in c:\users\pa-legg\anaconda3\lib\site-packages (from nbconvert&gt;=5-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.7.1)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in c:\users\pa-legg\anaconda3\lib\site-packages (from nbconvert&gt;=5-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.8.4)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in c:\users\pa-legg\anaconda3\lib\site-packages (from nbconvert&gt;=5-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.5.0)
+Requirement already satisfied: nbclient&lt;0.6.0,&gt;=0.5.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from nbconvert&gt;=5-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.5.13)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from jinja2-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.0.1)
+Requirement already satisfied: six&gt;=1.5 in c:\users\pa-legg\anaconda3\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.16.0)
+Requirement already satisfied: pywinpty&gt;=1.1.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from terminado&gt;=0.8.3-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.0.2)
+Requirement already satisfied: argon2-cffi-bindings in c:\users\pa-legg\anaconda3\lib\site-packages (from argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (21.2.0)
+Requirement already satisfied: cffi&gt;=1.0.1 in c:\users\pa-legg\anaconda3\lib\site-packages (from argon2-cffi-bindings-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.15.1)
+Requirement already satisfied: soupsieve&gt;1.2 in c:\users\pa-legg\anaconda3\lib\site-packages (from beautifulsoup4-&gt;nbconvert&gt;=5-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.3.1)
+Requirement already satisfied: webencodings in c:\users\pa-legg\anaconda3\lib\site-packages (from bleach-&gt;nbconvert&gt;=5-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.5.1)
+Requirement already satisfied: pycparser in c:\users\pa-legg\anaconda3\lib\site-packages (from cffi&gt;=1.0.1-&gt;argon2-cffi-bindings-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.21)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interact_manual</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Area name</th>
+      <th>Area code</th>
+      <th>Area type</th>
+      <th>Specimen date</th>
+      <th>Daily lab-confirmed cases</th>
+      <th>Cumulative lab-confirmed cases</th>
+      <th>Cumulative lab-confirmed cases rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Stoke-on-Trent</td>
+      <td>E06000021</td>
+      <td>ltla</td>
+      <td>2021-04-26</td>
+      <td>5</td>
+      <td>20083</td>
+      <td>7833.4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Staffordshire Moorlands</td>
+      <td>E07000198</td>
+      <td>ltla</td>
+      <td>2021-04-26</td>
+      <td>5</td>
+      <td>5351</td>
+      <td>5436.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Hackney and City of London</td>
+      <td>E09000012</td>
+      <td>ltla</td>
+      <td>2021-04-26</td>
+      <td>5</td>
+      <td>21672</td>
+      <td>7451.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Staffordshire Moorlands</td>
+      <td>E07000198</td>
+      <td>ltla</td>
+      <td>2021-04-25</td>
+      <td>6</td>
+      <td>5346</td>
+      <td>5431.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Newark and Sherwood</td>
+      <td>E07000175</td>
+      <td>ltla</td>
+      <td>2021-04-26</td>
+      <td>4</td>
+      <td>7292</td>
+      <td>5956.5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>45292</th>
+      <td>Norfolk</td>
+      <td>E10000020</td>
+      <td>utla</td>
+      <td>2021-01-13</td>
+      <td>621</td>
+      <td>28630</td>
+      <td>3153.9</td>
+    </tr>
+    <tr>
+      <th>45293</th>
+      <td>Norfolk</td>
+      <td>E10000020</td>
+      <td>utla</td>
+      <td>2021-01-12</td>
+      <td>671</td>
+      <td>28009</td>
+      <td>3085.5</td>
+    </tr>
+    <tr>
+      <th>45294</th>
+      <td>Norfolk</td>
+      <td>E10000020</td>
+      <td>utla</td>
+      <td>2021-01-11</td>
+      <td>795</td>
+      <td>27338</td>
+      <td>3011.6</td>
+    </tr>
+    <tr>
+      <th>45295</th>
+      <td>Norfolk</td>
+      <td>E10000020</td>
+      <td>utla</td>
+      <td>2021-01-10</td>
+      <td>504</td>
+      <td>26543</td>
+      <td>2924.0</td>
+    </tr>
+    <tr>
+      <th>45296</th>
+      <td>Norfolk</td>
+      <td>E10000020</td>
+      <td>utla</td>
+      <td>2021-01-09</td>
+      <td>392</td>
+      <td>26039</td>
+      <td>2868.5</td>
+    </tr>
+  </tbody>
+</table>
+<p>45297 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">show_articles_more_than</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;Daily lab-confirmed cases&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2714a84eff1a42b29d5a7e779077b123"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What if we want a custom min-max range for our slider?</span>
+<span class="c1"># https://ipywidgets.readthedocs.io/en/latest/examples/Using%20Interact.html</span>
+
+<span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">show_articles_more_than</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;Daily lab-confirmed cases&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "64a43b06bbe3481584894cce98a30b20"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">show_for_place</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;Area name&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Area name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())):</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "aed1187efc9c49faa73b7b09264b5745"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>moviepy
+
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">moviepy.editor</span> <span class="k">as</span> <span class="nn">mpy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: moviepy in c:\users\pa-legg\anaconda3\lib\site-packages (1.0.3)
+Requirement already satisfied: proglog&lt;=1.0.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from moviepy) (0.1.10)
+Requirement already satisfied: numpy&gt;=1.17.3 in c:\users\pa-legg\anaconda3\lib\site-packages (from moviepy) (1.24.4)
+Requirement already satisfied: requests&lt;3.0,&gt;=2.8.1 in c:\users\pa-legg\anaconda3\lib\site-packages (from moviepy) (2.28.1)
+Requirement already satisfied: imageio-ffmpeg&gt;=0.2.0 in c:\users\pa-legg\anaconda3\lib\site-packages (from moviepy) (0.4.9)
+Requirement already satisfied: imageio&lt;3.0,&gt;=2.5 in c:\users\pa-legg\anaconda3\lib\site-packages (from moviepy) (2.19.3)
+Requirement already satisfied: tqdm&lt;5.0,&gt;=4.11.2 in c:\users\pa-legg\anaconda3\lib\site-packages (from moviepy) (4.64.1)
+Requirement already satisfied: decorator&lt;5.0,&gt;=4.0.2 in c:\users\pa-legg\anaconda3\lib\site-packages (from moviepy) (4.4.2)
+Requirement already satisfied: pillow&gt;=8.3.2 in c:\users\pa-legg\anaconda3\lib\site-packages (from imageio&lt;3.0,&gt;=2.5-&gt;moviepy) (9.2.0)
+Requirement already satisfied: setuptools in c:\users\pa-legg\anaconda3\lib\site-packages (from imageio-ffmpeg&gt;=0.2.0-&gt;moviepy) (63.4.1)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in c:\users\pa-legg\anaconda3\lib\site-packages (from requests&lt;3.0,&gt;=2.8.1-&gt;moviepy) (3.3)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in c:\users\pa-legg\anaconda3\lib\site-packages (from requests&lt;3.0,&gt;=2.8.1-&gt;moviepy) (2.0.4)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in c:\users\pa-legg\anaconda3\lib\site-packages (from requests&lt;3.0,&gt;=2.8.1-&gt;moviepy) (1.26.11)
+Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\pa-legg\anaconda3\lib\site-packages (from requests&lt;3.0,&gt;=2.8.1-&gt;moviepy) (2022.9.14)
+Requirement already satisfied: colorama in c:\users\pa-legg\anaconda3\lib\site-packages (from tqdm&lt;5.0,&gt;=4.11.2-&gt;moviepy) (0.4.5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Area type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;utla&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Specimen date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()[</span><span class="s1">&#39;Daily lab-confirmed cases&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2461a60ffa0&gt;]
+</pre></div>
+</div>
+<img alt="_images/96ef9a9b32b4aef47bc0bbfd0f829ec22f24c5fddb9166225b2060db7ca9cb29.png" src="_images/96ef9a9b32b4aef47bc0bbfd0f829ec22f24c5fddb9166225b2060db7ca9cb29.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Area type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;utla&#39;</span><span class="p">]</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Specimen date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()[</span><span class="s1">&#39;Daily lab-confirmed cases&#39;</span><span class="p">]</span>
+<span class="n">output</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Specimen date
+2021-01-09    392
+2021-01-10    504
+2021-01-11    795
+2021-01-12    671
+2021-01-13    621
+             ... 
+2021-04-17     13
+2021-04-18     21
+2021-04-20     25
+2021-04-21     30
+2021-04-26     26
+Name: Daily lab-confirmed cases, Length: 69, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">)):</span>
+    <span class="n">oo</span> <span class="o">=</span> <span class="n">output</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">oo</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./pngs/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">gif_name</span> <span class="o">=</span> <span class="s1">&#39;COVID.gif&#39;</span>
+<span class="n">fps</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">file_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;./pngs/*.png&#39;</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">)</span>
+<span class="n">clip</span> <span class="o">=</span> <span class="n">mpy</span><span class="o">.</span><span class="n">ImageSequenceClip</span><span class="p">(</span><span class="n">file_list</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">)</span>
+<span class="n">clip</span><span class="o">.</span><span class="n">write_gif</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gif_name</span><span class="p">),</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MoviePy - Building file COVID.gif with imageio.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:   0%|                                                                             | 0/69 [00:00&lt;?, ?it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:   9%|██████                                                               | 6/69 [00:00&lt;00:01, 56.82it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  17%|███████████▊                                                        | 12/69 [00:00&lt;00:01, 47.93it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  25%|████████████████▊                                                   | 17/69 [00:00&lt;00:01, 46.24it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  32%|█████████████████████▋                                              | 22/69 [00:00&lt;00:01, 45.54it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  39%|██████████████████████████▌                                         | 27/69 [00:00&lt;00:00, 44.94it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  46%|███████████████████████████████▌                                    | 32/69 [00:00&lt;00:00, 44.69it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  54%|████████████████████████████████████▍                               | 37/69 [00:00&lt;00:00, 44.69it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  61%|█████████████████████████████████████████▍                          | 42/69 [00:00&lt;00:00, 43.93it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  68%|██████████████████████████████████████████████▎                     | 47/69 [00:01&lt;00:00, 42.16it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  75%|███████████████████████████████████████████████████▏                | 52/69 [00:01&lt;00:00, 41.88it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  83%|████████████████████████████████████████████████████████▏           | 57/69 [00:01&lt;00:00, 41.92it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  90%|█████████████████████████████████████████████████████████████       | 62/69 [00:01&lt;00:00, 41.68it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t:  97%|██████████████████████████████████████████████████████████████████  | 67/69 [00:01&lt;00:00, 41.55it/s, now=None]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                                                                      
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="activity-07-violinplot.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Activity 7 - Violin Plots and Parallel Coordinates</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="activity-09-recommender.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Activity 9 - Recommender Systems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Phil Legg
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

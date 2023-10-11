@@ -1,0 +1,884 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3: Statistical Analysis &#8212; Security Data Analytics and Visualisation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03-statistics';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4: Machine Learning" href="04-machinelearning.html" />
+    <link rel="prev" title="2: A Pipeline Process" href="02-workflow.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-toc.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uwecyber.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/uwecyber.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-toc.html">
+                    Security Data Analytics and Visualisation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-intro.html">1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-workflow.html">2: A Pipeline Process</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3: Statistical Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-machinelearning.html">4: Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="05-visualisation.html">5: Visualisation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-visualanalytics.html">6: Visual Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07-textanalytics.html">7: Text Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-fileandimageanalysis.html">8: File, Image and Video Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-furtherresearch.html">9: Future Research Directions</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-01-intro.html">Activity 1 - Python Primer</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-02-hello.html">Activity 2 - Hello, Security Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-03-clustering.html">Activity 3 - Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-04-regression.html">Activity 4 - Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-05-neuralnet.html">Activity 5 - Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-06-visualisation.html">Activity 6 - Visualisation</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-07-violinplot.html">Activity 7 - Violin Plots and Parallel Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-08-interaction.html">Activity 8 - Interaction and Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-09-recommender.html">Activity 9 - Recommender Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-10-text.html">Activity 10: Text Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-11-video.html">Activity 11 - File Visualisation and Video Visualisation</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book/issues/new?title=Issue%20on%20page%20%2F03-statistics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/03-statistics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3: Statistical Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-pre-processing">Feature Pre-processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-anomalies">Types of Anomalies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-data">Comparing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasaurus-dozen">Datasaurus Dozen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-does-not-imply-causation">Correlation does not imply Causation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="statistical-analysis">
+<h1>3: Statistical Analysis<a class="headerlink" href="#statistical-analysis" title="Permalink to this heading">#</a></h1>
+<section id="feature-pre-processing">
+<h2>Feature Pre-processing<a class="headerlink" href="#feature-pre-processing" title="Permalink to this heading">#</a></h2>
+<p>In the last section, we talked about how you can combine and transform data for the purpose of analysis. How do we achieve this? We need to have a clear understanding of what our input data is, and what we hope to achieve for our output, such that this can help inform our investigation. Therefore, we need to think about the input, the process, and the output.</p>
+<p><strong>How do we construct features from our data?</strong> Essentially features can be thought of as numerical values, and quite often, we may just be counting data. If I wanted to derive a feature to measure RAM usage, or email usage, I would need to specify some time interval to observe (e.g., per hour, or per day). Much like when reporting speed, we would refer to miles per hour, rather than recording the absolute speed of the vehicle at every observation. In this way, we generalise to the time interval that makes most sense in practice (we could examine miles per minute, but it’s more natural to state 70 mph rather than 1.67 miles per minute). If I’m studying email usage, rather than simply just the number of emails sent, I may start to form some classifications of my features – for example, number of emails sent to unique recipients, number of emails sent to a specific individual, number of new recipients per day, number of words in each email, number of unique words in each email, and the list goes on. Hopefully you can start to see that there are many possible ways that we could derive numerical count features about email (and many other data observations). Crucially to remember is that we are interested in observations over time, so that we can compare time periods to understand where there may be an increase or decrease in the observed measure. As well as temporal features, we may be interested in spatial features – such as pixel locations in an image or GPS points on a map, or furthermore, we may be interested in sptiotemporal features – such as a pixel location in a video stream or a moving vehicle position.</p>
+<p><strong>Finding and cleaning data?</strong> There are a number of excellent resources for gathering example datasets, such as <a class="reference external" href="https://www.kaggle.com/">Kaggle</a>, the <a class="reference external" href="http://www.vacommunity.org/About+the+VAST+Challenge">VAST Challenge</a>, the <a class="reference external" href="https://archive.ics.uci.edu/ml/index.php">UC Irvine Machine Learning repository</a>, and numerous other examples hosted online and in various data repositories. Whilst these are useful for learning about machine learning and visualisation, much of the hard work has already been done for us. <strong>Web scraping</strong> is often used to gather large amounts of data from online sources, for example, news story analysis, or examining CVE records. In such cases, there will be significant cleaning of data required, such as filtering out noise in the collected data, or correcting timestamps so that they are reported consistently. We will look at methods for cleaning data in our example practicals.</p>
+</section>
+<section id="types-of-anomalies">
+<h2>Types of Anomalies<a class="headerlink" href="#types-of-anomalies" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.datasciencecentral.com/profiles/blogs/anomaly-detection-for-the-oxford-data-science-for-iot-course">Anomaly detection</a> is widely discussed in terms of cyber security, and how “artificial intelligence can spot anomalies in your data”. However, it’s crucial to understand what we mean by anomalies, and what type of anomalies may exist. This will help us to understand what the anomalies actually mean to assess whether they pose some form of security concern. Here we will focus primarily on 3 types of outlier: point, contextual, and subsequence. In most applications here, we are thinking about <a class="reference external" href="https://blog.statsbot.co/time-series-anomaly-detection-algorithms-1cef5519aef2">time-series anomalies</a>: essentially how something changes over time.</p>
+<ul class="simple">
+<li><p><strong>Point anomaly:</strong> This is where a single point in a time series is anomalous compared to the rest of the data. This is the most typical kind of anomaly that we may think of, yet if we are graphing the correct data, it is also the most straightforward to identify.</p></li>
+<li><p><strong>Contextual anomaly:</strong> This is where a data instance in a time series is considered anomalous because of the context of the data. If we were measuring the temperature of different locations, and one location in the northern hemisphere reported low temperatures in the Summer, this may be an anomaly. Note that the temperature data alone is not sufficient to recognise this – we would need to have prior knowledge of temperature data for countries in the northern hemisphere during the Summer months, gathered historically, to be able to inform on the context here. Another example would be the presence of malware running on an infected machine, and the impact on CPU usage and process count. To recognise the anomaly here, we would need to know what the “typical” CPU usage and process count are in a state where the machine is deemed to be acting normally. In this manner, the anomaly is identified with respect to the historical data, where this observation may be much higher or much lower than the previous records. This historical data may be informed from some database of known anomalous (and non-anomalous) cases, or it may be informed directly from the data itself, where a repeating pattern is expected (e.g., seasonal).</p></li>
+<li><p><strong>Subsequence anomaly:</strong> This is where a sequence of individual events are deemed to be anomalous with regards to the rest of the data, although the individual data points themselves are not deemed as anomalous. This could be seen as similar to contextual anomalies, however the key difference is that subsequence anomalies may not be out-of-distribution, whereas contextual anomalies would be. For example, a recurring pattern that then suddenly flattens for a period, and then begins again, would be recognised as an anomaly. Yet, each individual data point is well within the prior distribution of the data. It is only anomalous because the sequence, or pattern, is anomalous. Consider another example related to insider threat detection. An employee may conduct the following steps in an activity: (1) log into payment application, (2) retrieve payment details, (3) record item to be purchased, (4) enter payment details, and (5) send email to line manager. Each individual step may not be anomalous on their own (i.e., all legitimate actions). Likewise, they may be authorised to make purchases at any time of day, as needed. However if something changed in this sequence - e.g., suppose they stopped emailing line manager following payment, stopped recording item to be purchased; or added a new step – such as open notepad, and write purchase details to file – then there would be a cause for concern. As mentioned, here each individual activity is legitimate, however it is about observing a anomalous sequence of events, rather than an individual anomaly. Note how subsequence anomalies can be used for both numerical and discrete data – such as labels. Another example for text analytics could be, “The quick brown fox jumps over the lazy camel”. Many people will be familiar with this phrase, and will therefore recognise that the word camel is an anomaly – not because camel would necessarily be an incorrect statement, but because the well known quote would say ‘dog’.</p></li>
+</ul>
+<p><img alt="Alt text" src="_images/image8.png" /></p>
+</section>
+<section id="descriptive-statistics">
+<h2>Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Permalink to this heading">#</a></h2>
+<p>Statistics are at the very heart of understanding the properties of data. There are some <a class="reference external" href="https://elearningindustry.com/stats-101-need-know-statistics">core concepts</a> that you should therefore understand. Firstly, when we talk about a set of data, we may refer to this as a distribution – it is a set of measured observations that are indicative of real-world. The Mean is the average value of the distribution – for example, if I was assessing the number of network packets received per minute, then the mean would be the average number of packets received per minute. This could be used to estimate a baseline for the activity (i.e., the expected behaviour). The Median would then be the middle value of the distribution, if I arranged all values from lowest to highest. The Mode is the most common value that has occurred in the distribution.  Each of these gives us some indication of where the centre of our data lies – however each has its own weaknesses. If there are outliers in the data, the mean will be skewed by these – so a single point anomaly can change the mean completely. With the median, essentially only the first half of the data is counted (i.e., if I have n values I count up to the n/2 value) which means that the higher values are completely ignored. Therefore, it is good practice to assess all measures in case they help inform different stories about the data. Standard deviation is also an important measurement to understand. This informs about the spread of the data – whether it is narrow around the centre point, or spread out across  the range of values (the range being essentially the difference between the largest and smallest values). In many applications, it is useful to consider the normal distribution (sometimes referred to as a bell curve, or a Gaussian distribution). The normal distribution can be expressed by the mean to define the centre point, and the standard deviation to define the spread. This becomes particularly useful when we want to consider whether a new observation is deemed to be inside or outside of the distribution, since approximately 95% of the data observations should be within 2 standard deviations of the mean.</p>
+<p><img alt="Alt text" src="_images/image9.png" /></p>
+</section>
+<section id="comparing-data">
+<h2>Comparing Data<a class="headerlink" href="#comparing-data" title="Permalink to this heading">#</a></h2>
+<p>Suppose we have four datasets that we wish to compare, to observe any deviations or anomalies that may occur. How may we approach this task? Let’s assume that each dataset has two parameters (X and Y). We therefore have X1 and Y1 as dataset 1, X2 and Y2 as dataset 2, X3 and Y3 as dataset 3, and X4 and Y4 as dataset 4. We can use the code below to load in our sample dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/anscombe.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X1</th>
+      <th>Y1</th>
+      <th>X2</th>
+      <th>Y2</th>
+      <th>X3</th>
+      <th>Y3</th>
+      <th>X4</th>
+      <th>Y4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>8.04</td>
+      <td>10</td>
+      <td>9.14</td>
+      <td>10</td>
+      <td>7.46</td>
+      <td>8</td>
+      <td>6.58</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8</td>
+      <td>6.95</td>
+      <td>8</td>
+      <td>8.14</td>
+      <td>8</td>
+      <td>6.77</td>
+      <td>8</td>
+      <td>5.76</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>13</td>
+      <td>7.58</td>
+      <td>13</td>
+      <td>8.74</td>
+      <td>13</td>
+      <td>12.74</td>
+      <td>8</td>
+      <td>7.71</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>9</td>
+      <td>8.81</td>
+      <td>9</td>
+      <td>8.77</td>
+      <td>9</td>
+      <td>7.11</td>
+      <td>8</td>
+      <td>8.84</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>11</td>
+      <td>8.33</td>
+      <td>11</td>
+      <td>9.26</td>
+      <td>11</td>
+      <td>7.81</td>
+      <td>8</td>
+      <td>8.47</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>14</td>
+      <td>9.96</td>
+      <td>14</td>
+      <td>8.10</td>
+      <td>14</td>
+      <td>8.84</td>
+      <td>8</td>
+      <td>7.04</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>7.24</td>
+      <td>6</td>
+      <td>6.13</td>
+      <td>6</td>
+      <td>6.08</td>
+      <td>8</td>
+      <td>5.25</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>4</td>
+      <td>4.26</td>
+      <td>4</td>
+      <td>3.10</td>
+      <td>4</td>
+      <td>5.39</td>
+      <td>19</td>
+      <td>12.50</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>12</td>
+      <td>10.84</td>
+      <td>12</td>
+      <td>9.13</td>
+      <td>12</td>
+      <td>8.15</td>
+      <td>8</td>
+      <td>5.56</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>7</td>
+      <td>4.82</td>
+      <td>7</td>
+      <td>7.26</td>
+      <td>7</td>
+      <td>6.42</td>
+      <td>8</td>
+      <td>7.91</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>5</td>
+      <td>5.68</td>
+      <td>5</td>
+      <td>4.74</td>
+      <td>5</td>
+      <td>5.73</td>
+      <td>8</td>
+      <td>6.89</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>First of all, we can calculate statistics for each of the four datasets to see how they may vary. We will try a set of common statistics in the next few cells, starting with the mean of both X and Y parameters, the variance of X and Y parameters, the correlation between X and Y parameters, and finally the line of best fit, or the regression line, of our X and Y parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Mean of X data:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean of X data:
+9.0
+9.0
+9.0
+9.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Variance of X data:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variance of X data:
+11.0
+11.0
+11.0
+11.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Mean of Y data:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Y1&#39;</span><span class="p">,</span> <span class="s1">&#39;Y2&#39;</span><span class="p">,</span> <span class="s1">&#39;Y3&#39;</span><span class="p">,</span> <span class="s1">&#39;Y4&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean of Y data:
+7.500909090909093
+7.50090909090909
+7.5
+7.500909090909091
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Variance of Y data:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Y1&#39;</span><span class="p">,</span> <span class="s1">&#39;Y2&#39;</span><span class="p">,</span> <span class="s1">&#39;Y3&#39;</span><span class="p">,</span> <span class="s1">&#39;Y4&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variance of Y data:
+4.127269090909091
+4.127629090909091
+4.12262
+4.12324909090909
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Correlation between X and Y:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span><span class="s1">&#39;Y1&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;X2&#39;</span><span class="p">,</span><span class="s1">&#39;Y2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span><span class="s1">&#39;Y3&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;X4&#39;</span><span class="p">,</span><span class="s1">&#39;Y4&#39;</span><span class="p">]]:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlation between X and Y:
+          X1        Y1
+X1  1.000000  0.816421
+Y1  0.816421  1.000000
+          X2        Y2
+X2  1.000000  0.816237
+Y2  0.816237  1.000000
+          X3        Y3
+X3  1.000000  0.816287
+Y3  0.816287  1.000000
+          X4        Y4
+X4  1.000000  0.816521
+Y4  0.816521  1.000000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span><span class="s1">&#39;Y1&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;X2&#39;</span><span class="p">,</span><span class="s1">&#39;Y2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span><span class="s1">&#39;Y3&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;X4&#39;</span><span class="p">,</span><span class="s1">&#39;Y4&#39;</span><span class="p">]]:</span>
+    <span class="n">lm</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span> 
+    <span class="n">lm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lm</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.50009091]]
+[[0.5]]
+[[0.49972727]]
+[[0.49990909]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Having performed our initial analysis, what can we observe about our four datasets. What is particular intriguing in this example, is that all four datasets have exactly the same statistical characteristics! They all show the same mean for both X and Y, the same variance, correlation, and regression line. So, presumably are these datasets essentially all the same then?</p>
+<p>This is a perfect case for data visualisation, and is actually a well-known problem known as Anscombe’s Quartet. When we visualise the data using four scatter plots, we can quickly determine that the four datasets are wildly different. However, on the surface, the descriptive statistics gave the same information. As data becomes increasingly large, we do need to use statistical measures and these are important, but it is also important that we do not rely on them solely. <a class="reference external" href="https://www.sjsu.edu/faculty/gerstman/StatPrimer/anscombe1973.pdf">Anscombe</a> (1973) said:</p>
+<blockquote>
+<div><p><span style="font-size:20px"><em>“make both calculations and graphs. Both sorts of output should be stuidied; each will contribute to understanding”</em></span></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span><span class="s1">&#39;Y1&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;X2&#39;</span><span class="p">,</span><span class="s1">&#39;Y2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span><span class="s1">&#39;Y3&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;X4&#39;</span><span class="p">,</span><span class="s1">&#39;Y4&#39;</span><span class="p">]]:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/39870a383a2c695f767457b576837f454b1455c8ca288db5ce986eb903cc73c3.png" src="_images/39870a383a2c695f767457b576837f454b1455c8ca288db5ce986eb903cc73c3.png" />
+<img alt="_images/f354c1c4dd07734d2abed06524d2f6b36e9a5b3c08b69f940cff88b2f69275c6.png" src="_images/f354c1c4dd07734d2abed06524d2f6b36e9a5b3c08b69f940cff88b2f69275c6.png" />
+<img alt="_images/475acbfeaf72a04dd907468db08f7f34f3022f8697f064459f21e7a92544a06d.png" src="_images/475acbfeaf72a04dd907468db08f7f34f3022f8697f064459f21e7a92544a06d.png" />
+<img alt="_images/bc982ad12ee5ab40cacc9820d71e6cff928e024ce2ba96a698725754e4fddcf8.png" src="_images/bc982ad12ee5ab40cacc9820d71e6cff928e024ce2ba96a698725754e4fddcf8.png" />
+</div>
+</div>
+</section>
+<section id="datasaurus-dozen">
+<h2>Datasaurus Dozen<a class="headerlink" href="#datasaurus-dozen" title="Permalink to this heading">#</a></h2>
+<p>A modern take on the Anscombe quartet is the <a class="reference external" href="https://dl.acm.org/doi/10.1145/3025453.3025912">Datasaurus Dozen</a>. Given a distribution of points - in this example, a shape that looks remarkably like a dinosaur, the proposed system is able to use machine learning techniques (simulated annealing) to identify other configurations of the data points such that the underlying statistical properties match those of the original dataset. As the name suggests, the original depiction of a dinosaur can be mapped to 11 other data representations whilst also preserving the underlying stastistical properties.</p>
+<p><img alt="Alt text" src="_images/image11.gif" /></p>
+</section>
+<section id="correlation-does-not-imply-causation">
+<h2>Correlation does not imply Causation<a class="headerlink" href="#correlation-does-not-imply-causation" title="Permalink to this heading">#</a></h2>
+<p>As a final point for discussion in this section, it is important to recognise a golden rule when working with statistics, and that is <a class="reference external" href="https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation">correlation does not imply causation</a>. Ice cream sales may increase when the weather is sunny, and likewise shark attacks may increase when the weather is sunny. However, shark attacks are not caused by ice cream sales (nor are ice cream sales caused by shark attacks). In this example, the hidden variable that both attributes rely on is sunny weather – although there are actually many other factors and neither case is caused by a single variable.</p>
+<p><img alt="Alt text" src="_images/image12.png" /></p>
+<p>When we are exploring data science for cyber security, we want to make well informed decisions from the data. It is important to recognise that attributes observed in the SOC may or may not necessarily be caused by other correlated attributes in your workforce. Further research explores <a class="reference external" href="https://www.astesj.com/publications/ASTESJ_050349.pdf">causal modelling in cyber security</a> to determine how effective this can be.</p>
+<p><img alt="Alt text" src="_images/image13.png" /></p>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ieeexplore.ieee.org/document/6725337">T. Mahmood and U. Afzal, “Security Analytics: Big Data Analytics for cybersecurity: A review of trends, techniques and tools,” 2013 2nd National Conference on Information Assurance (NCIA), 2013, pp. 129-134, doi: 10.1109/NCIA.2013.6725337.</a></p></li>
+<li><p><a class="reference external" href="https://link.springer.com/article/10.1007/s41060-018-0102-5">Weihs, C., Ickstadt, K. Data Science: the impact of statistics. Int J Data Sci Anal 6, 189–194 (2018). https://doi.org/10.1007/s41060-018-0102-5</a></p></li>
+<li><p><a class="reference external" href="https://link.springer.com/article/10.1007/s10699-016-9489-4">Calude, C.S., Longo, G. The Deluge of Spurious Correlations in Big Data. Found Sci 22, 595–612 (2017). https://doi.org/10.1007/s10699-016-9489-4</a></p></li>
+<li><p><a class="reference external" href="https://www.jpands.org/vol19no2/briggs.pdf">Briggs, W.M. Common Statistical Fallacies. Journal of American Physicians and Surgeons, Volume 19, Number 2 (2014).</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02-workflow.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2: A Pipeline Process</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04-machinelearning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4: Machine Learning</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-pre-processing">Feature Pre-processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-anomalies">Types of Anomalies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-data">Comparing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasaurus-dozen">Datasaurus Dozen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-does-not-imply-causation">Correlation does not imply Causation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Phil Legg
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

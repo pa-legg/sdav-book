@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2: A Pipeline Process &#8212; Security Data Analytics and Visualisation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-workflow';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3: Statistical Analysis" href="03-statistics.html" />
+    <link rel="prev" title="1: Introduction" href="01-intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-toc.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uwecyber.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/uwecyber.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-toc.html">
+                    Security Data Analytics and Visualisation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-intro.html">1: Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2: A Pipeline Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-statistics.html">3: Statistical Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-machinelearning.html">4: Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="05-visualisation.html">5: Visualisation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-visualanalytics.html">6: Visual Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07-textanalytics.html">7: Text Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-fileandimageanalysis.html">8: File, Image and Video Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-furtherresearch.html">9: Future Research Directions</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-01-intro.html">Activity 1 - Python Primer</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-02-hello.html">Activity 2 - Hello, Security Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-03-clustering.html">Activity 3 - Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-04-regression.html">Activity 4 - Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-05-neuralnet.html">Activity 5 - Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-06-visualisation.html">Activity 6 - Visualisation</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-07-violinplot.html">Activity 7 - Violin Plots and Parallel Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-08-interaction.html">Activity 8 - Interaction and Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-09-recommender.html">Activity 9 - Recommender Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-10-text.html">Activity 10: Text Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-11-video.html">Activity 11 - File Visualisation and Video Visualisation</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book/issues/new?title=Issue%20on%20page%20%2F02-workflow.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/02-workflow.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2: A Pipeline Process</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-workflows">Data Science Workflows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-python-notebooks">Introducing Python Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a-pipeline-process">
+<h1>2: A Pipeline Process<a class="headerlink" href="#a-pipeline-process" title="Permalink to this heading">#</a></h1>
+<p>What would a typical pipeline or workflow look like in a cyber security data analytics investigation? We can think of this as a 5-stage process:</p>
+<p><img alt="" src="_images/2-pipeline.png" /></p>
+<ul class="simple">
+<li><p><strong>Collect:</strong> What data do we need to collect, and how will we collect it? This is fundamental as it requires us to carefully think about the problem that we hope to address. Typically, we require a <em>sensor</em> in order to collect data - much like if we want to collect data about the world around us we need to use some sensor or measurement instrument to do this effectively. Sensors could be software-based, such as a Python script that continual checks and records every new login on a particular server, or that logs all the current running processes on a workstation. IoT devices may enable us to sense something about the physical world (for example, temperature) and transmit this data to a centralised server. Humans are also powerful sensors, often overlooked where thinking about cyber security. For example, humans may sense observations about the workplace such as employee engagement or disgruntlement, that if captured effectively could help mitigate potential threats.</p></li>
+<li><p><strong>Store:</strong> How will we store this data? Is it practical to store the volume of data required? Is there are specific format that will make this data more useable for our further analysis and investigation? Common file data formats such as Comma Separated Values (CSV) and Javascript Object Notation (JSON) are popular amongst the data science communities. For larger distributed data collection, databases may be a preferable approach, that may be better suited to manage multiple users either reading or writing data simulateneously. Databases are widely used in complex systems, and typically either hold structured or unstructured data. Sequel (SQL) is a traditional database language used for structured data, whilst NoSQL unstructured methods such as MongoDB have been adopted more recently, that effectively store a collection of JSON documents. Whichever approach is taken, you will need to consider how often is data being written into your data store, how often it is being read from your data store, and how many users will need to do this at any one time, to manage the scalability of how your data is stored.</p></li>
+<li><p><strong>Combine / Transform:</strong> Once we have a way of storing our data, what do we want to do with it? Typically, we may be looking to gather data over time to observe whether there is some change in behaviour, or we may be looking to combine multiple data sources to help explain why a particular observation has occurred, such as a cyber security breach or some suspicious activity on our network. We may also want to transform the data in some manner to make it easier to explore and understand. <a class="reference external" href="https://en.wikipedia.org/wiki/Aggregate_function">Aggregation</a> is a widely used process for transforming data. To aggregate data simply means to reduce this data to some form of summary; a common example would be to take the mean value of the data collected over a given time period. For example, given a number of raw packets captured from a network, we may want to know the total number of packets observed every minute, or the average size of the packets received each minute. This provides a much clearer indication when comparing activity over time, rather than studying individual packets. This can also be described as <a class="reference external" href="https://en.wikipedia.org/wiki/Feature_extraction">feature extraction</a> since we are deriving a set of features that characterise our raw data, which could then be used to inform a machine learning model. It may also be described as <a class="reference external" href="https://hackernoon.com/what-steps-should-one-take-while-doing-data-preprocessing-502c993e1caa">data pre-processing</a>, since we are essentially preparing our data so that it is in a more appropriate format to work with for further investigation. Other examples may include rescaling absolute values, such as rescaling RGB pixel values in an image or rescaling RAM usage to be a percentage of the total RAM available in a system.</p></li>
+<li><p><strong>Analyse:</strong> We now have both the raw data and a feature-based representation of the data. We may sometimes refer to this as having <em>focus and context</em> of our data, where we can both drill down into the detail of each data point whilst observing something about the overall data distribution. With this in mind, we now need to establish what kind of analyse we need for our task. We may wish to examine data based on some thresholding techniques – for example, identify all cases where more than <em>X</em> network connections have been established during a 1-hour period. We may also wish to examine data using <a class="reference external" href="https://ieeexplore.ieee.org/document/8716381">signature-based techniques</a> – for example, identify all software executables where the MD5 hash matches against a known set of examples (often described as a dictionary, and widely used for anti-virus detection). There are other more sophisticated forms of analysis we may also want to consider. We may want to perform <a class="reference external" href="https://towardsdatascience.com/machine-learning-classifiers-a5cc4e1b0623">classification</a> of our data, where we have a set of possible outcomes or groups, and we want to identify which group each instance of our data belongs to (for example, classification of different malware family samples). Another form of analysis that we may wish to perform is <a class="reference external" href="https://machinelearningmastery.com/findings-comparing-classical-and-machine-learning-methods-for-time-series-forecasting/">forecasting</a>. For example, if we have observed 2 data breaches in the last 12-month period, can we forecast whether we will fall victim again, based on possible mitigations that could be deployed. <a class="reference external" href="https://towardsdatascience.com/unsupervised-machine-learning-clustering-analysis-d40f2b34ae7e">Clustering</a> is another form that is widely used because it allows us to group similar observations together, to then examine whether they are similar under some set assumptions. This sounds similar to classification, however in classification we have labelled samples to train on, whereas in clustering we do not have any labels. We will discuss this further in Chapter 4. Finally, there is outlier and anomaly detection – a key part of security analysis. Given some observation, can we identify when something is different, and more specifically, under what conditions is it anomalous. We will describe this in further detail in due course.</p></li>
+<li><p><strong>Visualise:</strong> Following our analysis, we need to plan how to communicate our findings. We may use 2-dimensional charts and plots to do this, such as line plots, bar charts, scatter plots, as well as other forms of visual plots. It’s important to appreciate that numerical values in a table also communicate data – sometimes a table of numerical values will perform more effectively than a visualisation, often if the data is small. As the data becomes larger however, visualisation helps to summarise this and convey details clearer. Depending on the task, we may find that 3-dimensional visualisation is appropriate. This could be a 3-dimensional plot, or it could be a 3-dimensional reconstruction of some scene, depending on the application. Importantly, we need to think about how the end-user will receive information from the chosen representation. Focus-and-context is a common technique to allow users to examine some aspect in detail, whilst also showing how this fits within the broader data. More and more nowadays, interactive techniques in visualisation need to be considered, for how a user will learn and understand the data through interaction, such as parameter adjustment, or zoom and filter of the data.</p></li>
+</ul>
+<section id="data-science-workflows">
+<h2>Data Science Workflows<a class="headerlink" href="#data-science-workflows" title="Permalink to this heading">#</a></h2>
+<p>Whilst we have described a possible workflow above, it’s important to recognise that there is no single right way of doing data science. More specifically, if we keep in mind that we are doing analysis for a purpose, to help inform a story, whether that be exploratory or explanatory, we need to establish the question that we are asking, so that we can strive to answer this.</p>
+<p><img alt="Alt text" src="_images/image4.png" /></p>
+<p>Here we see another possible workflow, where we decide on a question, and we acquire data to support this question. We clean and transform this data, and we perform our data analysis – much like we have discussed already. However, it is important to recognise that this is not a single one-time process, nor we will necessary ask the right question to being with. In this example, we see three “loops” back to earlier stages of the process – we may need to update our analysis, for example, if we decide that we need to consider more or different features about the data. We may examine our output and present our results, to find that we need more data – for example, if we are examining the presence of an insider threat, do we have sufficient information about the actions they have taken, or do we only have coverage of a subset (e.g., we may have network activity, but we have no record of file access activity). Finally, we may decide that we need to update our question, for example, is our original question not achievable, or do we need to be more specific with how the question is formed?</p>
+<p>Two further models of analysis are presented here – both showing how analysis is very much an iterative process that will continually evolve. (Further detail in the book by <a class="reference external" href="https://www.vismaster.eu/wp-content/uploads/2010/11/VisMaster-book-lowres.pdf">D. Keim “Mastering the Information Age: Solving Problems with Visual Analytics, 2010</a>) In the literature, often researchers will describe this as having a “human-in-the-loop” or by adopting a “visual analytics loop”. This is more and more common nowadays as dashboards and interactive analysis techniques have become a normal means of practice.</p>
+<p><img alt="Alt text" src="_images/image5.png" />
+<img alt="Alt text" src="_images/image6.png" /></p>
+</section>
+<section id="introducing-python-notebooks">
+<h2>Introducing Python Notebooks<a class="headerlink" href="#introducing-python-notebooks" title="Permalink to this heading">#</a></h2>
+<p>Notebooks are used for rapid prototyping of ideas, to test a theory or to derive some experiment. In particular, when we talk of notebooks we are describing computational notebooks, where we want to jot down ideas, and test these, whilst being able to jot down code samples and examine our results and findings quickly. Scripting languages such as Python and Javascript make it much easier to rapidly construct a piece of code to process some data, rather than having to compile code to source, like you would do in C or Java. Notebook environments provide a clean approach for integrating code, text, graphics, and other forms of media, using a web browser to interact with this rather than relying on traditional IDEs or text editors. Notebooks stem back to software tools such as Mathematica, however, the most commonly used Notebook format today is the Jupyter Notebook (formerly called the iPython notebook – hence the file extension ipynb). Jupyter is an amalgomation of Julia, Python, and R – the three programming languages it was originally designed for – however over the years a number of extensions have been developed to support many more languages, making it a defacto standard for computational notebooks. Notebooks essentially store their data in JSON format, and the Jupyter environment then renders this correctly for user interaction. More recently, Jupyter Lab has been proposed as a browser-based environment for working with notebooks that supports a number of modern features compared to the original Jupyter environment.</p>
+<p><img alt="Alt text" src="_images/image7.png" /></p>
+<p>Python has grown in popularity significantly over the last 10 years. There are a number of reasons, such as the ability to use the REPL command line (Read-Evaluate-Print-Loop), which links well with our view of iterative practice for data science. Furthermore, the wealth of libraries developed for Python mean that many tasks can be performed quickly using these libraries rather than coding from scratch. In particular, for Data Science, there are a number of libraries that are seen as the standard: NumPy (Numerical Python), SciPy (Scientific Python), Matplotlib (a Python graphing library originating from MATLAB conventions), Pandas (Powerful Data Analysis), as well as scikit-learn (used for machine learning), Tensorflow, Keras and PyTorch (used for deep learning), and NLTK (Natural Language Toolkit).</p>
+<p>As part of this broader course, we will focus on a “Hello Security Data Analytics” challenge, to demonstrate how we can use a data science workflow with the Jupyter notebook environment to solve a cyber security challenge. The manager of the security operations centre (SOC) suggests that her analysts are becoming inundated with “trivial” alerts ever since a new data set of indicators was introduced into the Security Information and Event Management (SIEM) system. As a cyber security data scientist, they have asked for your help to reduce the number of “trivial” alerts without sacrificing visibility of security alerts. This is a good problem to tackle through data analysis, and we should be able to form a solid, practical question to ask after we perform some exploratory data analysis and hopefully arrive at an answer that can help the SOC. In the next session, we will look at how we can use Jupyter notebooks to help us solve this problem.</p>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab Documentation</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01-intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1: Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03-statistics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3: Statistical Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-workflows">Data Science Workflows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-python-notebooks">Introducing Python Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Phil Legg
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

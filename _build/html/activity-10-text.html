@@ -1,0 +1,1017 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Activity 10: Text Analytics &#8212; Security Data Analytics and Visualisation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'activity-10-text';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Activity 11 - File Visualisation and Video Visualisation" href="activity-11-video.html" />
+    <link rel="prev" title="Activity 9 - Recommender Systems" href="activity-09-recommender.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-toc.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uwecyber.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/uwecyber.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-toc.html">
+                    Security Data Analytics and Visualisation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-intro.html">1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-workflow.html">2: A Pipeline Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-statistics.html">3: Statistical Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-machinelearning.html">4: Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="05-visualisation.html">5: Visualisation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-visualanalytics.html">6: Visual Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07-textanalytics.html">7: Text Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-fileandimageanalysis.html">8: File, Image and Video Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-furtherresearch.html">9: Future Research Directions</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-01-intro.html">Activity 1 - Python Primer</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-02-hello.html">Activity 2 - Hello, Security Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-03-clustering.html">Activity 3 - Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-04-regression.html">Activity 4 - Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-05-neuralnet.html">Activity 5 - Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-06-visualisation.html">Activity 6 - Visualisation</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-07-violinplot.html">Activity 7 - Violin Plots and Parallel Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-08-interaction.html">Activity 8 - Interaction and Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-09-recommender.html">Activity 9 - Recommender Systems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Activity 10: Text Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-11-video.html">Activity 11 - File Visualisation and Video Visualisation</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book/issues/new?title=Issue%20on%20page%20%2Factivity-10-text.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/activity-10-text.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Activity 10: Text Analytics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="activity-10-text-analytics">
+<h1>Activity 10: Text Analytics<a class="headerlink" href="#activity-10-text-analytics" title="Permalink to this heading">#</a></h1>
+<p>This notebook illustrates text analytics for examining wikipedia articles and for examining movie dialogues.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="c1">### Open the web page and save this to a text file</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;./wikipedia.txt&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://en.wikipedia.org/wiki/Computer_security&quot;</span>
+
+<span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    
+<span class="c1">### Open the text file using Beautiful Soup to parse the HTML</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    
+<span class="c1">### Extract the text from the HTML and split based on spaces</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">text</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="c1">### For each word, if length is greater than 3</span>
+<span class="c1">### then set to lowercase and append to our final text list</span>
+<span class="n">text_final</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">text_final</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+ 
+<span class="c1">### Count the number of occurrences for each word</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">text_final</span><span class="p">)</span>
+
+<span class="c1">### Split into labels and values for our chart</span>
+<span class="n">labels</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1">### Plot chart</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">indexes</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">indexes</span> <span class="o">+</span> <span class="n">width</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/50b2a66c5bf29ded93f674e965b7ed2c7d7aff40ba380bd23b2f8c08d1b2b4ee.png" src="_images/50b2a66c5bf29ded93f674e965b7ed2c7d7aff40ba380bd23b2f8c08d1b2b4ee.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="c1">### Open the web page and save this to a text file</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;wikipedia.txt&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://en.wikipedia.org/wiki/Computer_security&quot;</span>
+<span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c1">### Open the text file using Beautiful Soup to parse the HTML</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<span class="c1">### Extract the text from the HTML and split based on spaces</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">text</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="c1">### For each word, if length is greater than 3</span>
+<span class="c1">### then set to lowercase and append to our final text list</span>
+<span class="n">text_final</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">text_final</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">dictionary_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="s1">&#39;attack&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;encryption&#39;</span><span class="p">,</span> <span class="s1">&#39;cyber&#39;</span><span class="p">,</span><span class="s1">&#39;crime&#39;</span><span class="p">]</span>
+<span class="n">dictionary_counts</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text_final</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">dictionary_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dictionary_counts</span><span class="p">:</span>
+            <span class="n">dictionary_counts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">dictionary_counts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+ 
+<span class="n">dictionary_counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;security&#39;: 1,
+ &#39;data&#39;: 1,
+ &#39;cyber&#39;: 1,
+ &#39;attack&#39;: 1,
+ &#39;encryption&#39;: 1,
+ &#39;crime&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1">### Let us now calculate this as a probability - rather than a count.</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">text_final</span><span class="p">)</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">text_final</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">count</span><span class="p">:</span>
+    <span class="n">count</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">text_final</span><span class="p">)</span>
+<span class="n">count</span>
+<span class="c1">### Split into labels and values for our chart</span>
+<span class="n">labels</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1">### Plot chart</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">indexes</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">indexes</span> <span class="o">+</span> <span class="n">width</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fc993da39936246f011fba72e32e61633ee9ec25ef655f89e749152cf28872a0.png" src="_images/fc993da39936246f011fba72e32e61633ee9ec25ef655f89e749152cf28872a0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dictionary_counts</span><span class="p">:</span>
+    <span class="n">dictionary_counts</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">dictionary_counts</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">text_final</span><span class="p">)</span>
+<span class="n">dictionary_counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;security&#39;: 7.106815436003127e-05,
+ &#39;data&#39;: 7.106815436003127e-05,
+ &#39;cyber&#39;: 7.106815436003127e-05,
+ &#39;attack&#39;: 7.106815436003127e-05,
+ &#39;encryption&#39;: 7.106815436003127e-05,
+ &#39;crime&#39;: 7.106815436003127e-05}
+</pre></div>
+</div>
+</div>
+</div>
+<p>This shows a simple case where we have a small (5 element) dictionary. Suppose we had more sophisiticated
+dictionaries - positive and negative words, or words for particular classes - then we can do much more analysis
+using these simple techniques</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="c1">### Open the web page and save this to a text file</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;wikipedia.txt&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://en.wikipedia.org/wiki/Computer_security&quot;</span>
+<span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c1">### Open the text file using Beautiful Soup to parse the HTML</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<span class="c1">### Extract the text from the HTML and split based on spaces</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">text</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="c1">### For each word, if length is greater than 3</span>
+<span class="c1">### then set to lowercase and append to our final text list</span>
+<span class="n">text_final</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">text_final</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">text</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+ 
+<span class="c1">### Count the number of occurrences for each word</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">text_final</span><span class="p">)</span>
+<span class="c1">### Split into labels and values for our chart</span>
+<span class="n">labels</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1">### Plot chart</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">indexes</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">indexes</span> <span class="o">+</span> <span class="n">width</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7c9d7d59cfc19c97aea396840b70985e4e98cac2301dcb9300c0e0d578f8d285.png" src="_images/7c9d7d59cfc19c97aea396840b70985e4e98cac2301dcb9300c0e0d578f8d285.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Here are the imports that you will require</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="k">def</span> <span class="nf">load_data</span><span class="p">():</span>
+    <span class="c1"># the data is a standard pcap packet capture file (saved as a csv output)</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;./data/movie_lines.txt&#39;</span>
+    <span class="c1"># this will then put the csv data into a pandas dataframe</span>
+    <span class="c1">#data = pd.read_csv(file_name, sep=&#39;+++$+++&#39;)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; +++$+++ &quot;</span><span class="p">)</span>
+            <span class="n">line</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ID1&#39;</span><span class="p">,</span> <span class="s1">&#39;ID2&#39;</span><span class="p">,</span> <span class="s1">&#39;ID3&#39;</span><span class="p">,</span> <span class="s1">&#39;ID4&#39;</span><span class="p">,</span> <span class="s1">&#39;Text&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID1</th>
+      <th>ID2</th>
+      <th>ID3</th>
+      <th>ID4</th>
+      <th>Text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>L1045</td>
+      <td>u0</td>
+      <td>m0</td>
+      <td>BIANCA</td>
+      <td>They do not!</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>L1044</td>
+      <td>u2</td>
+      <td>m0</td>
+      <td>CAMERON</td>
+      <td>They do to!</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>L985</td>
+      <td>u0</td>
+      <td>m0</td>
+      <td>BIANCA</td>
+      <td>I hope so.</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>L984</td>
+      <td>u2</td>
+      <td>m0</td>
+      <td>CAMERON</td>
+      <td>She okay?</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>L925</td>
+      <td>u0</td>
+      <td>m0</td>
+      <td>BIANCA</td>
+      <td>Let's go.</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>304708</th>
+      <td>L666371</td>
+      <td>u9030</td>
+      <td>m616</td>
+      <td>DURNFORD</td>
+      <td>Lord Chelmsford seems to want me to stay back ...</td>
+    </tr>
+    <tr>
+      <th>304709</th>
+      <td>L666370</td>
+      <td>u9034</td>
+      <td>m616</td>
+      <td>VEREKER</td>
+      <td>I'm to take the Sikali with the main column to...</td>
+    </tr>
+    <tr>
+      <th>304710</th>
+      <td>L666369</td>
+      <td>u9030</td>
+      <td>m616</td>
+      <td>DURNFORD</td>
+      <td>Your orders, Mr Vereker?</td>
+    </tr>
+    <tr>
+      <th>304711</th>
+      <td>L666257</td>
+      <td>u9030</td>
+      <td>m616</td>
+      <td>DURNFORD</td>
+      <td>Good ones, yes, Mr Vereker. Gentlemen who can ...</td>
+    </tr>
+    <tr>
+      <th>304712</th>
+      <td>L666256</td>
+      <td>u9034</td>
+      <td>m616</td>
+      <td>VEREKER</td>
+      <td>Colonel Durnford... William Vereker. I hear yo...</td>
+    </tr>
+  </tbody>
+</table>
+<p>304713 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unique_characters</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ID4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">unique_characters</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Number of characters: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_characters</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;BIANCA&#39;, &#39;CAMERON&#39;, &#39;CHASTITY&#39;, &#39;JOEY&#39;, &#39;KAT&#39;, &#39;WALTER&#39;, &#39;BRUCE&#39;, &#39;PATRICK&#39;, &#39;MICHAEL&#39;, &#39;MANDELLA&#39;, &#39;MISS PERKY&#39;, &#39;SHARON&#39;, &#39;ALONSO&#39;, &#39;SAILOR&#39;, &#39;AROJAZ&#39;, &#39;COLUMBUS&#39;, &#39;SANCHEZ&#39;, &#39;BEATRIX&#39;, &#39;BOBADILLA&#39;, &#39;FERNANDO&#39;, &#39;UTAPAN&#39;, &#39;MARCHENA&#39;, &#39;ISABEL&#39;, &#39;MOXICA&#39;, &#39;MENDEZ&#39;, &#39;PINZON&#39;, &#39;CUTLER&#39;, &#39;EMIL&#39;, &#39;JORDY&#39;, &#39;DAPHNE&#39;, &#39;EDDIE&#39;, &#39;DUFFY&#39;, &#39;KORFIN&#39;, &#39;LEON&#39;, &#39;ROSE&#39;, &#39;NICOLETTE&#39;, &#39;HAWKINS&#39;, &#39;SECONDARY OFFICER&#39;, &#39;HONEY&#39;, &#39;IMMIGRATION OFFICER&#39;, &#39;VENDOR&#39;, &#39;OLEG&#39;, &#39;MILOS&#39;, &#39;MAGGIE&#39;, &#39;MUGGER&#39;, &#39;MAX&#39;, &#39;TOMMY&#39;, &#39;STEPHEN GELLER&#39;, &#39;ROBERT HAWKINS&#39;, &#39;FLOYD&#39;, &#39;B20&#39;, &#39;BOWMAN&#39;, &#39;POOLE&#39;, &#39;HAL&#39;, &#39;C12&#39;, &#39;CHILD&#39;, &#39;PILOT&#39;, &#39;CO-PILOT&#39;, &#39;ELENA&#39;, &#39;MILLER&#39;, &#39;SMYSLOV&#39;, &#39;MICHAELS&#39;, &#39;LUTHER&#39;, &#39;ATTENDANT&#39;, &#39;HAMMOND&#39;, &#39;BARTENDER&#39;, &#39;GANZ&#39;, &#39;BILLY&#39;, &#39;CANDY&#39;, &#39;CASEY&#39;, &#39;CATES&#39;, &#39;HADEN&#39;, &#39;YOUNG COP&#39;, &#39;KEHOE&#39;, &#39;ELAINE&#39;, &#39;LISA&#39;, &#39;HENRY&#39;, &#39;SOSNA&#39;, &#39;CORNELIUS&#39;, &#39;LEELOO&#39;, &#39;ZORG&#39;, &#39;KORBEN&#39;, &#39;PRESIDENT&#39;, &#39;DAVID&#39;, &#39;DIVA&#39;, &#39;FINGER&#39;, &#39;GIRL&#39;, &#39;PRIEST&#39;, &#39;KOMMANDER&#39;, &#39;MOTHER&#39;, &#39;VOICE&#39;, &#39;LOC RHOD&#39;, &#39;MUNRO&#39;, &#39;THAI&#39;, &#39;MACTILBURGH&#39;, &#39;STAEDERT&#39;, &#39;PROFESSOR&#39;, &#39;SECRETARY&#39;, &#39;SHADOW&#39;, &#39;WELLES&#39;, &#39;AMY&#39;, &#39;ANGRY DEALER&#39;, &#39;DINO&#39;, &#39;DINO VELVET&#39;, &#39;DIRECTOR&#39;, &#39;MALE VOICE&#39;, &#39;LONGDALE&#39;, &#39;MRS CHRISTIAN&#39;, &#39;MRS MATHEWS&#39;, &#39;NUN&#39;, &#39;POLITICIAN&#39;, &#39;SALESPERSON&#39;, &#39;RICK&#39;, &#39;ALICE&#39;, &#39;KRISTEN&#39;, &#39;SHEILA&#39;, &#39;DAN&#39;, &#39;DEBBIE&#39;, &#39;NURSE&#39;, &#39;MRS. JORDAN&#39;, &#39;JACOB&#39;, &quot;ALICE&#39;S DAD&quot;, &#39;YVONNE&#39;, &#39;MARK&#39;, &#39;GRETA&#39;, &#39;REEF&#39;, &#39;CARL&#39;, &#39;DAVE&#39;, &#39;WENDOVER&#39;, &#39;GRIFF&#39;, &#39;KENT&#39;, &#39;SIR IAN&#39;, &#39;SAUCER VOICE&#39;, &#39;ALMA&#39;, &#39;WADE&#39;, &#39;CHICK&#39;, &#39;HAND&#39;, &#39;JACK&#39;, &#39;LARIVIERE&#39;, &#39;TWOMBLEY&#39;, &#39;JILL&#39;, &#39;LILLIAN&#39;, &#39;LUGENE&#39;, &#39;MARGIE&#39;, &#39;POP&#39;, &#39;MEL GORDON&#39;, &#39;MRS. GORDON&#39;, &#39;NICK&#39;, &#39;ROLFE&#39;, &#39;KORSHUNOV&#39;, &#39;MARSHALL&#39;, &#39;CERALLOS&#39;, &#39;IRAQI SOLDIER&#39;, &#39;CHIEF MECHANIC&#39;, &#39;COL. CARLTON&#39;, &#39;GENERAL NORTHWOOD&#39;, &#39;DEAN&#39;, &#39;DOHERTY&#39;, &#39;V.P. CHANDLER&#39;, &#39;GIBBS&#39;, &#39;KC-135 PILOT&#39;, &#39;TOWER&#39;, &#39;KC-LO PILOT&#39;, &#39;MITCHELL&#39;, &#39;LEE&#39;, &#39;MAJOR CALDWELL&#39;, &#39;SECRET SERVICE AGENT&#39;, &#39;SWITCHBOARD&#39;, &#39;SHEPHERD&#39;, &#39;COMMISSIONER&#39;, &#39;KRUGER&#39;, &#39;MARY&#39;, &#39;DUNN&#39;, &#39;OVEUR&#39;, &#39;TED&#39;, &#39;RUMACK&#39;, &#39;SIMON&#39;, &#39;ROK&#39;, &#39;JOHN&#39;, &#39;JIMMY&#39;, &#39;WIFE&#39;, &#39;JOE&#39;, &#39;STELLA&#39;, &#39;PORTER&#39;, &#39;RECEPTIONIST&#39;, &#39;BERNICE&#39;, &#39;MILTON&#39;, &#39;MRS. KRAMER&#39;, &#39;CAREY&#39;, &#39;STRIKER&#39;, &#39;DR. RUMACK&#39;, &#39;SOLDIER&#39;, &#39;KRAMER&#39;, &#39;GUNDERSON&#39;, &#39;SHIRLEY&#39;, &#39;MURDOCK&#39;, &#39;RANDY&#39;, &#39;MRS. HAMMEN&#39;, &#39;SISTER ANGELINA&#39;, &#39;CASSANDRA&#39;, &#39;SYKES&#39;, &#39;JETSON&#39;, &#39;FEDORCHUK&#39;, &#39;HARCOURT&#39;, &#39;KIPLING&#39;, &#39;MAFFET&#39;, &quot;O&#39;NEAL&quot;, &#39;OPERATOR&#39;, &#39;WINTER&#39;, &#39;WARNER&#39;, &#39;TUGGLE&#39;, &#39;HUDSON&#39;, &#39;APONE&#39;, &#39;GORMAN&#39;, &#39;BISHOP&#39;, &#39;RIPLEY&#39;, &#39;BURKE&#39;, &#39;HICKS&#39;, &#39;VASQUEZ&#39;, &#39;SIMPSON&#39;, &#39;LYDECKER&#39;, &#39;MED-TECH&#39;, &#39;NEWT&#39;, &#39;VAN LEUWEN&#39;, &#39;ALLEGRO&#39;, &#39;ANDANTE&#39;, &#39;MOZART&#39;, &#39;ARCO&#39;, &#39;CAVALIERI&#39;, &#39;SALIERI&#39;, &#39;LEOPOLD&#39;, &#39;COLLOREDO&#39;, &#39;COMMENDATORE&#39;, &#39;SCHIKANEDER&#39;, &#39;OFFICER&#39;, &#39;CONSTANZE&#39;, &#39;SECOND LADY&#39;, &#39;FIRST LADY&#39;, &#39;MADAME WEBER&#39;, &#39;FLUNKY&#39;, &#39;SCHLUMBERG&#39;, &#39;FRAU SCHLUMBERG&#39;, &#39;JOSEPH&#39;, &#39;VON STRACK&#39;, &#39;LORL&#39;, &#39;ORSINI-ROSENBERG&#39;, &#39;VON SWIETEN&#39;, &#39;OLD SALIERI&#39;, &#39;VOGLER&#39;, &#39;UGLY OLD WOMAN&#39;, &#39;PAPAGENO&#39;, &#39;SERVANT&#39;, &#39;ALEX&#39;, &#39;ORDERLY&#39;, &#39;DR. HIRSCH&#39;, &#39;BENJAMIN&#39;, &#39;MISS GALLAGHER&#39;, &#39;MRS. HOBBS&#39;, &#39;BOBBIE&#39;, &#39;BRINGSLY&#39;, &#39;WOMAN&#39;, &#39;CHESS PLAYER&#39;, &#39;LT. VILLIERS&#39;, &#39;SGT. MCMANUS&#39;, &#39;DICKSON&#39;, &#39;BILL&#39;, &#39;OSCAR&#39;, &#39;CHARLIE&#39;, &#39;MATT&#39;, &#39;HELEN&#39;, &#39;CLARK&#39;, &quot;O&#39;BRIEN&quot;, &#39;CLUETT&#39;, &#39;INSPECTOR&#39;, &#39;DUDE&#39;, &#39;MRS. DICKSON&#39;, &#39;GARDINER&#39;, &quot;HELEN&#39;S VOICE&quot;, &#39;MRS. PEMBROKE&#39;, &#39;JANITOR&#39;, &#39;SAMPSON&#39;, &#39;GUARD&#39;, &#39;LADY&#39;, &#39;MIKE&#39;, &#39;MRS. HALLIGAN&#39;, &#39;TELLER&#39;, &#39;BOB&#39;, &#39;COMANCHE TOM&#39;, &#39;COLE&#39;, &#39;FRANK&#39;, &#39;JESSE&#39;, &#39;BURLY DETECTIVE&#39;, &#39;OLD MAN&#39;, &#39;SHERRIFF&#39;, &#39;DEPUTY&#39;, &#39;DOC MIMMS&#39;, &#39;ZEE&#39;, &#39;MA&#39;, &#39;PINKERTON&#39;, &#39;PASTOR&#39;, &#39;JIM&#39;, &#39;LYLA&#39;, &#39;PARKER&#39;, &#39;RAINS&#39;, &#39;COURTNEY&#39;, &#39;BATEMAN&#39;, &#39;CHRISTIE&#39;, &#39;EVELYN&#39;, &#39;VAN PATTEN&#39;, &#39;MRS. WOLFE&#39;, &#39;CARNES&#39;, &#39;CARRUTHERS&#39;, &#39;PRICE&#39;, &quot;MAITRE D&#39;&quot;, &#39;JEAN&#39;, &#39;DAISY&#39;, &#39;VICTORIA&#39;, &#39;ELIZABETH&#39;, &#39;KIMBALL&#39;, &#39;HOMELESS MAN&#39;, &#39;OWEN&#39;, &#39;LARRY&#39;, &#39;MILO&#39;, &#39;PHIL&#39;, &#39;BARTON&#39;, &#39;BRIAN&#39;, &#39;CYBER PUNDIT&#39;, &#39;LARRY KING&#39;, &#39;DANNY&#39;, &#39;GARY&#39;, &#39;LEN&#39;, &#39;SHROT&#39;, &#39;TEDDY&#39;, &#39;REDMOND&#39;, &#39;ALOTTA&#39;, &#39;AUSTIN&#39;, &#39;ANDY WARHOL&#39;, &#39;BASIL EXPOSITION&#39;, &#39;MICK JAGGER&#39;, &#39;DESTRUCTACON&#39;, &#39;DR. EVIL&#39;, &#39;VANESSA&#39;, &#39;CLERK&#39;, &#39;COMMANDER GILMOUR&#39;, &#39;RADAR OPERATOR&#39;, &#39;MUSTAFA&#39;, &#39;FRAU FARBISSINA&#39;, &#39;THERAPIST&#39;, &#39;SCOTT EVIL&#39;, &#39;NUMBER TWO&#39;, &#39;MRS. KENSINGTON&#39;, &#39;STEED&#39;, &#39;BAILEY&#39;, &#39;DR. DARLING&#39;, &#39;EMMA&#39;, &#39;SIR AUGUST&#39;, &#39;VALENTINE&#39;, &#39;FATHER&#39;, &#39;INVISIBLE JONES&#39;, &#39;OLD LADY&#39;, &#39;PHOEBE&#39;, &#39;CHULO&#39;, &quot;O&#39;NEILL&quot;, &#39;RYKO&#39;, &#39;MR. T&#39;, &#39;MR. THOMERSON&#39;, &#39;ILENE&#39;, &#39;MRS. THOMERSON&#39;, &#39;EXECUTIVE&#39;, &#39;JUMBO&#39;, &#39;RAJAH&#39;, &#39;MANAGER&#39;, &#39;STAN&#39;, &#39;SISTER MARY FRANCIS&#39;, &#39;AXE&#39;, &#39;STEPHEN&#39;, &#39;JENNIFER&#39;, &#39;RONALD&#39;, &#39;CHIEF FITZGERALD&#39;, &#39;SWAYZAK&#39;, &#39;TIM&#39;, &#39;WILLY&#39;, &#39;DENNIS&#39;, &#39;GRINDLE&#39;, &#39;RICCO&#39;, &#39;LT&#39;, &#39;ARIANE&#39;, &#39;FENCE&#39;, &#39;ELDERLY BLACK WOMAN&#39;, &#39;JC&#39;, &#39;JESUS&#39;, &#39;LARGE&#39;, &#39;LITE&#39;, &#39;1/16TH BLACK&#39;, &#39;BIG BLACK&#39;, &#39;HONEYCUTT&#39;, &#39;AUDIENCE&#39;, &#39;SLOAN&#39;, &#39;DELACROIX&#39;, &#39;TAVIS SMILEY&#39;, &#39;CHEEBA&#39;, &#39;MANTAN&#39;, &#39;MANRAY&#39;, &#39;GARY BYRD&#39;, &#39;DUNWITTY&#39;, &#39;JUNEBUG&#39;, &#39;DOT&#39;, &#39;MONA&#39;, &#39;ORCHID&#39;, &#39;JUKKA&#39;, &#39;MYRNA&#39;, &quot;SLEEP &#39;N EAT&quot;, &#39;RODERICK&#39;, &#39;ARMED GENTLEMAN&#39;, &#39;HARRY&#39;, &#39;CAPTAIN BEST&#39;, &#39;CAPTAIN GALGENSTEIN&#39;, &#39;CAPTAIN GROGAN&#39;, &quot;CAPTAIN O&#39;REILLY&quot;, &#39;PRINCE&#39;, &#39;CHEVALIER&#39;, &#39;PRUSSIAN OFFICER&#39;, &#39;COUNT&#39;, &#39;COUNTESS&#39;, &#39;DOROTHY&#39;, &#39;HENRI&#39;, &#39;LORD WEST&#39;, &#39;MINISTER GALGENSTEIN&#39;, &quot;MRS. O&#39;REILLY&quot;, &#39;NEWCOMBE&#39;, &#39;SIR WILLIAM&#39;, &#39;VALDEZ&#39;, &#39;HARDY&#39;, &#39;CHILDS&#39;, &#39;KENDALL&#39;, &#39;MUELLER&#39;, &#39;DUNBAR&#39;, &#39;OSBORNE&#39;, &#39;WEST&#39;, &#39;PIKE&#39;, &#39;STYLES&#39;, &#39;SERGEANT&#39;, &#39;THE CADETS&#39;, &#39;AMOS&#39;, &#39;EDWARD&#39;, &#39;BEAMEN&#39;, &#39;DON PRICE&#39;, &#39;DR. BENNETT&#39;, &#39;WILL&#39;, &#39;JENNY&#39;, &#39;JOSEPHINE&#39;, &#39;KARL&#39;, &#39;SANDRA&#39;, &#39;NORTHER WINSLOW&#39;, &#39;YURI&#39;, &#39;ALEXEI&#39;, &#39;NADIA&#39;, &#39;BRANCH MANAGER&#39;, &#39;OFFICIAL&#39;, &#39;RONNIE&#39;, &#39;ANGELA&#39;, &#39;LAZARUS&#39;, &#39;MAYELLA&#39;, &#39;BOJO&#39;, &#39;RAE&#39;, &#39;BRYAN&#39;, &#39;ELLA MAE&#39;, &#39;GILL&#39;, &#39;TEHRONNE&#39;, &#39;R.L.&#39;, &#39;LINCOLN&#39;, &#39;SANDY&#39;, &#39;ICH&#39;, &#39;CONNIE&#39;, &#39;JOYCE&#39;, &#39;KOBO&#39;, &#39;OLIVER&#39;, &#39;OHASHI&#39;, &#39;SUGAI&#39;, &#39;BATTY&#39;, &#39;TYRELL&#39;, &#39;SEBASTIAN&#39;, &#39;PRIS&#39;, &#39;BRYANT&#39;, &#39;DECKARD&#39;, &#39;CHEW&#39;, &#39;ESPER&#39;, &#39;HOLDEN&#39;, &#39;WHEELER&#39;, &#39;TAFFEY&#39;, &#39;SALOME&#39;, &#39;RACHAEL&#39;, &#39;GAFF&#39;, &quot;DECKARD&#39;S VOICE&quot;, &#39;MISS SWEET&#39;, &#39;ADAM&#39;, &#39;ARON&#39;, &#39;CLIFF&#39;, &#39;EVE&#39;, &#39;SODA JERK&#39;, &#39;CALVIN&#39;, &#39;TROY&#39;, &#39;BELLBOY&#39;, &#39;BYSTANDER #1&#39;, &#39;BUTCHER&#39;, &#39;POSTAL WORKER&#39;, &#39;JERRY&#39;, &#39;ATKINSON&#39;, &#39;LEVY&#39;, &#39;STREET WALKER&#39;, &#39;MOM&#39;, &#39;JEFFREY&#39;, &#39;AUNT BARBARA&#39;, &#39;BEN&#39;, &#39;DETECTIVE WILLIAMS&#39;, &#39;YELLOW MAN&#39;, &#39;F.B.I. MAN&#39;, &#39;RAYMOND&#39;, &#39;MRS. BEAUMONT&#39;, &#39;MRS. WILLIAMS&#39;, &#39;MR. BEAUMONT&#39;, &#39;SMECKER&#39;, &#39;AUGUSTUS&#39;, &#39;YAKAVETTA&#39;, &#39;BOTH&#39;, &#39;CHAFFEY&#39;, &#39;ROCCO&#39;, &#39;CONNOR&#39;, &#39;DOC&#39;, &#39;MURPHY&#39;, &#39;ROZ&#39;, &#39;DOLLY&#39;, &#39;DONNA&#39;, &#39;GREENLY&#39;, &#39;VINCENZO&#39;, &#39;DIGNAN&#39;, &#39;ANTHONY&#39;, &#39;MR. HENRY&#39;, &#39;INEZ&#39;, &#39;APPLEJACK&#39;, &#39;LITTLE RICHARD&#39;, &#39;FUTURE MAN&#39;, &#39;JACKSON&#39;, &#39;COP&#39;, &#39;KUMAR&#39;, &#39;EMPLOYEE&#39;, &#39;MAN&#39;, &#39;GRETKOV&#39;, &#39;ABBOTT&#39;, &#39;PAMELA&#39;, &#39;ZORN&#39;, &#39;BOURNE&#39;, &#39;IRENA&#39;, &#39;JARDA&#39;, &#39;MARIE&#39;, &#39;NICKY&#39;, &#39;CRONIN&#39;, &#39;VIC&#39;, &#39;IVAN&#39;, &#39;PAMELA/PHONE&#39;, &#39;NEVINS/PHONE&#39;, &#39;ARGYLE&#39;, &#39;LEADER&#39;, &#39;WILLIAM&#39;, &#39;CRAIG&#39;, &#39;WALLACE&#39;, &#39;ROBERT&#39;, &#39;LONGSHANKS&#39;, &#39;PRINCESS&#39;, &#39;HAMISH&#39;, &#39;LEPER&#39;, &#39;MAGISTRATE&#39;, &#39;MARION&#39;, &#39;MRS. BOSWELL&#39;, &#39;ANDREA&#39;, &#39;DR. REDFIELD&#39;, &#39;EVAN&#39;, &#39;CARLOS&#39;, &#39;THUMPER&#39;, &#39;KAYLEIGH&#39;, &#39;MR. MILLER&#39;, &#39;JASON&#39;, &#39;HUNTER&#39;, &#39;PROFESSOR CARTER&#39;, &#39;HEIDI&#39;, &#39;LENNY&#39;, &#39;WAITRESS&#39;, &#39;ANNINA&#39;, &#39;BERGER&#39;, &#39;LASZLO&#39;, &#39;EUROPEAN&#39;, &#39;TOURIST&#39;, &#39;FERRARI&#39;, &#39;STRASSER&#39;, &#39;ILSA&#39;, &#39;SAM&#39;, &#39;RENAULT&#39;, &#39;UGARTE&#39;, &#39;CHUCK&#39;, &#39;ALEKSEI&#39;, &#39;GOODCHUCK&#39;, &#39;BADCHUCK&#39;, &#39;BETTINA&#39;, &#39;ERICA&#39;, &#39;KELLY&#39;, &#39;LESLIE&#39;, &#39;DOCTOR&#39;, &#39;DRIVER&#39;, &#39;ROGER&#39;, &#39;TECHNICIAN&#39;, &#39;CHUCK/CAPTAIN&#39;, &#39;LARCH&#39;, &#39;HOMER&#39;, &#39;BUSTER&#39;, &#39;RAY&#39;, &#39;ROSE ROSE&#39;, &#39;WALLY&#39;, &#39;CURLY&#39;, &#39;EDNA&#39;, &#39;FUZZY&#39;, &#39;MARY AGNES&#39;, &#39;MR. ROSE&#39;, &#39;OLIVE&#39;, &#39;MUDDY&#39;, &#39;MRS. GOODHALL&#39;, &#39;MAJOR WINSLOW&#39;, &#39;PEACHES&#39;, &#39;LILY&#39;, &#39;ASHBY&#39;, &#39;JAKE&#39;, &#39;BIG AL&#39;, &#39;BUTCH&#39;, &#39;GILLETTE&#39;, &#39;MILES&#39;, &#39;GORDO&#39;, &#39;KING PIN&#39;, &#39;ROTTOVICH&#39;, &#39;MR. LEWIS&#39;, &#39;LIONEL&#39;, &#39;SALESGIRL&#39;, &#39;LUPUS&#39;, &#39;SUITS&#39;, &#39;SOBOZINSKI&#39;, &#39;MOONAN&#39;, &#39;BELLA&#39;, &#39;DEALER&#39;, &#39;GILES&#39;, &#39;JACK SR.&#39;, &#39;JANI&#39;, &#39;ROSS&#39;, &#39;LUCY&#39;, &#39;REYNOLDS&#39;, &#39;PINBACK&#39;, &#39;BOILER&#39;, &#39;DOOLITTLE&#39;, &#39;BOMB #19&#39;, &#39;BOMB #20&#39;, &#39;TALBY&#39;, &#39;POWELL&#39;, &#39;BLONDE&#39;, &#39;BRUNO&#39;, &#39;DARREN&#39;, &#39;KENDRA&#39;, &#39;ORIGINAL CINDY&#39;, &#39;HERBAL&#39;, &#39;NORMAL&#39;, &#39;INGA&#39;, &#39;LAUREN&#39;, &#39;SOPHY&#39;, &#39;LOGAN&#39;, &#39;LYDIA&#39;, &#39;VOGELSANG&#39;, &#39;SONRISA&#39;, &#39;THEO&#39;, &#39;SKETCHY&#39;, &#39;AMANDA&#39;, &#39;HAWK&#39;, &#39;JAM&#39;, &#39;BETH&#39;, &#39;TRIP&#39;, &#39;CHRISTINE&#39;, &#39;LEX&#39;, &#39;KENNY&#39;, &#39;SCALPER&#39;, &#39;MRS. BRUCE&#39;, &#39;LITTLE KID&#39;, &#39;MAN WITH COAT&#39;, &quot;SIMPLE SIMON&#39;S VOICE&quot;, &quot;TRIP&#39;S VOICE&quot;, &#39;JIM CUNNINGHAM&#39;, &#39;GRETCHEN&#39;, &#39;DR. MONNITOFF&#39;, &#39;DONNIE&#39;, &#39;SAMANTHA&#39;, &#39;SETH&#39;, &#39;MS. FARMER&#39;, &#39;MS. POMEROY&#39;, &#39;DR. THURMAN&#39;, &#39;LEROY&#39;, &#39;PRINCIPAL COLE&#39;, &#39;SEAN&#39;, &#39;AMBER&#39;, &#39;LORETTA&#39;, &#39;GLADYS&#39;, &#39;MR. LARSON&#39;, &#39;ANNETTE&#39;, &#39;IRIS&#39;, &#39;BECKY&#39;, &#39;BRETT&#39;, &#39;TERRY&#39;, &#39;COLLEEN&#39;, &#39;DOCUMENTARIAN&#39;, &#39;PREGNANT FRY GIRL&#39;, &#39;FRY GIRL #1&#39;, &#39;LESTER&#39;, &#39;HAROLD&#39;, &#39;HANK&#39;, &#39;MR. HOWARD&#39;, &#39;TINA&#39;, &#39;GROUCHO&#39;, &#39;ALL&#39;, &#39;CHICO&#39;, &#39;MRS. TEASDALE&#39;, &#39;TRENTINO&#39;, &#39;ENSEMBLE&#39;, &#39;VERA&#39;, &#39;MERRICK&#39;, &#39;ANNE&#39;, &#39;TREVES&#39;, &#39;BOY&#39;, &#39;BYTES&#39;, &#39;CARR&#39;, &#39;FOX&#39;, &#39;K. HEN&#39;, &#39;KATH&#39;, &#39;KENDAL&#39;, &#39;PLUMED DWARF&#39;, &#39;NORA&#39;, &#39;MOTHERSHEAD&#39;, &#39;NIGHT PORTER&#39;, &#39;OWNER&#39;, &#39;KING ARNULF&#39;, &#39;AUD&#39;, &#39;ERIK&#39;, &#39;LOKI&#39;, &#39;FREYA&#39;, &#39;HELGA&#39;, &#39;THORFINN&#39;, &#39;GRANDFATHER&#39;, &#39;IVAR&#39;, &quot;SVEN&#39;S DAD&quot;, &#39;ODIN&#39;, &#39;SNORRI&#39;, &#39;GRANDAD&#39;, &#39;KEITEL&#39;, &#39;SVEN&#39;, &#39;LEIF&#39;, &#39;HARALD&#39;, &quot;THORFINN&#39;S MUM&quot;, &#39;JOEL&#39;, &#39;CARRIE&#39;, &#39;CLEMENTINE&#39;, &#39;VOICE-OVER&#39;, &#39;MIERZWIAK&#39;, &quot;CLEMENTINE&#39;S VOICE&quot;, &quot;NAOMI&#39;S VOICE&quot;, &#39;NAOMI&#39;, &quot;STAN&#39;S VOICE&quot;, &#39;OLD WOMAN&#39;, &#39;CHINK&#39;, &#39;SISSY&#39;, &#39;HOWARD&#39;, &#39;JELLY&#39;, &#39;THE COUNTESS&#39;, &#39;JULIAN&#39;, &#39;JUSTIN&#39;, &#39;COOPER&#39;, &#39;SMITH&#39;, &#39;WEIR&#39;, &#39;STARCK&#39;, &#39;DJ&#39;, &#39;PETERS&#39;, &#39;HOLLIS&#39;, &#39;LYLE&#39;, &#39;ALICIA&#39;, &#39;THE THING&#39;, &#39;SUE&#39;, &#39;VICTOR&#39;, &#39;REED&#39;, &#39;JOHNNY&#39;, &#39;SEXY NURSE&#39;, &#39;LEONARD&#39;, &#39;ARNOLD&#39;, &#39;BRAD&#39;, &#39;SPICOLI&#39;, &#39;BUSINESSMAN&#39;, &#39;STACY&#39;, &#39;CURTIS&#39;, &#39;DAMONE&#39;, &#39;THE RAT&#39;, &#39;LINDA&#39;, &#39;GRIFFIN&#39;, &#39;L.C.&#39;, &#39;MR. HAND&#39;, &#39;RON&#39;, &#39;DUKE&#39;, &#39;DA&#39;, &#39;GONZO&#39;, &#39;PROPRIETOR&#39;, &#39;HITCHHIKER&#39;, &#39;MAID&#39;, &#39;HIGHWAY PATROLMAN&#39;, &#39;ADULTERER&#39;, &#39;TRAMPY&#39;, &#39;HEROINE&#39;, &#39;BOSS MAN&#39;, &#39;BEER GUY&#39;, &#39;BOZO&#39;, &#39;ROADIE&#39;, &#39;PARA&#39;, &#39;BELLE&#39;, &#39;GRANDPA&#39;, &#39;GOLDIE&#39;, &#39;GOOD GUY&#39;, &#39;TUFFY&#39;, &#39;SICKLY BROWNIE&#39;, &#39;TROOP LEADER&#39;, &#39;BARNES&#39;, &#39;FRANCES&#39;, &#39;BEBE&#39;, &#39;LAWYER&#39;, &#39;CLAIRE&#39;, &#39;CLIFFORD&#39;, &#39;CLURMAN&#39;, &#39;DICK&#39;, &#39;DOYLE&#39;, &#39;DRAMA TEACHER&#39;, &#39;EDWARDS&#39;, &#39;ERNEST&#39;, &#39;FIRE CHIEF&#39;, &#39;YOUNG MAN&#39;, &#39;JUDGE&#39;, &#39;ODETS&#39;, &quot;JUDGE HILLIER&#39;S WIFE&quot;, &#39;SYMINGTON&#39;, &#39;KAMINSKI&#39;, &#39;YORK &amp; CROWD&#39;, &#39;OLDER NURSE&#39;, &#39;YOUNG NURSE&#39;, &#39;CREATURE&#39;, &#39;WALTON&#39;, &#39;JUSTINE&#39;, &#39;GRIGORI&#39;, &#39;WALDMAN&#39;, &#39;PROSECUTOR&#39;, &#39;KREMPE&#39;, &#39;MRS. VOORHEES&#39;, &#39;BRENDA&#39;, &#39;STEVE&#39;, &#39;NED&#39;, &#39;BARRY&#39;, &#39;CLAUDETTE&#39;, &#39;MARCIE&#39;, &#39;TIERNEY&#39;, &#39;BORDER GUARD&#39;, &#39;SCOTT&#39;, &#39;KATE&#39;, &#39;RICHARD&#39;, &#39;STANLEY CHASE&#39;, &#39;KELLY HOUGE&#39;, &#39;PETE&#39;, &#39;MCGRAW&#39;, &#39;RAZOR CHARLIE&#39;, &#39;JORDAN&#39;, &#39;BLONDELL&#39;, &#39;DEHAVEN&#39;, &#39;C.O.&#39;, &#39;CORTEZ&#39;, &#39;MCCOOL&#39;, &quot;DEHAVEN&#39;S AIDE&quot;, &#39;HAYES&#39;, &#39;FLAG OFFICER #1&#39;, &#39;FLEA&#39;, &#39;INSTRUCTOR JOHNS&#39;, &#39;THE CHIEF&#39;, &#39;INSTRUCTOR PYRO&#39;, &#39;ROYCE&#39;, &#39;WICKWIRE&#39;, &#39;SLUTNIK&#39;, &#39;THE SPOOK&#39;, &#39;ANIMAL&#39;, &#39;AUDREY&#39;, &#39;KID&#39;, &#39;CAIMAN&#39;, &#39;ELSIE&#39;, &#39;JEAN-CLAUDE&#39;, &#39;MAJOR HICKS&#39;, &#39;LT. ANDERSON&#39;, &#39;MAYOR&#39;, &#39;QUELLEK&#39;, &#39;ALEXANDER&#39;, &#39;GWEN&#39;, &#39;BRANDON&#39;, &#39;KYLE&#39;, &#39;COMPUTER&#39;, &#39;FRED&#39;, &#39;NERVOUS TECH&#39;, &#39;GUY&#39;, &#39;SARRIS&#39;, &#39;MATHESAR&#39;, &#39;LATHE&#39;, &#39;HAMILTON&#39;, &#39;WASHINGTON&#39;, &#39;BILLY LEE&#39;, &#39;MAWHOOD&#39;, &#39;CORNWALLIS&#39;, &#39;GENERAL LEE&#39;, &#39;HORATIO GATES&#39;, &#39;JOHN ADAMS&#39;, &#39;SAM ADAMS&#39;, &#39;NATHANAEL GREENE&#39;, &#39;JOSEPH REED&#39;, &#39;LAFAYETTE&#39;, &#39;MARTHA&#39;, &#39;SALLY&#39;, &#39;YOUNG WASHINGTON&#39;, &#39;CHILI&#39;, &#39;BEAR&#39;, &#39;BO CATLETT&#39;, &#39;ESCOBAR&#39;, &#39;BONES&#39;, &#39;RAY BONES&#39;, &#39;MARTIN&#39;, &#39;LEO&#39;, &#39;KAREN&#39;, &#39;DORIS&#39;, &#39;COASTGUARD DISPATCHER&#39;, &#39;GREER&#39;, &#39;DODGE&#39;, &#39;EPPS&#39;, &#39;RIVETER&#39;, &#39;VASILI&#39;, &#39;ENID&#39;, &#39;DAD&#39;, &#39;DANA&#39;, &#39;SEYMOUR&#39;, &#39;ROBERTA&#39;, &#39;JOSH&#39;, &#39;REBECCA&#39;, &#39;TODD&#39;, &#39;MELORRA&#39;, &#39;MAXINE&#39;, &#39;JOHN ELLIS&#39;, &#39;GERROLD&#39;, &#39;MARGARET&#39;, &#39;PATTERSON&#39;, &#39;ABDULLAH&#39;, &#39;REDBEARD&#39;, &#39;BEAUMONT&#39;, &#39;HAWTHORNE&#39;, &#39;STARLING&#39;, &#39;HELENA&#39;, &#39;MIDDLE COOLIE&#39;, &#39;SAMUEL&#39;, &#39;JANOSZ&#39;, &#39;SPENGLER&#39;, &#39;VENKMAN&#39;, &#39;STANTZ&#39;, &#39;HARDEMEYER&#39;, &#39;JANINE&#39;, &#39;LOUIS&#39;, &#39;VIGO&#39;, &#39;SHERMAN&#39;, &#39;WINSTON&#39;, &#39;BRIDE&#39;, &#39;GROOM&#39;, &#39;COED&#39;, &#39;DEAN YAEGER&#39;, &#39;FIRST BUM&#39;, &#39;SECOND BUM&#39;, &#39;HEAD LIBRARIAN&#39;, &#39;PECK&#39;, &#39;SOPHOMORE&#39;, &#39;STREET PUNK&#39;, &#39;COMMODUS&#39;, &#39;LUCILLA&#39;, &#39;NARCISSUS&#39;, &#39;FALCO&#39;, &#39;QUINTUS&#39;, &#39;TRIBUUS&#39;, &#39;PROXIMO&#39;, &#39;COS&#39;, &#39;GAIUS&#39;, &#39;GRACCHUS&#39;, &#39;JUBA&#39;, &#39;MARCUS AURELIUS&#39;, &#39;THEMIS&#39;, &#39;SELENE&#39;, &quot;WOMAN&#39;S VOICE&quot;, &#39;MR. MCQUIRE&#39;, &#39;MR. MCCLEERY&#39;, &quot;MRS. ROBINSON&#39;S VOICE&quot;, &#39;ROOM CLERK&#39;, &#39;MRS. ROBINSON&#39;, &#39;MRS. SINGLEMAN&#39;, &#39;MRS. BRADDOCK&#39;, &#39;MR. BRADDOCK&#39;, &#39;MR. ROBINSON&#39;, &quot;BEN&#39;S VOICE&quot;, &#39;KRINGELEIN&#39;, &#39;A MAN&#39;, &#39;BARON&#39;, &#39;CHAUFFEUR&#39;, &#39;FLAEMMCHEN&#39;, &#39;GRUSINSKAYA&#39;, &#39;PIMENOV&#39;, &#39;PREYSING&#39;, &#39;SENF&#39;, &#39;WAITZ&#39;, &#39;GERSTENKORN&#39;, &#39;ZINNOWITZ&#39;, &#39;SCHWEIMANN&#39;, &#39;SUZETTE&#39;, &#39;MEIERHEIM&#39;, &#39;ROHNA&#39;, &#39;LILLY&#39;, &#39;BOBO&#39;, &#39;MYRA&#39;, &#39;HEBBING&#39;, &#39;IRV&#39;, &#39;JEWELER&#39;, &#39;ROY&#39;, &#39;KAGGS&#39;, &#39;MINTZ&#39;, &#39;PIERSON&#39;, &#39;SIMMS&#39;, &#39;BLAKE&#39;, &#39;CARTER&#39;, &#39;KERI&#39;, &#39;DEPUTY CLARK&#39;, &#39;SHANE&#39;, &#39;MOLLY&#39;, &#39;KARA&#39;, &#39;DEBRA&#39;, &#39;LOOMIS&#39;, &#39;JAMIE&#39;, &#39;HARRY SIMMS&#39;, &#39;WYNN&#39;, &#39;LOOSELEAF&#39;, &#39;SHUTTLE&#39;, &#39;PAUL&#39;, &#39;PENELOPE&#39;, &#39;WOODLY&#39;, &#39;MILDRED&#39;, &#39;WANDA JUNE&#39;, &#39;VON KONIGSWALD&#39;, &#39;BEATRICE&#39;, &#39;BLACK STUD&#39;, &#39;BURROWS&#39;, &#39;MAST&#39;, &#39;FELICE&#39;, &#39;GIRL AT THE WINDOW&#39;, &#39;HOPE&#39;, &#39;NIKI&#39;, &#39;WES&#39;, &#39;JISM JIM&#39;, &#39;TOD&#39;, &#39;RAMADA&#39;, &#39;MARSHA&#39;, &#39;RUCKER&#39;, &#39;MRS. CHASEN&#39;, &#39;MAUDE&#39;, &#39;EDITH&#39;, &#39;GLAUCUS&#39;, &#39;SUNSHINE&#39;, &#39;PSYCHIATRIST&#39;, &#39;UNCLE VICTOR&#39;, &#39;PINHEAD&#39;, &#39;FEMALE CENOBITE&#39;, &#39;JULIA&#39;, &#39;KIRSTY&#39;, &#39;MALAHIDE&#39;, &#39;TIFFANY&#39;, &#39;RONSON&#39;, &#39;MANNING&#39;, &#39;ABE&#39;, &#39;HELLBOY&#39;, &quot;ABE&#39;S VOICE&quot;, &#39;WHITMAN&#39;, &#39;BROOM&#39;, &#39;MATLIN&#39;, &#39;MYERS&#39;, &#39;CLAY&#39;, &#39;GRIGORY&#39;, &#39;LIZ&#39;, &#39;LOBBY GUARD&#39;, &#39;1ST MAN&#39;, &#39;2ND MAN&#39;, &#39;CENOBITE&#39;, &#39;PRUDHOE&#39;, &#39;ROB&#39;, &quot;ALISON&#39;S MOM&quot;, &#39;CUSTOMER&#39;, &#39;LAURA&#39;, &#39;CAROLINE&#39;, &#39;IAN&#39;, &#39;VINCE&#39;, &#39;BRENNA&#39;, &#39;EXAMINER&#39;, &#39;KIDELL&#39;, &#39;DESK OFFICER&#39;, &#39;TAUPIN&#39;, &#39;UNCLE JOE&#39;, &#39;MORAN&#39;, &#39;LIBRARIAN&#39;, &#39;SUPERVISOR&#39;, &#39;CONOR&#39;, &#39;TAVERN MAN #2&#39;, &#39;ROMIREZ&#39;, &#39;MARA&#39;, &#39;KATHERINE&#39;, &#39;DUPONT&#39;, &#39;KNIGHT&#39;, &#39;MAJOR&#39;, &#39;MULET&#39;, &#39;GRANDSON&#39;, &#39;INTRUDER&#39;, &#39;KAHN&#39;, &quot;KNIGHT&#39;S VOICE&quot;, &#39;TRAVELLER&#39;, &#39;MR. NORTH&#39;, &#39;BENSINGER&#39;, &#39;HILDY&#39;, &#39;BURNS&#39;, &#39;HARTMAN&#39;, &#39;MRS. BALDWIN&#39;, &#39;LOUIE&#39;, &#39;COOLEY&#39;, &#39;EGELHOFFER&#39;, &#39;WILLIAMS&#39;, &#39;ENDICOTT&#39;, &#39;MCCUE&#39;, &#39;GUS&#39;, &#39;PINKUS&#39;, &#39;LIEUTENANT&#39;, &#39;WILSON&#39;, &#39;SCHWARTZ&#39;, &#39;MOLLIE&#39;, &#39;GRANDFATHER GEORGE&#39;, &#39;DAWN&#39;, &#39;CLIVE&#39;, &#39;MAC&#39;, &#39;GRACE&#39;, &#39;GRANDMA&#39;, &#39;BABY&#39;, &#39;CASHIER&#39;, &#39;CAPT. SPAULDING&#39;, &#39;DENISE&#39;, &#39;WYDELL&#39;, &#39;STUCKY&#39;, &#39;MR. WILLIS&#39;, &#39;HUSTON&#39;, &#39;NAISH&#39;, &#39;OTIS&#39;, &#39;FEMALE ROOMMATE&#39;, &#39;LILA&#39;, &#39;PUFF&#39;, &#39;GABRIELLE&#39;, &#39;NATHAN&#39;, &#39;WENDALL&#39;, &#39;OLDER WOMAN&#39;, &#39;SARAH&#39;, &#39;BERT&#39;, &#39;FINDLEY&#39;, &#39;BIG JOHN&#39;, &#39;PLAYER&#39;, &#39;FATS&#39;, &#39;NEVILLE&#39;, &#39;FRENCH VOICE&#39;, &#39;VIRGINIA&#39;, &quot;DAD&#39;S VOICE&quot;, &#39;PRINCIPAL&#39;, &#39;PHILIP&#39;, &#39;CONSTANCE&#39;, &#39;MOISHE&#39;, &#39;MARTY&#39;, &#39;GENERAL GREY&#39;, &#39;NIMZIKI&#39;, &#39;SECOND OFFICER&#39;, &#39;JASMINE&#39;, &#39;MIGUEL&#39;, &#39;RUSSELL&#39;, &#39;OKUN&#39;, &#39;OKUN/ALIEN&#39;, &#39;SALLAH&#39;, &#39;BRODY&#39;, &#39;INDY&#39;, &#39;DONOVAN&#39;, &#39;BUTLER&#39;, &#39;ELSA&#39;, &#39;KAZIM&#39;, &#39;CAPT. BLUMBURTT&#39;, &#39;CHATTAR LAL&#39;, &#39;INDIANA&#39;, &#39;WILLIE&#39;, &#39;LAO&#39;, &#39;SHORT ROUND&#39;, &#39;MOLA RAM&#39;, &#39;SHAMAN&#39;, &#39;AL&#39;, &#39;OUTSIDE -&#39;, &#39;RENE&#39;, &#39;BURR&#39;, &#39;DIETER&#39;, &#39;COLIN&#39;, &#39;FINNEGAN&#39;, &#39;GRUNER&#39;, &#39;WAITER&#39;, &#39;RYUJI&#39;, &#39;RECEPTIONIST.&#39;, &#39;TECH 3&#39;, &#39;TECH 2&#39;, &#39;BARBARA&#39;, &#39;WIGAND&#39;, &#39;LIANE&#39;, &#39;LOWELL&#39;, &quot;BILL ROBERTSON&#39;S VOICE&quot;, &#39;CHARLIE PHILLIPS&#39;, &#39;DEBBIE DELUCA&#39;, &#39;DEBORAH&#39;, &#39;DON HEWITT&#39;, &#39;ERIC KLUSTER&#39;, &#39;FBI AGENT #2&#39;, &#39;FELLING&#39;, &#39;MIKE WALLACE&#39;, &#39;HELEN CAPERELLI&#39;, &#39;JIM COOPER&#39;, &quot;JIM COOPER&#39;S VOICE&quot;, &quot;LIANE&#39;S VOICE&quot;, &quot;WIGAND&#39;S VOICE&quot;, &#39;RICHARD SCRUGGS&#39;, &#39;THE SHEIKH&#39;, &quot;THE HOTEL MANAGER&#39;S VOICE&quot;, &quot;LOWELL&#39;S VOICE&quot;, &#39;MICHAEL MOORE&#39;, &#39;MOTLEY&#39;, &#39;TOBACCO LAWYER&#39;, &#39;THOMAS SANDEFUR&#39;, &#39;BONNIE&#39;, &#39;MARYLIN&#39;, &#39;GANGSTER&#39;, &#39;RUTH&#39;, &#39;KENNETH&#39;, &#39;WITNESS&#39;, &#39;RAMONA&#39;, &#39;REX&#39;, &#39;WRIGLEY&#39;, &#39;PATRICIA&#39;, &#39;ANDREWS&#39;, &#39;LOVINGTON&#39;, &#39;PETER&#39;, &#39;ELLIE&#39;, &#39;WESTLEY&#39;, &#39;CAPTAIN&#39;, &#39;KING&#39;, &#39;DANKER&#39;, &quot;PETER&#39;S VOICE&quot;, &#39;SHAPELEY&#39;, &quot;ELLIE&#39;S VOICE&quot;, &#39;SECOND PILOT&#39;, &#39;FIRST PILOT&#39;, &#39;FIRST POLICEMAN&#39;, &#39;GORDON&#39;, &#39;BANISTER&#39;, &#39;SUSIE&#39;, &#39;LOU&#39;, &#39;MOBSTER&#39;, &quot;O&#39;KEEFE&quot;, &#39;CORONER&#39;, &#39;GOLDBERG&#39;, &#39;DYMOND&#39;, &#39;SHAW&#39;, &#39;FERRIE&#39;, &#39;FINCK&#39;, &#39;JUDGE HAGGERTY&#39;, &#39;GARRISON&#39;, &#39;JASPER&#39;, &#39;JEAN HILL&#39;, &#39;MERCER&#39;, &#39;LONG&#39;, &#39;JOHNSON&#39;, &#39;X&#39;, &#39;NUMA&#39;, &#39;RUBY&#39;, &#39;JACKIE&#39;, &#39;ANITA&#39;, &#39;ORDELL&#39;, &#39;DARGUS&#39;, &#39;NICOLET&#39;, &#39;PUBLIC DEFENDER&#39;, &#39;SHERONDA&#39;, &#39;MELANIE&#39;, &#39;&quot;DOCTOR&quot;&#39;, &#39;DELLA&#39;, &#39;DOORMAN&#39;, &#39;DOUG&#39;, &#39;ELI&#39;, &#39;GABE&#39;, &#39;GEARY&#39;, &#39;GEORGE&#39;, &#39;ROD&#39;, &#39;STERN&#39;, &#39;RESIDENT&#39;, &#39;JEZZIE&#39;, &#39;MRS. CARMICHAEL&#39;, &#39;AZRAEL&#39;, &#39;DALLAS&#39;, &#39;RIZZO&#39;, &#39;BOEMAN&#39;, &#39;BRODSKI&#39;, &#39;JANESSA&#39;, &#39;THORGAN&#39;, &#39;DELONGPRE&#39;, &#39;YLLO&#39;, &#39;KICKER&#39;, &#39;KAY-EM 14&#39;, &#39;FAT LOU&#39;, &#39;KKINSA&#39;, &#39;PEREZ&#39;, &#39;QUINT&#39;, &#39;ELLEN&#39;, &#39;VAUGHN&#39;, &#39;HOOPER&#39;, &#39;CASSIDY&#39;, &#39;HENDRICKS&#39;, &#39;MEADOWS&#39;, &#39;DENHERDER&#39;, &quot;ELLEN&#39;S VOICE&quot;, &quot;BLEEKER&#39;S MOM&quot;, &#39;BLEEKER&#39;, &#39;JUNO&#39;, &#39;VIJAY&#39;, &#39;BREN&#39;, &#39;ULTRASOUND TECH&#39;, &#39;GERTA&#39;, &#39;GUY LAB PARTNER&#39;, &#39;GIRL LAB PARTNER&#39;, &#39;SU-CHIN&#39;, &#39;PUNK RECEPTIONIST&#39;, &#39;ROLLO&#39;, &#39;LEAH&#39;, &#39;ADELE&#39;, &#39;EARLY&#39;, &#39;CAROL&#39;, &#39;PAROLE OFFICER&#39;, &#39;POLICE OFFICER&#39;, &#39;BLACK NURSE&#39;, &#39;TELLY&#39;, &#39;CASPER&#39;, &#39;JENNIE&#39;, &#39;HOODLUM&#39;, &#39;DARCY&#39;, &#39;FIDGET&#39;, &#39;TAMARA&#39;, &#39;WHITE NURSE&#39;, &#39;TAXI DRIVER&#39;, &#39;MISHA&#39;, &#39;KOREAN STORE OWNER&#39;, &#39;SUSAN&#39;, &#39;STEVEN&#39;, &#39;ANDY&#39;, &#39;KATHY&#39;, &#39;CALLER&#39;, &#39;DOCTOR FULTON&#39;, &#39;NOLAN&#39;, &#39;JEREMY&#39;, &#39;YURILIVICH&#39;, &#39;COLWYN&#39;, &#39;LYSSA&#39;, &#39;TUROLD&#39;, &#39;YNYR&#39;, &#39;CYCLOPS&#39;, &#39;VELLA&#39;, &#39;ERGO&#39;, &#39;TORQUIL&#39;, &#39;TITCH&#39;, &#39;VOICE OF THE BEAST&#39;, &#39;QUEEN&#39;, &#39;ROWAN&#39;, &#39;SEER&#39;, &#39;WIDOW&#39;, &#39;MATHILDA&#39;, &#39;TONY&#39;, &#39;THE BOSS&#39;, &#39;RINALDI&#39;, &#39;STANSFIELD&#39;, &#39;ADELLE&#39;, &#39;GERALD&#39;, &#39;MAURICE&#39;, &#39;DALLY&#39;, &#39;DENNY&#39;, &#39;DR. RAY&#39;, &#39;DR. ROYCE&#39;, &#39;TANDY&#39;, &#39;HANSEN&#39;, &#39;ISAAC&#39;, &#39;JOSELLE&#39;, &#39;KRIS&#39;, &#39;MICHELLE&#39;, &#39;STEPHANIE&#39;, &#39;MR. CALDWELL&#39;, &#39;SERA&#39;, &#39;CONVENTIONEER&#39;, &#39;ELLE&#39;, &#39;ADVISOR&#39;, &#39;BROOKE&#39;, &#39;EMMETT&#39;, &#39;CHUTNEY&#39;, &#39;DEWEY&#39;, &#39;ENRIQUE&#39;, &#39;DORKY DAVID&#39;, &#39;PROFESSOR STROMWELL&#39;, &#39;PAULETTE&#39;, &#39;MARGOT&#39;, &#39;SERENA&#39;, &#39;PROFESSOR DONOVAN&#39;, &#39;FUZZY 2L&#39;, &#39;MRS. WINDHAM VANDERMARK&#39;, &#39;1ST DEMON&#39;, &#39;2ND DEMON&#39;, &#39;LILI&#39;, &#39;DRAGON&#39;, &#39;OGG&#39;, &#39;GUMP&#39;, &#39;SCREWBALL&#39;, &#39;OONA&#39;, &#39;THURGIS&#39;, &#39;RYAN&#39;, &#39;ROBIN&#39;, &#39;ALYSSA&#39;, &#39;KURT&#39;, &#39;COREY&#39;, &#39;ABERNATHY&#39;, &#39;MAE ROSE&#39;, &#39;BISCUIT&#39;, &#39;BLOCKER&#39;, &#39;CLAUDE&#39;, &#39;BOUNCER&#39;, &#39;YVETTE&#39;, &#39;WILKINS&#39;, &#39;DILLARD&#39;, &#39;SYLVIA&#39;, &#39;JANGLE LEG&#39;, &#39;COOKIE&#39;, &quot;HOPPIN&#39; BOB&quot;, &#39;GOLDMOUTH&#39;, &#39;MAMA GIBSON&#39;, &#39;NURSE HUMPHRIES&#39;, &#39;POKER FACE&#39;, &#39;RADIO&#39;, &#39;SLIM&#39;, &#39;SPANKY&#39;, &#39;ADRIAN&#39;, &#39;CASSIUS&#39;, &#39;ANGEL&#39;, &#39;CHRISTA&#39;, &#39;BEEFY&#39;, &#39;LUCIFER&#39;, &#39;JIMMY THE DEMON&#39;, &#39;GATEKEEPER&#39;, &#39;REGIS&#39;, &#39;KATHY LEE&#39;, &#39;STUDENT&#39;, &#39;VALERIE&#39;, &#39;STREET VENDOR&#39;, &#39;BOX&#39;, &#39;FRANCIS&#39;, &#39;HOLLY&#39;, &#39;JESSICA&#39;, &#39;&quot;V&quot;&#39;, &#39;RENEE&#39;, &#39;ED&#39;, &#39;ARNIE&#39;, &#39;WARDEN&#39;, &#39;CAPTAIN HENDERSON&#39;, &#39;JOHNNY MACK&#39;, &#39;DR. ROGOFF&#39;, &#39;MR. EDDY&#39;, &#39;MYSTERY MAN&#39;, &#39;RAQUEL&#39;, &#39;MARIAN&#39;, &#39;ASSISTANT SECRETARY&#39;, &#39;CHANG&#39;, &#39;BARNARD&#39;, &#39;LOVETT&#39;, &#39;CONWAY&#39;, &#39;GLORIA&#39;, &#39;MARIA&#39;, &#39;HIGH LAMA&#39;, &#39;LAMA&#39;, &#39;SONDRA&#39;, &#39;KAY&#39;, &#39;COWAN&#39;, &#39;ZED&#39;, &#39;DEE&#39;, &#39;INS LEADER&#39;, &#39;JAY&#39;, &#39;LAUREL&#39;, &#39;JEEBS&#39;, &#39;YAZ&#39;, &#39;MIKEY&#39;, &quot;ZED&#39;S VOICE&quot;, &#39;AGATHA&#39;, &#39;ANDERTON&#39;, &#39;LARA&#39;, &#39;DR. EDDIE&#39;, &#39;GIDEON&#39;, &#39;BURGESS&#39;, &#39;FLETCHER&#39;, &#39;JAD&#39;, &#39;WITWER&#39;, &#39;RUFUS&#39;, &#39;CROW&#39;, &quot;ANDERTON&#39;S VOICE&quot;, &#39;KNOTT&#39;, &#39;ARTHUR&#39;, &#39;BOBBY&#39;, &#39;HORRACE&#39;, &#39;RICKY&#39;, &#39;BELLMAN&#39;, &#39;CYNTHIA&#39;, &#39;WENDY&#39;, &#39;CHLOE&#39;, &#39;JESS&#39;, &#39;HORNY GUY&#39;, &#39;RUIZ&#39;, &#39;HISPANIC KID&#39;, &#39;WELSHMAN&#39;, &#39;SCREECH&#39;, &#39;FLIGHT ATTENDANT&#39;, &#39;MALCOLM&#39;, &#39;ARCHIE&#39;, &#39;SAMMY&#39;, &#39;BEMBRY&#39;, &#39;BENJAMIN 2X&#39;, &#39;BETTY&#39;, &#39;BROTHER EARL&#39;, &#39;CHAPLAIN GILL&#39;, &#39;DR. PAYSON&#39;, &#39;ELIJAH&#39;, &#39;GREGORY&#39;, &#39;VOICE OF MALCOLM X&#39;, &#39;LOUISE&#39;, &#39;MISS DUNNE&#39;, &#39;SIDNEY&#39;, &#39;SOPHIA&#39;, &#39;SHORTY&#39;, &#39;RUDY&#39;, &#39;PLAINCLOTHES&#39;, &#39;SISTER LUCILLE&#39;, &quot;MALCOLM&#39;S VOICE&quot;, &#39;MRS. SWERLIN&#39;, &#39;CREASY&#39;, &#39;MANZANO&#39;, &#39;CUSTOMS&#39;, &#39;ROSANNA&#39;, &#39;REINA&#39;, &#39;GUARDIAN TWO&#39;, &#39;SISTER ANNA&#39;, &#39;JORGE&#39;, &#39;DANIEL&#39;, &#39;TAZINARI&#39;, &#39;RAYBURN&#39;, &#39;PINTA&#39;, &quot;CREASY&#39;S VOICE&quot;, &#39;DR. KEEGAN&#39;, &#39;ANGIE&#39;, &#39;MRS. PILLETTI&#39;, &#39;CATHERINE&#39;, &#39;CLARA&#39;, &#39;SECOND IRISH WOMAN&#39;, &#39;FIRST IRISH WOMAN&#39;, &#39;THOMAS&#39;, &#39;RALPH&#39;, &#39;MRS. FUSARI&#39;, &#39;HAWKEYE&#39;, &#39;DAGO RED&#39;, &#39;TRAPPER&#39;, &#39;HO-JON&#39;, &#39;SPEARCHUCKER&#39;, &#39;HOT LIPS&#39;, &#39;GENERAL HAMMOND&#39;, &#39;RADAR&#39;, &#39;MEDICAL CORPS SERGEANT&#39;, &#39;LIEUTENANT DISH&#39;, &#39;KOREAN DOCTOR&#39;, &#39;LIEUTENANT SCORCH&#39;, &#39;SECOND MEDICAL CORPS SERGEANT&#39;, &#39;ME LAY&#39;, &#39;PAINLESS&#39;, &#39;UGLY JOHN&#39;, &#39;ANN&#39;, &#39;D. B.&#39;, &#39;CONNELL&#39;, &#39;COLONEL&#39;, &#39;TALL CHAP&#39;, &#39;BEANY&#39;, &quot;BERT&#39;S WIFE&quot;, &#39;SOURPUSS&#39;, &#39;MRS. MITCHELL&#39;, &#39;BAFFERT&#39;, &#39;ROPER&#39;, &#39;KORDA&#39;, &#39;CLARENCE&#39;, &#39;MCCALL&#39;, &#39;EARL&#39;, &#39;JAIL GUARD #2&#39;, &#39;KIMURA&#39;, &#39;OFFICER #1&#39;, &#39;TRACK ANNOUNCER&#39;, &#39;SOLIS&#39;, &#39;CHRISTOPH&#39;, &#39;HALDEN&#39;, &#39;DIGITAL GENA&#39;, &#39;GENA&#39;, &#39;TANNER&#39;, &#39;DEX&#39;, &#39;KATIE&#39;, &#39;SYNTHETIC VOICE&#39;, &#39;ALPHA 5&#39;, &#39;AISHA&#39;, &#39;DULCEA&#39;, &#39;ZORDON&#39;, &#39;KIMBERLY&#39;, &#39;ROCKY&#39;, &#39;SKULL&#39;, &#39;BULK&#39;, &#39;GOLDAR&#39;, &#39;MORDANT&#39;, &#39;RITA&#39;, &#39;ZEDD&#39;, &#39;AL CAPONE&#39;, &#39;LUCIANO&#39;, &#39;BOBBY CLOWES&#39;, &#39;BOO-BOO HOFF&#39;, &#39;LANSKY&#39;, &#39;CAPONE&#39;, &#39;GAY ORLOVA&#39;, &#39;ROTHSTEIN&#39;, &#39;SIEGEL&#39;, &#39;DETECTIVE MULLAVEY&#39;, &#39;JOE PROFACI&#39;, &#39;MASSERIA&#39;, &#39;MARANZANO&#39;, &#39;MAD DOG COLL&#39;, &#39;JULIE&#39;, &#39;STU&#39;, &#39;BULL&#39;, &#39;DEATH&#39;, &#39;KIMMY&#39;, &#39;DR. EDELSTEIN&#39;, &#39;STU-BONE&#39;, &#39;HERB&#39;, &#39;HUTCH&#39;, &#39;HYPNOS&#39;, &#39;KITTY&#39;, &#39;MONKEYBONE&#39;, &#39;DISCIPLE PROSPECT&#39;, &#39;PAULA&#39;, &#39;MARIKA&#39;, &#39;MISCHA&#39;, &#39;JEFFERSON&#39;, &#39;CHAIRMAN&#39;, &#39;MCGANN&#39;, &#39;COOK&#39;, &#39;SAUNDERS&#39;, &#39;DIZ&#39;, &#39;HUBERT&#39;, &#39;PAINE&#39;, &#39;GRIFFITH&#39;, &#39;TAYLOR&#39;, &#39;JIMMIE&#39;, &#39;SENATOR&#39;, &#39;VOICES&#39;, &#39;SPIELER&#39;, &#39;NOSEY&#39;, &#39;2ND BODYGUARD&#39;, &#39;LONGFELLOW&#39;, &#39;AGENT&#39;, &#39;CEDAR&#39;, &#39;JANE&#39;, &#39;APPLICANT&#39;, &#39;BABE&#39;, &quot;LONGFELLOW&#39;S VOICE&quot;, &#39;MABEL&#39;, &#39;BUDINGTON&#39;, &#39;FARMER&#39;, &#39;BUTLERS&#39;, &#39;FIRST BROTHER&#39;, &#39;COBB&#39;, &#39;MRS. MEREDITH&#39;, &#39;DOUGLAS&#39;, &#39;VON HOLLER&#39;, &#39;DR. FOSDICK&#39;, &#39;HALLOR&#39;, &#39;HENABERRY&#39;, &#39;MORROW&#39;, &#39;SVENSON&#39;, &#39;ALTHEA&#39;, &#39;MUMFORD&#39;, &#39;CORRECTIONAL OFFICER&#39;, &#39;SHEELER&#39;, &#39;DELBANCO&#39;, &#39;FOLLETT&#39;, &#39;GILROY&#39;, &#39;JUDGE OTTO&#39;, &#39;SKIP&#39;, &#39;SOFIE&#39;, &#39;MRS. COOK&#39;, &#39;NESSA&#39;, &quot;O&#39;CONNELL&quot;, &#39;ARDETH RAY&#39;, &#39;JONATHAN&#39;, &#39;BENI&#39;, &#39;CURATOR&#39;, &#39;HOOK&#39;, &#39;HENDERSON&#39;, &#39;DANIELS&#39;, &#39;AMAZING&#39;, &#39;CASANOVA&#39;, &#39;ANABEL&#39;, &#39;SHOVELER&#39;, &#39;BOWLER&#39;, &#39;RAJA&#39;, &#39;FURIOUS&#39;, &#39;HELLER&#39;, &#39;TONY P&#39;, &#39;MONICA&#39;, &#39;INVISIBLE BOY&#39;, &#39;SPHINX&#39;, &#39;CAULAINCOURT&#39;, &#39;GENERAL KUTUSOV&#39;, &#39;NAPOLEON&#39;, &#39;BARRAS&#39;, &#39;BELLIARD&#39;, &#39;BERTRAND&#39;, &#39;BOURRIENNE&#39;, &#39;CHARLES&#39;, &#39;CORSICAN&#39;, &#39;PICART&#39;, &#39;DIDIER&#39;, &#39;DUROC&#39;, &#39;SCHWARZENBURG&#39;, &#39;EUGENE&#39;, &#39;MONTESQUIOU&#39;, &#39;JUNOT&#39;, &#39;RUSSIAN GENTLEMAN&#39;, &#39;MAJOR FIDON&#39;, &#39;MARIE-LOUISE&#39;, &#39;TALLEYRAND&#39;, &#39;VARLAC&#39;, &#39;NARRATOR&#39;, &quot;BABY&#39;D&quot;, &#39;DAY-DAY&#39;, &#39;UNCLE ELROY&#39;, &quot;D&#39;WANA&quot;, &#39;ROACH&#39;, &#39;PINKY&#39;, &#39;KARLA&#39;, &#39;DELIVERY GUY&#39;, &#39;MR. JONES&#39;, &#39;MISS HO KYM&#39;, &#39;CUSTOMER #1&#39;, &#39;JOKER&#39;, &#39;EZAL&#39;, &#39;DEBO&#39;, &#39;SUGA&#39;, &#39;BRENDAN GRANT&#39;, &#39;ELEANOR GRANT&#39;, &#39;CABBIE&#39;, &#39;GENE&#39;, &#39;MR. SMITH&#39;, &#39;KRISTA&#39;, &#39;LYNN&#39;, &#39;HUEY&#39;, &#39;MS. JONES&#39;, &#39;OFFICER TRUST&#39;, &#39;BART&#39;, &#39;BEN HARPER&#39;, &#39;PREACHER&#39;, &#39;JOHN HARPER&#39;, &#39;BIRDIE STEPTOE&#39;, &#39;CLARY&#39;, &#39;RACHEL COOPER&#39;, &#39;CONGREGATION&#39;, &#39;WILLA HARPER&#39;, &#39;GROCER&#39;, &#39;ICEY SPOON&#39;, &#39;WALT&#39;, &#39;PEARL HARPER&#39;, &#39;DR KING&#39;, &#39;MARGE&#39;, &#39;NANCY&#39;, &#39;GLEN&#39;, &#39;LT THOMPSON&#39;, &#39;MR LANTZ&#39;, &#39;ALL THREE RUSSIANS&#39;, &#39;NINOTCHKA&#39;, &#39;ANNA&#39;, &#39;KOPALSKI&#39;, &#39;BULJANOFF&#39;, &#39;IRANOFF&#39;, &#39;GASTON&#39;, &#39;SWANA&#39;, &#39;GENERAL SAVITZKY&#39;, &#39;HEADWAITER&#39;, &#39;RAZININ&#39;, &#39;P�RE MATHIEU&#39;, &#39;RAKONIN&#39;, &#39;BUZHARDT&#39;, &#39;NIXON&#39;, &#39;CUSHMAN&#39;, &#39;HUNT&#39;, &#39;HALDEMAN&#39;, &#39;EHRLICHMAN&#39;, &#39;HAIG&#39;, &#39;HANNAH&#39;, &#39;HELMS&#39;, &#39;HOOVER&#39;, &#39;TOLSON&#39;, &#39;STURGIS&#39;, &#39;LIDDY&#39;, &#39;JONES&#39;, &#39;KISSINGER&#39;, &#39;MAO&#39;, &#39;MANOLO&#39;, &#39;MITCH&#39;, &#39;STUDENT 2&#39;, &#39;YOUNG WOMAN&#39;, &#39;ZIEGLER&#39;, &#39;PAT&#39;, &#39;ROCKEFELLER&#39;, &#39;ELLIS&#39;, &#39;BELL&#39;, &#39;ROSCOE&#39;, &#39;CARLA JEAN&#39;, &#39;WENDELL&#39;, &#39;CHIGURH&#39;, &#39;MOSS&#39;, &#39;WELLS&#39;, &#39;MAN AT CHAIR&#39;, &#39;BALLARD&#39;, &#39;CHIEF NURSE&#39;, &#39;SUE ANN&#39;, &#39;DEL&#39;, &#39;ROSA&#39;, &#39;LONNIE&#39;, &#39;DUANE&#39;, &#39;WESLEY&#39;, &#39;DARLENE&#39;, &#39;JERROLD&#39;, &#39;MERCEDES&#39;, &#39;BIG DAN&#39;, &#39;EVERETT&#39;, &#39;DELMAR&#39;, &#39;ECKARD&#39;, &#39;PAPPY&#39;, &#39;SPIVEY&#39;, &#39;PENNY&#39;, &#39;FRENCH&#39;, &#39;JUNIOR&#39;, &#39;YOUNGEST&#39;, &#39;MIDDLE&#39;, &#39;ZACK&#39;, &#39;BYRON&#39;, &#39;ESTHER&#39;, &#39;FOLEY&#39;, &#39;SID&#39;, &#39;GROUP&#39;, &#39;LYNETTE&#39;, &#39;PERRYMAN&#39;, &#39;BURNHAM&#39;, &#39;RAOUL&#39;, &#39;COP 1&#39;, &#39;MEG&#39;, &#39;TYRONE&#39;, &#39;BEEFY COP&#39;, &#39;BOBBY SEALE&#39;, &#39;BRIMMER&#39;, &#39;RODGERS&#39;, &#39;CY&#39;, &#39;SABU&#39;, &#39;DORSETT&#39;, &#39;ELDRIDGE&#39;, &#39;GARRY&#39;, &#39;GABRIEL&#39;, &#39;BILLINGS&#39;, &#39;CHARLOTTE&#39;, &#39;TARLETON&#39;, &#39;CONTINENTAL SERGEANT&#39;, &#39;ROBINSON&#39;, &#39;MAJOR HALBERT&#39;, &#39;REV. OLIVER&#39;, &#39;JUD&#39;, &#39;RACHEL&#39;, &#39;PASCOW&#39;, &#39;ANAMARIA&#39;, &#39;BARBOSSA&#39;, &#39;PINTEL&#39;, &#39;NORRINGTON&#39;, &#39;SWANN&#39;, &#39;MURTOGG&#39;, &#39;MULLROY&#39;, &#39;SIM&#39;, &#39;ARGON&#39;, &#39;POPPY&#39;, &#39;NEBBLEMAN&#39;, &#39;LITTERBUG&#39;, &#39;GRAYSON&#39;, &#39;GALLAGHER&#39;, &#39;STEW&#39;, &#39;MRS. SCHUYLER&#39;, &#39;BINGY&#39;, &#39;SMYTHE&#39;, &#39;CONROY&#39;, &#39;DAWSON&#39;, &#39;MISS WILSON&#39;, &#39;MR. JOHNSON&#39;, &#39;BIFF&#39;, &#39;BIG BOB&#39;, &#39;MR. SIMPSON&#39;, &#39;DICK VAN DYKE&#39;, &#39;SEXY VOICE&#39;, &#39;LENA&#39;, &#39;OPERATOR GIRL&#39;, &#39;LATISHA&#39;, &#39;OPERATOR VOICE&#39;, &#39;LANCE&#39;, &#39;CHECK OUT GIRL&#39;, &#39;KATHLEEN&#39;, &#39;ROYER-COLLARD&#39;, &#39;ABBE DU MAUPAS&#39;, &#39;MADELEINE&#39;, &#39;CLEANTE&#39;, &#39;THE MARQUIS&#39;, &#39;COULMIER&#39;, &#39;VALCOUR&#39;, &#39;DELBEN�&#39;, &#39;HORSEMAN&#39;, &#39;LIBERTINE&#39;, &#39;INGENUE&#39;, &#39;MADAME LECLERC&#39;, &#39;SIMONE&#39;, &#39;MONSIEUR PROUIX&#39;, &#39;RENEE PELAGIE&#39;, &#39;CAROLE LOMBARD&#39;, &#39;HEARST&#39;, &#39;MAYER&#39;, &#39;LOUELLA&#39;, &#39;JOSEPH COTTON&#39;, &#39;SCHAEFER&#39;, &#39;MANK&#39;, &#39;SHOP OWNER&#39;, &#39;PAUL STEWART&#39;, &#39;TOLAND&#39;, &#39;1ST DEPUTY&#39;, &#39;COMO&#39;, &#39;EAGAN&#39;, &#39;IRMA&#39;, &#39;J.R.&#39;, &#39;REPORTER&#39;, &#39;VICKIE&#39;, &#39;SALVY&#39;, &#39;BABY SITTER&#39;, &#39;JEFF&#39;, &#39;GUNNISON&#39;, &#39;BRYCE&#39;, &#39;THORWALD&#39;, &#39;MRS. DOYLE&#39;, &#39;POLICE&#39;, &#39;JUDY&#39;, &#39;BUZZ&#39;, &#39;CHIEF&#39;, &#39;CRUNCH&#39;, &#39;MOOSE&#39;, &#39;NEGRO WOMAN&#39;, &#39;PLATO&#39;, &quot;JUDY&#39;S FATHER&quot;, &#39;ASHLEY&#39;, &#39;TEEN CLERK&#39;, &#39;MERLIN&#39;, &#39;JACK BANGS&#39;, &#39;YOUNG GOVERNOR&#39;, &#39;JUMPY&#39;, &#39;PUG&#39;, &#39;ZOOK&#39;, &#39;OLD TIMER&#39;, &#39;MR. BLONDE&#39;, &#39;MR. WHITE&#39;, &#39;MR. PINK&#39;, &#39;FREDDY&#39;, &#39;HOLDAWAY&#39;, &#39;MR. BROWN&#39;, &#39;MR. ORANGE&#39;, &#39;MARVIN&#39;, &#39;NICE GUY EDDIE&#39;, &#39;GARDNER&#39;, &#39;MRS. WYATT&#39;, &#39;CLAYTON&#39;, &#39;WYATT&#39;, &#39;FOWLER&#39;, &#39;LEDNOV&#39;, &#39;GRAHAM&#39;, &#39;CINDY&#39;, &#39;BUDDY&#39;, &#39;HANSON&#39;, &#39;DWIGHT&#39;, &#39;MCFEELY&#39;, &#39;FATHER MCFEELY&#39;, &#39;HARRIS&#39;, &#39;BIRDIE&#39;, &#39;CHIP&#39;, &#39;MISTY&#39;, &#39;MRS. JENSON&#39;, &#39;DET. MOORE&#39;, &#39;DET. BRADFORD&#39;, &#39;DOTTIE&#39;, &#39;MR. NAZLEROD&#39;, &#39;MRS. ACKERMAN&#39;, &#39;MR. STUBBINS&#39;, &#39;SCOTTY&#39;, &#39;MRS. STERNER&#39;, &#39;MR. STERNER&#39;, &#39;AUGUST&#39;, &#39;RADEAU&#39;, &#39;BRUNS&#39;, &#39;JACQUELINE&#39;, &#39;MISS SUMMERS&#39;, &#39;DR. JUDD&#39;, &#39;MRS. REDI&#39;, &#39;MIMI&#39;, &#39;MRS. ROMARI&#39;, &#39;MISS GOTTSCHALK&#39;, &#39;JUDD&#39;, &#39;MRS. CORTEZ&#39;, &#39;MRS. LOWOOD&#39;, &#39;ROMARI&#39;, &#39;MR. BRUNS&#39;, &#39;CYTNHIA&#39;, &#39;VOICE ON PHONE&#39;, &#39;BETTS&#39;, &#39;ST. LUC&#39;, &#39;DETECTIVE&#39;, &#39;SUPER&#39;, &#39;FORSYTHE&#39;, &#39;TUDOR&#39;, &#39;MR. SPERGAZZI&#39;, &#39;PARKINS&#39;, &#39;ANSALONG&#39;, &#39;JANET&#39;, &#39;NATION&#39;, &#39;FARLEY&#39;, &#39;OLIVER AND BETTY&#39;, &#39;BRAD AND JANET&#39;, &#39;NEELY&#39;, &#39;TRIO&#39;, &#39;KIDS&#39;, &#39;TEACHER&#39;, &#39;MACY&#39;, &#39;CAMMI&#39;, &#39;PHYLLIS&#39;, &#39;MAYA&#39;, &#39;POURER&#39;, &#39;BO&#39;, &#39;MORGAN&#39;, &#39;CREWCUT GUY&#39;, &#39;MERRILL&#39;, &#39;OFFICER PASKI&#39;, &#39;MCKENDRICK&#39;, &#39;MAL&#39;, &#39;HOBART&#39;, &#39;LANGSTON&#39;, &#39;PADEN&#39;, &#39;EZRA&#39;, &#39;J.T.&#39;, &#39;SHERIFF COBB&#39;, &#39;VIKTOR&#39;, &#39;SIMONE / VIKTOR&#39;, &#39;LAINEY&#39;, &#39;FAITH&#39;, &#39;FRANK BRAND&#39;, &#39;PREMIERE REPORTER 2&#39;, &#39;NICOLA&#39;, &#39;SECURITY GUARD&#39;, &quot;MAN&#39;S VOICE&quot;, &#39;MR. CUNNINGHAM&#39;, &quot;DARREN&#39;S MOM&quot;, &#39;BILLY BOB&#39;, &#39;KEITH&#39;, &#39;SUZIE&#39;, &#39;JEREMIAH&#39;, &#39;STARLA&#39;, &#39;TREVOR&#39;, &#39;SHELBY&#39;, &#39;GRANT&#39;, &#39;KYLIE&#39;, &#39;BANDIT&#39;, &#39;HOT PANTS&#39;, &#39;CLEDUS&#39;, &#39;DICKEY&#39;, &#39;VOICE TWO&#39;, &#39;VOICE ONE&#39;, &#39;ACOSTA&#39;, &#39;SECURITY SUPERVISOR&#39;, &#39;MESSNER&#39;, &#39;CASINO EMPLOYEE&#39;, &#39;ELMORE&#39;, &#39;DARWIN TREMOR&#39;, &#39;DUPREE&#39;, &#39;ISRAEL&#39;, &#39;DR. GILL&#39;, &#39;HUGO&#39;, &#39;SIR IVY&#39;, &#39;MECKLEN&#39;, &#39;LOCKE&#39;, &#39;PADICHE&#39;, &#39;SERNA&#39;, &#39;WATTERS&#39;, &#39;WYMAN&#39;, &#39;GIBARIAN&#39;, &#39;KELVIN&#39;, &#39;SARTORIUS&#39;, &#39;SNOW&#39;, &#39;RHEYA&#39;, &#39;WIN&#39;, &#39;GIDDINGS&#39;, &#39;NEIL&#39;, &#39;GARBER&#39;, &#39;KOONTZ&#39;, &#39;T.J.&#39;, &#39;PRETTY YOUNG THING&#39;, &#39;VENZA&#39;, &#39;FLASH&#39;, &#39;HOGAN&#39;, &#39;JAMESON&#39;, &#39;SPIDER-MAN&#39;, &#39;LEIBER&#39;, &#39;LETTERMAN&#39;, &#39;MAY&#39;, &#39;MAROTTA&#39;, &#39;NURSE VOICE&#39;, &#39;THORKEL&#39;, &#39;OCK&#39;, &#39;REISS&#39;, &#39;BAGRADIAN&#39;, &#39;HOFFY&#39;, &#39;P.O.W.S&#39;, &#39;BLONDIE&#39;, &#39;SEFTON&#39;, &#39;SCHULTZ&#39;, &#39;VON SCHERBACH&#39;, &#39;GENEVA MAN&#39;, &#39;GERMAN LIEUTENANT&#39;, &#39;STOSH&#39;, &#39;MARKO&#39;, &quot;B&#39;ETOR&quot;, &#39;LURSA&#39;, &#39;KIRK&#39;, &#39;CHEKOV&#39;, &#39;PICARD&#39;, &#39;DATA&#39;, &#39;LA FORGE&#39;, &#39;RIKER&#39;, &#39;DEMORA&#39;, &#39;HARRIMAN&#39;, &#39;GUINAN&#39;, &#39;SORAN&#39;, &#39;TROI&#39;, &#39;WORF&#39;, &#39;1ST OFFICER&#39;, &#39;ESTEBAN&#39;, &#39;COMM OFFICER&#39;, &#39;SAAVIK&#39;, &#39;SPOCK&#39;, &#39;SULU&#39;, &#39;UHURA&#39;, &#39;KRUGE&#39;, &#39;SAREK&#39;, &#39;TORG&#39;, &#39;MALTZ&#39;, &#39;TERRELL&#39;, &#39;KHAN&#39;, &#39;JOACHIM&#39;, &quot;SCOTTY&#39;S VOICE&quot;, &quot;SPOCK&#39;S VOICE&quot;, &#39;PRESTON&#39;, &quot;UHURA&#39;S VOICE&quot;, &#39;GILLIAN&#39;, &#39;NICHOLS&#39;, &#39;SCIENCE OFFICER&#39;, &#39;FBI AGENT&#39;, &#39;COUNCIL PRESIDENT&#39;, &#39;KLINGON AMBASSADOR&#39;, &#39;THE BOY&#39;, &#39;ANIJ&#39;, &#39;ARTIM&#39;, &quot;PICARD&#39;S COM VOICE&quot;, &#39;CRUSHER&#39;, &#39;DOUGHERTY&#39;, &quot;RU&#39;AFO&quot;, &#39;GALLATIN&#39;, &quot;RIKER&#39;S COM VOICE&quot;, &#39;NARA&#39;, &#39;PERIM&#39;, &#39;SOJEF&#39;, &quot;WORF&#39;S COM VOICE&quot;, &quot;SON&#39;A OFFICER #2&quot;, &#39;ADMIRAL HAYES&#39;, &#39;BEVERLY&#39;, &#39;BORG QUEEN&#39;, &#39;GEORDI&#39;, &quot;GEORDI&#39;S VOICE&quot;, &quot;PICARD&#39;S VOICE&quot;, &#39;SCRIMM&#39;, &#39;ADMIRAL DONALD&#39;, &#39;MARTIA&#39;, &#39;COMMUNICATIONS OFFICER&#39;, &#39;GORKON&#39;, &quot;MARTIA&#39;S VOICE&quot;, &#39;LT. SAAVIK&#39;, &#39;B-9&#39;, &#39;HEAD&#39;, &#39;DEANNA&#39;, &#39;SHINZON&#39;, &#39;DONATRA&#39;, &#39;JANEWAY&#39;, &#39;VICEROY&#39;, &#39;REMAN OFFICER&#39;, &#39;SURAN&#39;, &#39;BENNY&#39;, &#39;STAR MAN&#39;, &#39;MAJOR BELL&#39;, &#39;SHERMIN&#39;, &#39;TEENAGER&#39;, &#39;LYMAN&#39;, &#39;BEEMER&#39;, &#39;EDUARDO&#39;, &#39;TRAN&#39;, &#39;TICK&#39;, &#39;STRICKLAND&#39;, &#39;MACE&#39;, &#39;ZANDER&#39;, &#39;MACKELWAY&#39;, &#39;DAITZ&#39;, &#39;SALINAS&#39;, &#39;DUNCAN&#39;, &#39;DYLAN&#39;, &#39;EAGLEFOOT&#39;, &#39;ZERO&#39;, &#39;FOREMAN&#39;, &#39;LOW&#39;, &#39;JANITA&#39;, &#39;KOESSLER&#39;, &#39;KULOK&#39;, &#39;MURMAN&#39;, &#39;ANSWERING MACHINE&#39;, &#39;BRUNETTE&#39;, &#39;CHRISTY&#39;, &#39;TRENT&#39;, &#39;LORRAINE&#39;, &#39;NIKKI&#39;, &#39;HAGEN&#39;, &#39;BONASERA&#39;, &#39;DON CORLEONE&#39;, &#39;CARLO&#39;, &#39;CLEMENZA&#39;, &#39;SONNY&#39;, &#39;PAULIE&#39;, &#39;SOLLOZZO&#39;, &#39;NAZORINE&#39;, &#39;DON TOMMASSINO&#39;, &#39;FABRIZZIO&#39;, &#39;VITELLI&#39;, &#39;FREDO&#39;, &#39;WOLTZ&#39;, &#39;TESSIO&#39;, &#39;MOE&#39;, &#39;DICKIE&#39;, &#39;FREDDIE&#39;, &#39;HERBERT GREENLEAF&#39;, &#39;JOAN&#39;, &#39;MACCARRON&#39;, &#39;MEREDITH&#39;, &#39;VERRECCHIA&#39;, &#39;ROVERINI&#39;, &#39;TRAVIS&#39;, &#39;BETSY&#39;, &#39;TOM&#39;, &#39;CONCESSION GIRL&#39;, &#39;WIZARD&#39;, &#39;DOUGH-BOY&#39;, &#39;MAN IN BUSINESS SUIT&#39;, &#39;PALANTINE&#39;, &#39;PERSONNEL OFFICER&#39;, &#39;SECRET SERVICE MAN&#39;, &#39;SPORT&#39;, &#39;GOODSPEED&#39;, &#39;CARLA&#39;, &#39;MASON&#39;, &#39;LARDNER&#39;, &#39;LUKE&#39;, &#39;CLYDE&#39;, &#39;FITTS&#39;, &#39;MRS. TERWILLIGER&#39;, &#39;OLD TIM&#39;, &#39;STANTON&#39;, &#39;ANNIE&#39;, &#39;CATHY&#39;, &quot;HARRY&#39;S VOICE&quot;, &#39;MRS. BUNDY&#39;, &#39;DEKE&#39;, &#39;SHOLES&#39;, &#39;MALONE&#39;, &#39;MRS. MACGRUDER&#39;, &#39;SALESMAN&#39;, &#39;FETTES&#39;, &#39;GRAY&#39;, &#39;MRS. MARSH&#39;, &#39;MACFARLANE&#39;, &#39;GEORGINA&#39;, &#39;MRS. MACBRIDE&#39;, &#39;WALSH&#39;, &#39;DUTTON&#39;, &#39;TOOMEY&#39;, &#39;ERLICH&#39;, &#39;ERIN&#39;, &#39;MADDEN&#39;, &#39;RANDALL&#39;, &#39;TRACY&#39;, &#39;BARNHARDT&#39;, &#39;HILDA&#39;, &#39;KLAATU&#39;, &#39;HARLEY&#39;, &#39;ALAN&#39;, &#39;EDGAR&#39;, &#39;STAR&#39;, &#39;LADDIE&#39;, &#39;BENNINGS&#39;, &#39;MACREADY&#39;, &#39;BLAIR&#39;, &#39;NAULS&#39;, &#39;PALMER&#39;, &#39;DR. COPPER&#39;, &#39;NORRIS&#39;, &#39;FUCHS&#39;, &#39;KALEN&#39;, &#39;VOX&#39;, &#39;OVERLORD&#39;, &#39;MOTORIST&#39;, &#39;VOX KIOSK&#39;, &#39;PHILBY&#39;, &#39;THIN MAN&#39;, &#39;MRS. WATCHIT&#39;, &#39;DEAN FULTON&#39;, &#39;KORUS&#39;, &#39;BECKER&#39;, &#39;DR. GRIES&#39;, &#39;STARKS&#39;, &#39;DAMON&#39;, &#39;LORENSON&#39;, &#39;DR. LORENSON&#39;, &#39;DR. MORGAN&#39;, &#39;MACKENZIE&#39;, &#39;TENNY&#39;, &#39;THELMA&#39;, &#39;DARRYL&#39;, &#39;J.D.&#39;, &#39;HARLAN&#39;, &#39;PATROLMAN&#39;, &#39;TRUCKER&#39;, &quot;BOSS&#39;S DISABLED BROTHER&quot;, &#39;DETECTIVE CAVALLO&#39;, &#39;DOM&#39;, &#39;DR. LALONDE&#39;, &#39;FRIEND #1&#39;, &#39;MAGDA&#39;, &#39;HEALY&#39;, &#39;SULLY&#39;, &#39;TUCKER&#39;, &#39;JOANIE&#39;, &quot;MARY&#39;S DAD&quot;, &quot;MARY&#39;S MOM&quot;, &#39;RENISE&#39;, &#39;WARREN&#39;, &#39;MCNAMARA&#39;, &#39;ADMIRAL ANDERSON&#39;, &#39;DOBRYNIN&#39;, &#39;THE PRESIDENT&#39;, &#39;BUNDY&#39;, &#39;SCALI&#39;, &#39;FOMIN&#39;, &#39;GENERAL TAYLOR&#39;, &#39;RESTON&#39;, &#39;KEVIN&#39;, &#39;MCCONE&#39;, &#39;CLEAR MOON&#39;, &#39;COOCH&#39;, &#39;LOOKS TWICE&#39;, &#39;TULLY&#39;, &#39;CROW HORSE&#39;, &#39;YELLOW BIRD&#39;, &#39;MAVERICK&#39;, &#39;CHP&#39;, &#39;COUGAR&#39;, &#39;GOOSE&#39;, &#39;FUNGUS&#39;, &#39;WOLFMAN&#39;, &#39;ICE&#39;, &#39;SLIDER&#39;, &#39;HOLLYWOOD&#39;, &#39;STINGER&#39;, &#39;ICEMAN&#39;, &#39;JESTER&#39;, &#39;VIPER&#39;, &#39;QUAID&#39;, &#39;MELINA&#39;, &#39;COHAAGEN&#39;, &#39;RICHTER&#39;, &#39;DR. LULL&#39;, &#39;MCCLANE&#39;, &#39;EDGEMAR&#39;, &#39;HELM&#39;, &#39;LORI&#39;, &#39;STEVENS&#39;, &#39;BURT&#39;, &#39;HEATHER&#39;, &#39;VAL&#39;, &#39;RHONDA&#39;, &#39;OLD FRED&#39;, &#39;MEGAN&#39;, &#39;PHAM VAN&#39;, &#39;BADALATO&#39;, &#39;BALLISTICS EXPERT&#39;, &#39;ESPARZA&#39;, &#39;FULTON&#39;, &#39;MS. GORDON&#39;, &#39;SKLAROFF&#39;, &#39;GANG EXPERT&#39;, &#39;SHU&#39;, &#39;STIPE&#39;, &#39;REYNARD&#39;, &#39;MRS. ESPARZA&#39;, &#39;ORTEGA&#39;, &#39;ALBERT&#39;, &quot;BOB&#39;S VOICE&quot;, &#39;CABLE&#39;, &#39;DESMOND&#39;, &#39;STANLEY&#39;, &#39;MAN FROM ANOTHER PLACE&#39;, &#39;IRENE&#39;, &#39;JACOBY&#39;, &#39;JACQUES&#39;, &#39;JAMES&#39;, &#39;LELAND&#39;, &#39;TRUMAN&#39;, &#39;JOSIE&#39;, &#39;TERESA&#39;, &#39;SHELLY&#39;, &#39;NORMA&#39;, &#39;GALVIN&#39;, &#39;ABRAMS&#39;, &#39;YOUNG LAWYER&#39;, &#39;ALITO&#39;, &#39;CONCANNON&#39;, &#39;DR. THOMPSON&#39;, &#39;DR. TOWLER&#39;, &#39;DONEGHY&#39;, &#39;MICKEY&#39;, &#39;GRUBER&#39;, &#39;MARY ROONEY&#39;, &#39;ROONEY&#39;, &#39;TOWLER&#39;, &#39;ALONZO HOGUE&#39;, &#39;WASH PERRY&#39;, &#39;CHIEF OF STAFF&#39;, &#39;M.P. DRIVER&#39;, &#39;SHERIFF&#39;, &#39;GRATZMAN&#39;, &#39;FIDDLER&#39;, &#39;PASTOR COLLINS&#39;, &#39;GENERAL MANN&#39;, &#39;RADIO VOICE&#39;, &#39;RANGER&#39;, &#39;SALVADOR&#39;, &#39;CHASE&#39;, &#39;DR. HEFNER&#39;, &#39;ROBERT ENGLUND&#39;, &#39;JOHN SAXON&#39;, &#39;HIGHWAY PATROLMAN #1&#39;, &#39;HOST&#39;, &#39;SARA&#39;, &#39;SKIPPER&#39;, &#39;SANDERS&#39;, &#39;MIDDY&#39;, &#39;COMMANDER&#39;, &#39;DOWNING&#39;, &#39;LAWFORD&#39;, &#39;TYLER&#39;, &#39;ARTIE&#39;, &#39;CALLER #1&#39;, &#39;LULA&#39;, &#39;ERV&#39;, &#39;BLACK MAN&#39;, &#39;PERDITA&#39;, &#39;BUCK&#39;, &#39;JOHNNIE&#39;, &#39;CHET&#39;, &#39;DROP SHADOW&#39;, &#39;REGGIE&#39;, &#39;GOOD WITCH&#39;, &#39;IDIOT PUNK&#39;, &#39;MARIETTA&#39;, &#39;PACE&#39;, &#39;SANTOS&#39;, &#39;VERNON&#39;, &#39;CRABTREE&#39;, &#39;JAMES LEER&#39;, &#39;GRADY&#39;, &#39;GOATEE KID&#39;, &#39;VERNON HARDAPPLE&#39;, &#39;GREENHUT&#39;, &quot;SARA&#39;S VOICE&quot;, &#39;HANNAH GREEN&#39;, &#39;MISS SLOVIAK&#39;, &quot;WALTER&#39;S VOICE&quot;, &#39;TRAXLER&#39;, &#39;OFFICER PUPCIK&#39;, &#39;LUCAS&#39;, &#39;VICKI&#39;, &#39;MARY-KAY&#39;, &#39;ROSEN&#39;, &#39;ONE NIGHT&#39;, &#39;BUD&#39;, &#39;JAMMER&#39;, &#39;LINDSEY&#39;, &#39;COFFEY&#39;, &#39;HIPPY&#39;, &#39;CATFISH&#39;, &#39;MONK&#39;, &#39;SANDRO&#39;, &#39;CLAUDIA&#39;, &#39;MARSHAL&#39;, &quot;ANNA&#39;S FATHER&quot;, &#39;CARABINIERE&#39;, &#39;CORRADO&#39;, &#39;PATRIZIA&#39;, &#39;GIULIA&#39;, &#39;ETTORE&#39;, &#39;GOFFREDO&#39;, &#39;YOUNG SAILOR&#39;, &#39;MIDWIFE&#39;, &#39;RAIMONDO&#39;, &#39;ZURIA&#39;, &#39;MOTHER MIRIAM&#39;, &#39;AGNES&#39;, &#39;ELDERLY NUN&#39;, &#39;LEVEAU&#39;, &#39;MAMA&#39;, &#39;SISTER ANNE&#39;, &#39;MONSIGNOR&#39;, &#39;RINGO&#39;, &#39;BOYS&#39;, &#39;NORM&#39;, &#39;FLOOR MANAGER&#39;, &#39;SHAKE&#39;, &#39;MILLIE&#39;, &#39;POLICEMAN&#39;, &#39;BROUSSARD&#39;, &#39;ROBY&#39;, &#39;STANDARD&#39;, &#39;FAUST&#39;, &#39;MELKONIS&#39;, &#39;ACKLAND&#39;, &#39;REVNA&#39;, &#39;YORK&#39;, &#39;MINH&#39;, &#39;BEAUVAIS&#39;, &#39;PARSONS&#39;, &#39;CASSIE&#39;, &#39;KAMEN&#39;, &#39;HIROKO&#39;, &#39;DE VRIES&#39;, &#39;GUTTIEREZ&#39;, &#39;DILLER&#39;, &#39;DRISCOLL&#39;, &#39;ADDISON&#39;, &#39;MISS CASWELL&#39;, &#39;MARGO&#39;, &#39;LLOYD&#39;, &quot;OPERATOR&#39;S VOICE&quot;, &#39;PIANIST&#39;, &#39;WOODWARD&#39;, &#39;BERNSTEIN&#39;, &#39;DARDIS&#39;, &#39;SEGRETTI&#39;, &#39;ROSENFELD&#39;, &#39;BRADLEE&#39;, &#39;BOOKKEEPER&#39;, &#39;IRWIN&#39;, &#39;SIMONS&#39;, &#39;FOREIGN EDITOR&#39;, &#39;CADDY&#39;, &#39;CLAWSEN&#39;, &#39;DAHLBERG&#39;, &#39;DEEP THROAT&#39;, &#39;MCCORD&#39;, &#39;MRS. GRAHAM&#39;, &#39;NATIONAL EDITOR&#39;, &#39;SWEET OLD LADY&#39;, &#39;CHOIR TEACHER&#39;, &#39;OZ&#39;, &#39;COACH MARSHALL&#39;, &#39;COLLEGE CHICK&#39;, &#39;FINCH&#39;, &quot;STIFLER&#39;S MOM&quot;, &#39;VICKY&#39;, &#39;PORNO-CHANNEL CHICK&#39;, &quot;JIM&#39;S DAD&quot;, &#39;STIFLER&#39;, &quot;KEVIN&#39;S BROTHER&quot;, &#39;SOPHOMORE CHICK&#39;, &#39;MARCEL&#39;, &#39;SERAFINE&#39;, &#39;LEDUC&#39;, &#39;TERRENCE&#39;, &#39;TATIANA&#39;, &#39;ANASTASIA&#39;, &#39;ANYA&#39;, &#39;GREGOR&#39;, &#39;VLADIMIR&#39;, &#39;DMITRI&#39;, &#39;RASPUTIN&#39;, &#39;BARTOK&#39;, &#39;NICHOLAS&#39;, &#39;SOPHIE&#39;, &#39;ALVY&#39;, &#39;ACTOR&#39;, &#39;ACTRESS&#39;, &#39;ALLISON&#39;, &#39;MAN IN LINE&#39;, &#39;GIRL DATE&#39;, &quot;ALVY&#39;S FATHER&quot;, &quot;ALVY&#39;S MOTHER&quot;, &quot;ANNIE&#39;S VOICE&quot;, &quot;ALVY&#39;S VOICE&quot;, &quot;ALVY&#39;S VOICE-OVER&quot;, &quot;ANNIE&#39;S VOICE-OVER&quot;, &#39;MOM HALL&#39;, &#39;TESSIE&#39;, &#39;AMERICA&#39;, &#39;ASTRID&#39;, &#39;CAL&#39;, &#39;CLAIR&#39;, &#39;GINA&#39;, &#39;PANES&#39;, &#39;SKYE&#39;, &#39;AZTECA&#39;, &#39;Z&#39;, &#39;WEAVER&#39;, &#39;BALA&#39;, &#39;FORMICA&#39;, &#39;HANDMAIDEN #2&#39;, &#39;BARBATUS&#39;, &#39;CARPENTER&#39;, &#39;MOTIVATIONAL COUNSELLOR&#39;, &#39;DOBISCH&#39;, &#39;MRS. DREYFUSS&#39;, &#39;MOFFETT&#39;, &#39;FRAN&#39;, &#39;MRS. LIEBERMAN&#39;, &#39;SHELDRAKE&#39;, &#39;MATUSCHKA&#39;, &#39;KIRKEBY&#39;, &#39;VANDERHOF&#39;, &#39;DR. DREYFUSS&#39;, &#39;MISS OLSEN&#39;, &#39;WILLARD&#39;, &#39;AUSTRALIAN&#39;, &#39;CLEAN&#39;, &#39;CHEF&#39;, &#39;CIVILIAN&#39;, &#39;COLBY&#39;, &#39;KILGORE&#39;, &#39;KURTZ&#39;, &quot;KURTZ&#39;S WIFE&quot;, &#39;MOONBY&#39;, &#39;ROXANNE&#39;, &#39;CORBETT&#39;, &#39;&#39;, &#39;ERIC&#39;, &#39;WILDER&#39;, &#39;ANNE MARIE&#39;, &#39;MEYERLING&#39;, &#39;KENAI&#39;, &#39;NEFF&#39;, &#39;VIKING BOB&#39;, &#39;LEMALLE&#39;, &#39;STATE POLICEMAN&#39;, &#39;SPENCER&#39;, &#39;DR. BETTES&#39;, &#39;MELVIN&#39;, &#39;CHERYL&#39;, &#39;HEAD WAITER&#39;, &#39;ZOE&#39;, &#39;VINCENT&#39;, &#39;RATH&#39;, &#39;BAIN&#39;, &#39;CONTRACTOR/SCREEN&#39;, &#39;CABBY&#39;, &#39;RATH/SCREEN&#39;, &#39;ELECTRA&#39;, &#39;ESCORT&#39;, &#39;KETCHAM&#39;, &#39;KATKA&#39;, &#39;CHRIS&#39;, &#39;DIPLOMAT&#39;, &#39;LAWRENCE&#39;, &#39;JAHN&#39;, &#39;JAROSLAV&#39;, &#39;PAVEL&#39;, &#39;HONZA&#39;, &#39;MIRA&#39;, &#39;BELINDA&#39;, &#39;LANDON&#39;, &#39;REV. SULLIVAN&#39;, &#39;MR. KELLY&#39;, &#39;LUIS&#39;, &#39;EILEEN&#39;, &#39;MR. ARKY&#39;, &#39;N.R.C. AGENT REESE&#39;, &#39;PROFESSOR EMMETT BROWN&#39;, &#39;SUZY&#39;, &#39;KIT&#39;, &#39;CATO&#39;, &#39;VISITOR&#39;, &#39;RICH MAN&#39;, &#39;ROUGHNECK&#39;, &#39;NEW JERSEY&#39;, &#39;CASPER LINDLEY&#39;, &#39;BUCKAROO BANZAI&#39;, &#39;PROF. HIKITA&#39;, &#39;RAWHIDE&#39;, &#39;PERFECT TOMMY&#39;, &#39;JOHN PARKER&#39;, &#39;RENO&#39;, &#39;PENNY PRIDDY&#39;, &#39;PRESIDENT WIDMARK&#39;, &#39;BUCKAROO BANZAI ON TV&#39;, &#39;JOHN BIGBOOT�&#39;, &quot;JOHN O&#39;CONNOR&quot;, &#39;NATIONAL SECURITY MAN&#39;, &#39;TV ANCHORWOMAN&#39;, &#39;MAYHEW&#39;, &#39;DEUTSCH&#39;, &#39;GEISLER&#39;, &#39;GARLAND&#39;, &#39;LIPNIK&#39;, &#39;MASTRIONOTTI&#39;, &#39;AN I.A. MAN&#39;, &#39;CORRIGAN&#39;, &#39;LT. WALKER&#39;, &#39;THE WOMAN&#39;, &#39;TALCOTT&#39;, &#39;ALBERT MILO&#39;, &#39;BASQUIAT&#39;, &#39;JACK MILO&#39;, &#39;ANNINA NOSEI&#39;, &#39;ARTIST #2&#39;, &#39;MARY BOONE&#39;, &#39;INTERVIEWER&#39;, &#39;SHENGE&#39;, &#39;COUNTERMAN&#39;, &#39;BIG PINK&#39;, &#39;GREG&#39;, &#39;LESHKO&#39;, &#39;TOXIC&#39;, &#39;RAMMELLZEE&#39;, &#39;ALFRED&#39;, &#39;BATMAN&#39;, &#39;CATWOMAN&#39;, &#39;PENGUIN&#39;, &#39;SELINA&#39;, &#39;FAT CLOWN&#39;, &#39;BATGIRL&#39;, &#39;FREEZE&#39;, &#39;IVY&#39;, &#39;MS. B. HAVEN&#39;, &#39;WOODRUE&#39;, &#39;RIDDLER&#39;, &#39;STICKLEY&#39;, &#39;TWO-FACE&#39;, &#39;KNOX&#39;, &#39;DENT&#39;, &#39;ECKHARDT&#39;, &#39;GRISSOM&#39;, &#39;ROTELLI&#39;, &#39;ALISON&#39;, &#39;BEAN&#39;, &#39;BERNIE&#39;, &#39;GRIERSON&#39;, &#39;ELMER&#39;, &#39;DOCTOR JACOBSON&#39;, &#39;BUTT-HEAD&#39;, &#39;BEAVIS&#39;, &#39;FLEMMING&#39;, &#39;BEAVIS/CORNHOLIO&#39;, &#39;BORK&#39;, &#39;DUMB GUY&#39;, &#39;BETELGEUSE&#39;, &#39;OTHO&#39;, &#39;DELIA&#39;, &#39;MAXIE&#39;, &#39;CHANCE&#39;, &#39;ALLENBY&#39;, &#39;RAND&#39;, &#39;FRANKLIN&#39;, &#39;BALDWIN&#39;, &#39;MRS. AUBREY&#39;, &#39;HULL&#39;, &quot;DENNIS&#39; VOICE&quot;, &#39;SKRAPINOV&#39;, &#39;STIEGLER&#39;, &#39;KINNEY&#39;, &#39;JOHANNA&#39;, &#39;KARPATOV&#39;, &#39;KAUFMAN&#39;, &#39;NOVOGROD&#39;, &#39;MALKOVICH&#39;, &#39;ERROLL&#39;, &#39;LOTTE&#39;, &#39;FLORIS&#39;, &#39;DON&#39;, &#39;FLEMMER&#39;, &#39;HARRY S. TRUMAN PUPPET&#39;, &#39;KEVIN BACON&#39;, &#39;WOMAN #1&#39;, &#39;MANTINI&#39;, &#39;TINY WOMAN&#39;, &#39;MERTIN&#39;, &#39;BABY SUGGS&#39;, &#39;DENVER&#39;, &#39;STAMP PAID&#39;, &#39;SETHE&#39;, &#39;BELOVED&#39;, &#39;JANEY&#39;, &#39;LADY JONES&#39;, &#39;ELLA&#39;, &#39;SAWYER&#39;, &#39;WHITE MAN&#39;, &#39;ALLAN&#39;, &#39;BLOND MAN&#39;, &#39;WOO&#39;, &#39;BRANDT&#39;, &#39;DA FINO&#39;, &#39;DONNELLY&#39;, &#39;DONNY&#39;, &#39;YOUNGER COP&#39;, &#39;THE STRANGER&#39;, &#39;TREEHORN&#39;, &#39;LEBOWSKI&#39;, &#39;SMOKEY&#39;, &#39;BUCKY&#39;, &#39;NYSSA&#39;, &#39;BLADE&#39;, &#39;WHISTLER&#39;, &#39;REINHARDT&#39;, &#39;DAMASKINOS&#39;, &#39;SCUD&#39;, &#39;CHUPA&#39;, &#39;NOMAK&#39;, &#39;FROST&#39;, &#39;MIRACIA&#39;, &#39;KAM&#39;, &#39;DRAGONETTI&#39;, &#39;DOMINI&#39;, &#39;INTERN&#39;, &#39;COTTER&#39;, &#39;MEURICE&#39;, &#39;ABBY&#39;, &#39;RHODES&#39;, &#39;VISSER&#39;, &#39;ALESSANDRO&#39;, &#39;AUGUSTO&#39;, &#39;MIRTHA&#39;, &#39;TUNA&#39;, &#39;CALIBANOS&#39;, &#39;CESAR&#39;, &#39;DEREK&#39;, &#39;DETECTIVE #1&#39;, &#39;DIEGO&#39;, &#39;DR. BAY&#39;, &#39;ERMINE&#39;, &#39;GARCIA&#39;, &#39;KRISTINA&#39;, &#39;SANTIAGO&#39;, &#39;MATHIEU&#39;, &#39;2ND JOURNALIST&#39;, &#39;3RD JOURNALIST&#39;, &#39;ALGERIAN&#39;, &#39;ALI&#39;, &#39;HACENE&#39;, &#39;KADER&#39;, &#39;PETIT OMAR&#39;, &quot;BEN M&#39;HIDI&quot;, &#39;ARNAUD&#39;, &#39;ASSISTANT COMMISSIONER&#39;, &#39;GENERAL&#39;, &#39;MOURAD&#39;, &#39;BIGGS&#39;, &#39;DULANEY&#39;, &#39;CARDENAS&#39;, &#39;SATTLER&#39;, &#39;TROXELL&#39;, &#39;MCCURDY&#39;, &#39;ESTER&#39;, &#39;JUDGE BURNHAM&#39;, &#39;JOANNE&#39;, &#39;REESE&#39;, &#39;DR. TRAMMEL&#39;, &#39;ROSTON&#39;, &#39;DR. PALEY&#39;, &#39;DR. WONG&#39;, &#39;MISS SELLERS&#39;, &#39;KOEHLER&#39;, &#39;CAROLYN&#39;, &#39;ELEANOR&#39;, &#39;MADGE&#39;, &#39;FRANCESCA&#39;, &#39;PEARL&#39;, &#39;SHOTGUN&#39;, &#39;STANK&#39;, &#39;MACK&#39;, &#39;CINNABAR&#39;, &#39;LUPOVICH&#39;, &#39;SAL&#39;, &#39;WEAZE&#39;, &#39;TIA&#39;, &#39;CAESAR&#39;, &#39;GINO&#39;, &#39;VIOLET&#39;, &#39;COP #1&#39;, &#39;CORKY&#39;, &#39;CONKLIN&#39;, &#39;WOMBOSI&#39;, &#39;WOMAN CLERK&#39;, &#39;OPERATOR/PHONE&#39;, &#39;MANAGER/PHONE&#39;, &#39;RAWLINS&#39;, &#39;MORGUE BOSS&#39;, &#39;RESEARCH TECH #1&#39;, &#39;SECURITY CHIEF&#39;, &#39;DEPUTY DCM&#39;, &#39;THE MAN&#39;, &#39;GIANCARLO&#39;, &#39;DOWSER&#39;, &#39;SPOOR&#39;, &#39;GENT&#39;, &#39;GIRL BUTTLE&#39;, &#39;HELPMANN&#39;, &#39;KURTZMAN&#39;, &#39;LIME&#39;, &#39;MATTHEWS&#39;, &#39;SPIRO&#39;, &#39;MRS BUTTLE&#39;, &#39;MRS TERRAIN&#39;, &#39;PHONE VOICE&#39;, &#39;TUTTLE&#39;, &#39;CAPT. BARNEY&#39;, &#39;MARCUS&#39;, &#39;KANITA&#39;, &#39;COATES&#39;, &#39;DISPATCHER LOVE&#39;, &#39;DRUMMER&#39;, &#39;NOEL&#39;, &#39;HAZMAT&#39;, &#39;ROSE/MARY&#39;, &#39;WALLS&#39;, &#39;RADIO DISPATCHER&#39;, &#39;AARON&#39;, &#39;CAMERAMAN&#39;, &#39;ERNIE&#39;, &#39;ART&#39;, &#39;MAXWELL&#39;, &#39;LINK&#39;, &#39;CUFF&#39;, &#39;PLUMP MAN&#39;, &#39;MAYOLIA&#39;, &#39;MRS. SWICKER&#39;, &#39;LOTHOS&#39;, &#39;AMILYN&#39;, &#39;BUFFY&#39;, &#39;BIKER&#39;, &quot;BUFFY&#39;S MOM&quot;, &#39;NICOLE&#39;, &#39;GRUELLER&#39;, &#39;ZEPH&#39;, &#39;NUKE&#39;, &#39;CRASH&#39;, &quot;NUKE&#39;S FATHER&quot;, &#39;EBBY&#39;, &#39;JOSE&#39;, &#39;UMPIRE&#39;, &#39;ACE&#39;, &#39;GREEN&#39;, &#39;STONE&#39;, &#39;BANKER&#39;, &#39;WEBB&#39;, &#39;GAGGI&#39;, &#39;CHARLIE CLARK&#39;, &#39;STAGE MANAGER&#39;, &#39;SHERBERT&#39;, &#39;GINGER&#39;, &#39;FEMALE NEWSCASTER&#39;, &#39;FRANKIE AVALON&#39;, &#39;WARD&#39;, &#39;SIGNALER&#39;, &#39;WINNER&#39;, &#39;BORELLI&#39;, &#39;PISCANO&#39;, &#39;COP #2&#39;, &#39;COWBOY&#39;, &#39;SECURITY GUARD #1&#39;, &#39;DETECTIVE JOHNSON&#39;, &#39;DOMINICK&#39;, &#39;EDDY&#39;, &#39;FBI AGENT #10&#39;, &quot;PISCANO&#39;S WIFE&quot;, &#39;MARINO&#39;, &#39;HIGH ROLLER&#39;, &#39;HOTEL RECEPTIONIST&#39;, &#39;LITTLE NICKY&#39;, &#39;TONY DOGS&#39;, &quot;PISCANO&#39;S MOTHER&quot;, &#39;CAPTAIN GOD&#39;, &#39;ADONIS&#39;, &#39;CACTUS&#39;, &#39;BROCK&#39;, &#39;LANE&#39;, &#39;SPOOKY&#39;, &#39;FEMALE EXEC CAT&#39;, &#39;HOUSECAT&#39;, &#39;LIBRARY CLERK&#39;, &#39;2ND DRIVER&#39;, &#39;LENORE&#39;, &#39;CAITLIN&#39;, &#39;KLINGER&#39;, &#39;NELSON&#39;, &quot;COP&#39;S VOICE&quot;, &#39;GRILLO&#39;, &quot;LENORE&#39;S VOICE&quot;, &#39;OFFICER GRILLO&#39;, &#39;COL&#39;, &#39;FERGUS&#39;, &#39;DIL&#39;, &#39;DEVEROUX&#39;, &#39;FRANKNUM&#39;, &#39;JUDE&#39;, &#39;MAGUIRE&#39;, &#39;JODY&#39;, &#39;TEX&#39;, &#39;BARTHOLOMEW&#39;, &quot;REGGIE&#39;S VOICE&quot;, &quot;BARTHOLOMEW&#39;S VOICE&quot;, &#39;CRUIKSHANK&#39;, &#39;SCOBIE&#39;, &#39;DYLE&#39;, &#39;F�LIX&#39;, &#39;GRANDPIERRE&#39;, &#39;JEAN-LOUIS&#39;, &#39;SYLVIE&#39;, &#39;KILLER&#39;, &#39;BRENT&#39;, &#39;CARETAKER&#39;, &#39;MISS DUNLOP&#39;, &#39;NERD 1&#39;, &#39;NERD 2&#39;, &#39;SCENE&#39;, &#39;ARLO&#39;, &#39;BRYNNER&#39;, &#39;ICE CREAM ANDY&#39;, &#39;PAPPAS&#39;, &#39;MASON &amp; ARLO&#39;, &#39;BIG RANGER&#39;, &#39;HEMMINGS&#39;, &#39;GOMEZ&#39;, &#39;LEWIS&#39;, &#39;PUMPER&#39;, &#39;SWEENEY&#39;, &#39;BARNEY&#39;, &#39;GITTES&#39;, &#39;CROSS&#39;, &quot;CROSS&#39; VOICE&quot;, &quot;WALSH&#39;S VOICE&quot;, &quot;IDA&#39;S VOICE&quot;, &quot;SOPHIE&#39;S VOICE&quot;, &#39;YELBURTON&#39;, &#39;MORTY&#39;, &#39;MRS. MULWRAY&#39;, &#39;RAINMAKER&#39;, &#39;OTHER CUSTOMER&#39;, &#39;ALFREDO&#39;, &#39;SALVATORE&#39;, &#39;SPACCAFICO&#39;, &#39;KANE&#39;, &#39;CITY EDITOR&#39;, &#39;THOMPSON&#39;, &#39;DR. COREY&#39;, &#39;ROGERS&#39;, &#39;EMILY&#39;, &#39;MATISTI&#39;, &#39;THATCHER&#39;, &#39;REILLY&#39;, &#39;KANE SR.&#39;, &#39;MRS. KANE&#39;, &#39;PHOTOGRAPHER&#39;, &#39;THIRD NEWSPAPERMAN&#39;, &#39;RAWLSTON&#39;, &#39;THE CAPTAIN&#39;, &#39;ACTIVIST&#39;, &#39;DANTE&#39;, &#39;RANDAL&#39;, &#39;SANFORD&#39;, &#39;TRAINER&#39;, &#39;IMPATIENT CUSTOMER&#39;, &#39;VERONICA&#39;, &#39;SUITED MAN&#39;, &#39;GIRL 1&#39;, &#39;GIRL 2&#39;, &#39;INDECISIVE CUSTOMER&#39;, &#39;V.A. CUSTOMER&#39;, &#39;WILLAM&#39;, &#39;JESSIE&#39;, &#39;QUALEN&#39;, &#39;KYNETTE&#39;, &#39;TRAVERS&#39;, &#39;MATHESON&#39;, &#39;WRIGHT&#39;, &#39;DIM&#39;, &#39;MR. ALEXANDER&#39;, &#39;CATLADY&#39;, &#39;DOLIN&#39;, &#39;EM&#39;, &#39;DELTOID&#39;, &#39;RUBINSTEIN&#39;, &#39;GEORGIE&#39;, &#39;MINISTER&#39;, &#39;PEE&#39;, &#39;LARDFACE&#39;, &#39;CHIEF GUARD&#39;, &#39;DR. BRANOM&#39;, &#39;DR. TAYLOR&#39;, &#39;DR. BRODSKY&#39;, &#39;TRAMP&#39;, &#39;CHECK-IN&#39;, &#39;GOVERNOR&#39;, &#39;PEDROSA&#39;, &#39;MULDOON&#39;, &#39;IDA&#39;, &#39;KID #1&#39;, &#39;LIZA&#39;, &#39;CYNIC&#39;, &#39;FLIP&#39;, &#39;JONAS&#39;, &#39;LOWRY&#39;, &#39;A.T.L.&#39;, &#39;DRUMLIN&#39;, &#39;KITZ&#39;, &#39;PRESIDENT LASKER&#39;, &#39;LUNACHARSKY&#39;, &#39;HADDEN&#39;, &#39;JOSS&#39;, &#39;PROJECT OFFICIAL&#39;, &#39;BOSS PAUL&#39;, &#39;ALIBI&#39;, &#39;KOKO&#39;, &#39;ARLETTA&#39;, &#39;BLIND DICK&#39;, &#39;GAMBLER&#39;, &#39;DOGBOY&#39;, &#39;DRAGLINE&#39;, &#39;TATTOO&#39;, &#39;SOCIETY RED&#39;, &#39;RUBEN&#39;, &#39;M.J.&#39;, &#39;ATTORNEY&#39;, &#39;CONRAD&#39;, &#39;DARYLL&#39;, &#39;SAKS&#39;, &#39;NIKKO&#39;, &#39;QUINN&#39;, &#39;RENATA&#39;, &#39;VAUGHAN&#39;, &#39;DR. EMLEE&#39;, &#39;LETTY&#39;, &#39;MRS. MAYER&#39;, &#39;NURSE GATES&#39;, &#39;PRINCIPAL GAIL&#39;, &#39;MRS. HALLSTROM&#39;, &#39;AGENT HADLEY&#39;, &#39;SAMI&#39;, &#39;WAYNE&#39;, &#39;BASTALDI&#39;, &#39;ZAMMITO&#39;, &#39;BOBBY BEANS&#39;, &#39;BONANNO&#39;, &#39;JULIEN&#39;, &#39;LAMAR&#39;, &#39;HECTOR&#39;, &#39;RAPHAEL&#39;, &#39;JOEY &quot;TWO TONS&quot;&#39;, &#39;UNIFORMED COP&#39;, &#39;NICKY &quot;THE RAKE&quot;&#39;, &#39;VINNY&#39;, &#39;AUNT WU&#39;, &#39;YU&#39;, &#39;TSAI&#39;, &#39;LI&#39;, &#39;FIGURE&#39;, &#39;FIGURE IN BLACK&#39;, &#39;JEN&#39;, &#39;GANGSTER A&#39;, &#39;GOVERNESS&#39;, &#39;LO&#39;, &#39;MADAM YU&#39;, &#39;SIR TE&#39;, &#39;ALBRECHT&#39;, &#39;TORRES&#39;, &#39;ELLY&#39;, &#39;ANNABELLA&#39;, &#39;DARLA&#39;, &#39;FUNBOY&#39;, &#39;GRANGE&#39;, &#39;TIN-TIN&#39;, &#39;TOP DOLLAR&#39;, &#39;SKULL COWBOY&#39;, &#39;T-BIRD&#39;, &#39;KATHRYN&#39;, &#39;AUNT HELEN&#39;, &#39;BLAINE&#39;, &#39;CECILE&#39;, &#39;MRS. CALDWELL&#39;, &#39;DR. GREENBAUM&#39;, &quot;MRS. O&#39;SHEA&quot;, &#39;MRS. SUGERMAN&#39;, &#39;NIGHT DOORMAN&#39;, &#39;MISS CALLAHAN&#39;, &#39;LOIS&#39;, &#39;MRS. FARREN&#39;, &#39;CARLTON&#39;, &#39;FRIDA&#39;, &#39;MR. GRANT&#39;, &#39;SHRINK&#39;, &#39;BARBER&#39;, &#39;WHITE&#39;, &#39;BUMSTEAD&#39;, &#39;SCHREBER&#39;, &#39;STROMBOLI&#39;, &#39;MISS CRENSHAW&#39;, &#39;MISTER BLACK&#39;, &#39;MURRAY&#39;, &#39;SECRETARY OF COMMERCE&#39;, &#39;NANCE&#39;, &#39;DIESEL&#39;, &#39;GASPARILLA&#39;, &#39;TOBY&#39;, &#39;TRICKS&#39;, &#39;BUBBA&#39;, &#39;MEEKS&#39;, &#39;PITTS&#39;, &#39;KEATING&#39;, &#39;HAGER&#39;, &#39;MR. PERRY&#39;, &#39;MAMOOLI&#39;, &#39;HANOVER&#39;, &#39;TRILLIAN&#39;, &#39;MULLIGAN&#39;, &#39;PANTUCCI&#39;, &#39;VIVO&#39;, &#39;ARMAND&#39;, &#39;BAR GIRL&#39;, &#39;CHECKER&#39;, &#39;MERLE&#39;, &#39;VET 2&#39;, &#39;VET 1&#39;, &#39;BENNETT&#39;, &#39;CASSY&#39;, &#39;DUBBS&#39;, &#39;PEEBLES&#39;, &#39;SHEPPARD&#39;, &#39;WHORE&#39;, &#39;JABEZ&#39;, &#39;WEBSTER&#39;, &#39;MA STONE&#39;, &#39;TOM SHARP&#39;, &#39;SCRATCH&#39;, &#39;SQUIRE&#39;, &quot;OLD FARMHAND&#39;S VOICE&quot;, &#39;BIG JOHNSON&#39;, &#39;HANS&#39;, &#39;TAKAGI&#39;, &#39;MORETTI&#39;, &#39;JESUS FREAK&#39;, &#39;SHELDON&#39;, &#39;MULVANEY&#39;, &#39;PAULINE&#39;, &#39;NEWSMAN&#39;, &#39;VI&#39;, &#39;TV NEWSMAN&#39;, &#39;CLAREMONT&#39;, &#39;DOMINO&#39;, &#39;CHOCO&#39;, &#39;CIGLIUTI&#39;, &#39;KEG PRESIDENT&#39;, &#39;LATEESHA&#39;, &#39;TARYN&#39;, &#39;ZIERING&#39;, &#39;WEISS&#39;, &#39;KIMMIE&#39;, &#39;LASHINDRA&#39;, &#39;LASHANDRA&#39;, &#39;RADIO RAHEEM&#39;, &quot;BUGGIN&#39; OUT&quot;, &#39;CLIFTON&#39;, &#39;JADE&#39;, &#39;MOOKIE&#39;, &#39;ML&#39;, &#39;COCONUT SID&#39;, &#39;MOTHER SISTER&#39;, &#39;DA MAYOR&#39;, &#39;KOREAN CLERK&#39;, &#39;MISTER SE�OR LOVE DADDY&#39;, &#39;SWEET DICK WILLIE&#39;, &#39;PINO&#39;, &#39;VITO&#39;, &#39;CALE&#39;, &#39;CHING CHONG&#39;, &#39;TURK&#39;, &quot;JESSICA&#39;S DAD&quot;, &#39;MRS. DUNNE&#39;, &#39;MS. HELLER&#39;, &#39;PRINCIPAL COLLINS&#39;, &#39;TEN YEAR-OLD KID&#39;, &#39;ZIMMER&#39;, &#39;MOFFIT&#39;, &#39;PITER&#39;, &#39;KYNES&#39;, &#39;DUKE LETO&#39;, &#39;EMPEROR&#39;, &#39;REVEREND MOTHER&#39;, &#39;NAVIGATOR&#39;, &#39;GURNEY&#39;, &#39;STILGAR&#39;, &#39;MAPES&#39;, &#39;THUFIR&#39;, &#39;BELA&#39;, &#39;CRISWELL&#39;, &#39;BUNNY&#39;, &#39;CAMERAMAN BILL&#39;, &#39;DOLORES&#39;, &#39;RUDE BOSS&#39;, &#39;MR. FELDMAN&#39;, &#39;TOR&#39;, &#39;ORSON WELLES&#39;, &#39;VAMPIRA&#39;, &#39;PAUL MARCO&#39;, &#39;REVEREND LEMON&#39;, &quot;ED&#39;S VOICE&quot;, &#39;TAD&#39;, &#39;SCHARLACH&#39;, &#39;DR. GELLER&#39;, &#39;JEANETTE&#39;, &#39;MR. SCHARLACH&#39;, &#39;MARCIA&#39;, &#39;FELICIA&#39;, &#39;SHARI&#39;, &#39;CLASS&#39;, &#39;MS. HOY&#39;, &#39;DIANE&#39;, &#39;JO&#39;, &#39;MISS BEEDER&#39;, &#39;TAMMY&#39;, &#39;SHERRY&#39;, &#39;BOXER&#39;, &#39;DUDLEY&#39;, &#39;STENSLAND&#39;, &#39;MRS. LEFFERTS&#39;, &#39;EXLEY&#39;, &#39;PATCHETT&#39;, &#39;STOMPANATO&#39;, &#39;PINKER&#39;, &#39;COHEN&#39;, &#39;HUDGEONS&#39;, &#39;YOUNG OFFICER&#39;, &#39;LOEW&#39;, &#39;VICE CAPTAIN&#39;, &#39;&quot;BRILL&quot;&#39;, &#39;ALFONSO&#39;, &#39;ZAVITZ&#39;, &#39;BRILL&#39;, &#39;SENATOR ALBERT&#39;, &#39;SALES CLERK&#39;, &#39;MORELOS&#39;, &#39;DESK CLERK&#39;, &#39;DEPINTO&#39;, &#39;PRATT&#39;, &#39;SILVERBERG&#39;, &#39;L.T.&#39;, &#39;LEVIN&#39;, &#39;FRANKIE&#39;, &#39;FIEDLER&#39;, &#39;HAMERSLEY&#39;, &#39;SHAFFER&#39;, &#39;KATHARINE&#39;, &#39;ALM�SY&#39;, &#39;MADOX&#39;, &#39;CORPORAL&#39;, &#39;HANA&#39;, &#39;CARAVAGGIO&#39;, &#39;M�LLER&#39;, &#39;THE PATIENT&#39;, &#39;JAN&#39;, &#39;KIP&#39;, &#39;STUART&#39;, &#39;LADY HAMPTON&#39;, &#39;GIN&#39;, &#39;CRUZ&#39;, &#39;QUI&#39;, &#39;THIBADEAUX&#39;, &#39;BAUM&#39;, &#39;DEFENDING LAWYER&#39;, &#39;POTTER&#39;, &#39;EMBRY&#39;, &#39;FRANKEL&#39;, &#39;ROSALIND&#39;, &#39;MATTHEW&#39;, &#39;THERESA&#39;, &#39;MANDY&#39;, &#39;MRS. MORALES&#39;, &#39;PAULSEN&#39;, &#39;VADER&#39;, &#39;ADMIRAL&#39;, &#39;ADMIRAL PIETT&#39;, &#39;YODA&#39;, &#39;LANDO&#39;, &#39;CHEWIE&#39;, &#39;HAN&#39;, &#39;LEIA&#39;, &#39;DECK SERGEANT&#39;, &#39;RIEEKAN&#39;, &#39;THREEPIO&#39;, &#39;PIETT&#39;, &#39;AIDE&#39;, &#39;STEVIE&#39;, &#39;ZIRA&#39;, &#39;MALLOY&#39;, &#39;BRAZEN&#39;, &#39;UTOPIA&#39;, &#39;CUERVO JONES&#39;, &#39;MAP TO THE STARS EDDIE&#39;, &#39;HERSHE&#39;, &#39;SPINAL&#39;, &#39;PLISSKEN&#39;, &#39;PENDEJO BOB&#39;, &#39;PIPELINE&#39;, &#39;TASLIMA&#39;, &#39;PERCEVAL&#39;, &#39;LANCELOT&#39;, &#39;MORDRED&#39;, &#39;SIR ECTOR&#39;, &#39;GUENEVERE&#39;, &#39;MORGANA&#39;, &#39;UTHER&#39;, &#39;CARDINAL&#39;, &#39;KARRAS&#39;, &#39;CLINIC DIRECTOR&#39;, &#39;KINDERMAN&#39;, &#39;DR. KLEIN&#39;, &#39;REGAN&#39;, &#39;FATHER DYER&#39;, &#39;DR. TANNEY&#39;, &#39;REGAN/DEMON&#39;, &#39;MRS.KARRAS&#39;, &#39;MERRIN&#39;, &#39;UNCLE&#39;, &#39;DR. BEASLEY&#39;, &#39;MRS. BAKER&#39;, &#39;MRS.  BAKER&#39;, &#39;MR. DANIELS&#39;, &#39;NINA&#39;, &#39;WAXY&#39;, &#39;ARCHER&#39;, &#39;LAZARRO&#39;, &#39;SASHA&#39;, &#39;DIETRICH&#39;, &#39;POLLUX&#39;, &#39;TITO&#39;, &#39;DR. GARDNER&#39;, &#39;CASTOR&#39;, &#39;WANDA&#39;, &#39;BIG ED&#39;, &#39;CASH&#39;, &#39;SAM WONG&#39;, &#39;TONY THE DOORMAN&#39;, &#39;MRS. PETERSON&#39;, &#39;LASSITER&#39;, &#39;REID&#39;, &#39;CORA&#39;, &#39;DUVAL&#39;, &#39;OWENS&#39;, &quot;OWENS&#39; VOICE&quot;, &quot;MICHAELS&#39; VOICE&quot;, &#39;TROOPER&#39;, &#39;GRIMSRUD&#39;, &#39;DETECTIVE SIBERT&#39;, &#39;HOOKER ONE&#39;, &#39;HOOKER TWO&#39;, &#39;YOUNGER MAN&#39;, &quot;SCOTT&#39;S VOICE&quot;, &#39;SHEP&#39;, &#39;ANGEL FACE&#39;, &#39;BANDAGED PROPRIETOR&#39;, &#39;BOSS&#39;, &#39;DETECTIVE STERN&#39;, &#39;MARLA&#39;, &quot;TYLER&#39;S VOICE&quot;, &#39;WOUNDED BARTENDER&#39;, &#39;SECURITY TFM&#39;, &#39;CLEAR&#39;, &#39;RORY&#39;, &#39;DANO&#39;, &#39;DETECTIVE SUBY&#39;, &#39;ISABELLA&#39;, &#39;SHAINA&#39;, &#39;MR. BURROUGHS&#39;, &#39;WEINE&#39;, &#39;MR. BLUDWORTH&#39;, &#39;DE FRAVIO&#39;, &#39;BREWER&#39;, &#39;RAMBO&#39;, &#39;CO&#39;, &#39;TRAUTMAN&#39;, &#39;KIRKHILL&#39;, &#39;TECH&#39;, &#39;PRISONER&#39;, &#39;PARRY&#39;, &#39;EDWIN&#39;, &#39;GAY BUM&#39;, &#39;LEATHER&#39;, &#39;ELTON&#39;, &#39;RAYETTE&#39;, &#39;PALM&#39;, &#39;TWINKY&#39;, &#39;TITA&#39;, &#39;SAMIA&#39;, &#39;SECOND ENGINEER&#39;, &#39;CARL0S&#39;, &#39;JENETTE&#39;, &#39;FLETCH&#39;, &#39;BOYD&#39;, &#39;CUMMINGS&#39;, &#39;MR. STANWYK&#39;, &#39;DR. DOLEN&#39;, &#39;FAT SAM&#39;, &#39;RECORDS NURSE&#39;, &#39;GILLETT&#39;, &#39;GAIL&#39;, &#39;GUMMY&#39;, &#39;STANWYK&#39;, &#39;VELMA&#39;, &#39;MRS. STANWYK&#39;, &#39;WALKER&#39;, &#39;MR. UNDERHILL&#39;, &#39;FORD&#39;, &#39;BAND&#39;, &#39;JAZZ&#39;, &#39;SLEAZY GUY&#39;, &#39;ZUZU&#39;, &#39;THE KID&#39;, &#39;LT. AMOS&#39;, &#39;SMILEY&#39;, &#39;GRENDEL&#39;, &#39;MELODI&#39;, &#39;BLACK PUSHER&#39;, &#39;DEVEREAUX&#39;, &#39;CHARNIER&#39;, &#39;NICOLI&#39;, &#39;LA VALLE&#39;, &#39;RUSSO&#39;, &#39;DANCER&#39;, &#39;MUTCHIE&#39;, &#39;MULDERIG&#39;, &#39;WEINSTOCK&#39;, &#39;DARYL&#39;, &#39;SHEPARD&#39;, &#39;DESK SGT.&#39;, &#39;GIBSON&#39;, &#39;SATCH&#39;, &#39;ABEL&#39;, &#39;CORT&#39;, &#39;LIZBETH&#39;, &#39;CAMPBELL&#39;, &#39;DIANA&#39;, &#39;EVA&#39;, &#39;MCCULLOCH&#39;, &#39;MISS VAN DEUSEN&#39;, &#39;YOUNG RENNIE&#39;, &#39;RENNIE&#39;, &#39;RADIO OFFICER&#39;, &#39;ELLIOT&#39;, &#39;PAISLEY&#39;, &#39;FIRST MAN&#39;, &#39;JOANNA&#39;, &#39;TOYOTA&#39;, &#39;SECOND MAN&#39;, &#39;BA&#39;, &#39;GANDHI&#39;, &#39;BOURKE-WHITE&#39;, &#39;COLLINS&#39;, &#39;NEHRU&#39;, &#39;MIRABEHN&#39;, &#39;JINNAH&#39;, &#39;PATEL&#39;, &#39;SMUTS&#39;, &#39;SENIOR POLICE OFFICER&#39;, &#39;JEROME&#39;, &#39;ANTON&#39;, &#39;GENETICIST&#39;, &#39;ANTONIO&#39;, &#39;INVESTIGATOR&#39;, &#39;DETECTIVE HUGO&#39;, &#39;DIRECTOR JOSEF&#39;, &#39;GERMAN&#39;, &#39;BEYNON&#39;, &#39;LAUGHLIN&#39;, &#39;BRUMBY&#39;, &#39;THORPE&#39;, &#39;GLENDA&#39;, &#39;DOREEN&#39;, &#39;KINNEAR&#39;, &#39;CON&#39;, &#39;AARONOW&#39;, &#39;ROMA&#39;, &#39;LEVENE&#39;, &#39;WILLIAMSON&#39;, &#39;BAYLEN&#39;, &#39;LINGK&#39;, &#39;CICCI&#39;, &#39;DON FRANCESCO&#39;, &#39;FANUCCI&#39;, &#39;PENTANGELI&#39;, &#39;FBI MAN #1&#39;, &#39;GENCO&#39;, &#39;NERI&#39;, &#39;SENATOR GEARY&#39;, &#39;SENATOR KANE&#39;, &#39;KLINGMAN&#39;, &#39;ROTH&#39;, &#39;SAM ROTH&#39;, &#39;OLA&#39;, &#39;ROSATO&#39;, &#39;ROBERTO&#39;, &#39;HANNA&#39;, &#39;WHALE&#39;, &#39;DR. PAYNE&#39;, &#39;ERNEST THESIGER&#39;, &#39;ELSA LANCHESTER&#39;, &#39;PRINCESS MARGARET&#39;, &#39;MEMPHIS&#39;, &#39;ATLEY JACKSON&#39;, &#39;CALITRI&#39;, &#39;DETECTIVE CASTLEBECK&#39;, &#39;DETECTIVE DRYCOFF&#39;, &#39;OTTO&#39;, &#39;DONNY ASTRICKY&#39;, &#39;FREB&#39;, &#39;HELEN RAINES&#39;, &#39;JUDGE CROFT&#39;, &#39;TUMBLER&#39;, &#39;MIRROR MAN&#39;, &#39;SWAY&#39;, &#39;VARIO&#39;, &#39;TODDY&#39;, &quot;KAREN&#39;S MOTHER&quot;, &#39;MCDONALD&#39;, &#39;CHUCKIE&#39;, &#39;SKYLAR&#39;, &#39;DYTRESS&#39;, &#39;HYPNOTIST&#39;, &#39;PEKEC&#39;, &#39;LAMBEAU&#39;, &#39;TIMMY&#39;, &#39;PSYCHOLOGIST&#39;, &#39;PA&#39;, &#39;CASY&#39;, &#39;BLONDE GIRL&#39;, &#39;MAE&#39;, &#39;MIGRANT&#39;, &#39;ROSASHARN&#39;, &#39;DAVIS&#39;, &#39;MULEY&#39;, &#39;FIRST BOY&#39;, &#39;GRAMPA&#39;, &#39;RUTHIE&#39;, &#39;WINFIELD&#39;, &quot;WINFIELD&#39;S VOICE&quot;, &quot;RUTHIE&#39;S VOICE&quot;, &#39;ARLENE&#39;, &#39;CLUB MEMBER #1&#39;, &#39;CLUB MEMBER #2&#39;, &#39;DEBI&#39;, &#39;DR. OATMAN&#39;, &#39;KEN&#39;, &#39;MCCULLERS&#39;, &#39;MARCELLA&#39;, &#39;SOUTHTEC GUARD&#39;, &#39;MR. NEWBERRY&#39;, &#39;DAVID GOTTSCHALK&#39;, &#39;JUDITH&#39;, &#39;TWIN&#39;, &#39;RONA&#39;, &#39;AGENT BOB&#39;, &#39;AGENT RAY&#39;, &#39;RAZOR&#39;, &#39;CEREAL&#39;, &#39;DADE&#39;, &#39;NIKON&#39;, &#39;PHREAK&#39;, &#39;MRS. MURPHY&#39;, &#39;PLAGUE&#39;, &#39;BRADY&#39;, &#39;DR. HOFFMAN&#39;, &#39;MEEKER&#39;, &#39;LINDSAY&#39;, &#39;SAYER&#39;, &#39;BRACKETT&#39;, &#39;LYNDA&#39;, &#39;LAURIE&#39;, &#39;BOYFRIEND&#39;, &#39;SISTER&#39;, &#39;APRIL&#39;, &#39;NORMAN&#39;, &#39;DR. ABEL&#39;, &#39;DUSTY&#39;, &#39;FREDERICK&#39;, &#39;KRISHNA LEADER&#39;, &#39;PAZZI&#39;, &#39;BRIGHAM&#39;, &#39;COMMITTEE MEMBER&#39;, &#39;COP ONE&#39;, &#39;VERGER&#39;, &#39;CORDELL&#39;, &#39;LECHTER&#39;, &#39;CRAWFORD&#39;, &#39;KRENDLER&#39;, &#39;DRUMGO&#39;, &#39;MRS. PAZZI&#39;, &#39;FELL&#39;, &#39;GENTLEMAN&#39;, &#39;MAPP&#39;, &#39;RICCI&#39;, &#39;SUPERIOR&#39;, &#39;PIXEL&#39;, &#39;ANDREW&#39;, &#39;DONALD&#39;, &#39;WICHITA&#39;, &#39;HAYLEY&#39;, &#39;TALIA&#39;, &#39;WICHITA                                            ]&#39;, &#39;WENDY                                              ]&#39;, &#39;HEATHER CHANDLER&#39;, &#39;HEATHER MCNAMARA&#39;, &#39;HEATHER DUKE&#39;, &#39;RAM&#39;, &#39;WHITNEY JAMES&#39;, &#39;HERBERT&#39;, &#39;JULIET&#39;, &#39;HONORA&#39;, &#39;BRET&#39;, &#39;DR. AMBROSE&#39;, &#39;GIVENS&#39;, &#39;LANGE&#39;, &#39;PARAMEDIC&#39;, &#39;SAGE&#39;, &#39;TAWNY&#39;, &#39;BUBBER&#39;, &#39;GALE&#39;, &#39;CHUCKY&#39;, &#39;DEAKINS&#39;, &#39;HIDER&#39;, &#39;BULLY&#39;, &#39;REAL-ESTATE LADY&#39;, &quot;NEIL&#39;S FRIEND #1&quot;, &#39;ROBBERY DETECTIVE&#39;, &#39;BEDSOE&#39;, &#39;DETECTIVE GRELEY&#39;, &#39;MCCLEOD&#39;, &#39;CAVANAUGH&#39;, &#39;HOODED MAN&#39;, &#39;VIEIRA&#39;, &#39;ISABELLE&#39;, &#39;PROFESSOR DAJORSKI&#39;, &#39;KILVARA&#39;, &#39;MACLEOD&#39;, &#39;MR. PARKER&#39;, &#39;TALLEY&#39;, &#39;ANDERS&#39;, &quot;ANDERS&#39; VOICE&quot;, &#39;BELDONE&#39;, &#39;CASTELLANO&#39;, &#39;TUZEE&#39;, &#39;BENZA&#39;, &#39;FISCHER&#39;, &#39;MARS&#39;, &#39;DILL&#39;, &#39;HOWELL&#39;, &#39;SEYMORE&#39;, &#39;JORGENSON&#39;, &#39;KLAUS&#39;, &quot;LOUISE&#39;S VOICE&quot;, &quot;MIKKELSON&#39;S VOICE&quot;, &#39;THE WATCHMAN&#39;, &quot;THE WATCHMAN&#39;S VOICE&quot;, &#39;BENEDICT&#39;, &#39;BIK&#39;, &#39;COLONEL OLIVER&#39;, &#39;GENERAL BIZIMUNGU&#39;, &#39;JOCK&#39;, &#39;GREGOIRE&#39;, &#39;MILITIAMAN #1&#39;, &#39;MR. GARINDI&#39;, &#39;XAVIER&#39;, &#39;SABENA PRESIDENT&#39;, &#39;ZOZO&#39;, &#39;REFUGEE&#39;, &#39;BLACKBURN&#39;, &#39;PRITCHETT&#39;, &#39;MELISSA&#39;, &#39;JENZEN&#39;, &#39;KIRSTEN&#39;, &#39;SCHECTER&#39;, &#39;SHEA&#39;, &#39;SEAMUS&#39;, &#39;AUBREY&#39;, &#39;MAURA&#39;, &#39;ELLIOTT&#39;, &#39;TERRI&#39;, &#39;JP&#39;, &#39;KAPLAN&#39;, &#39;ALMOND JOY&#39;, &#39;SNICKERS&#39;, &#39;MINERVA&#39;, &#39;DARWIN&#39;, &#39;GATES&#39;, &#39;AD MAN #2&#39;, &#39;AD MAN #1&#39;, &#39;MUSSBURGER&#39;, &#39;MOSES&#39;, &#39;SMITTY&#39;, &#39;NORVILLE&#39;, &#39;EDITOR&#39;, &#39;ANCIENT SORTER&#39;, &#39;BARMAN&#39;, &#39;HUDSUCKER&#39;, &#39;INTERCOM&#39;, &#39;MRS. MUSSBURGER&#39;, &#39;VETERAN #2&#39;, &#39;VETERAN #1&#39;, &#39;COACHMAN&#39;, &#39;MRS. RAND&#39;, &#39;DR. MAXWELL&#39;, &#39;WILKENS&#39;, &#39;HOLLAND&#39;, &#39;JEFFRIES&#39;, &#39;LIBBETS&#39;, &#39;CHIEF NYBACK&#39;, &#39;FARRELL&#39;, &#39;HAP&#39;, &#39;TANYA&#39;, &#39;LESTAT&#39;, &#39;BROOKS&#39;, &#39;TITUS&#39;, &#39;DERRICK&#39;, &#39;DR. DROSSOS&#39;, &#39;THEA&#39;, &#39;MISS WOLLSTEN&#39;, &#39;ST. AUBYN&#39;, &quot;CLARENCE&#39;S VOICE&quot;, &quot;JOSEPH&#39;S VOICE&quot;, &quot;FRANKLIN&#39;S VOICE&quot;, &#39;DR. CAMPBELL&#39;, &#39;MA BAILEY&#39;, &#39;MARTINI&#39;, &#39;MRS. BAILEY&#39;, &#39;GOWER&#39;, &#39;UNCLE BILLY&#39;, &quot;SAM&#39;S VOICE&quot;, &#39;PETERSON&#39;, &#39;ELKINS&#39;, &#39;PATROL VOICE&#39;, &#39;RED&#39;, &#39;POLO&#39;, &#39;OVERMAN&#39;, &#39;IKE&#39;, &#39;HOAGIE&#39;, &#39;LOUISA&#39;, &#39;POLLY&#39;, &#39;BERLIN&#39;, &#39;CITRINE&#39;, &#39;BLATTIS&#39;, &#39;GOODRIDGE&#39;, &#39;AVERY&#39;, &#39;CHAD&#39;, &#39;CUSH&#39;, &#39;DOOLER&#39;, &#39;TIDWELL&#39;, &#39;FIRESTONE&#39;, &#39;MARCEE&#39;, &#39;SUGAR&#39;, &#39;TEE PEE&#39;, &#39;AJAY&#39;, &#39;ROLAND&#39;, &#39;JUTTSON&#39;, &#39;LUDLOW&#39;, &#39;NEDRY&#39;, &#39;DODGSON&#39;, &#39;GENNARO&#39;, &#39;HARDING&#39;, &#39;ROSTAGNO&#39;, &#39;BILLER&#39;, &quot;BRUCE&#39;S VOICE&quot;, &#39;KWAN&#39;, &#39;SENA&#39;, &#39;KAFKA&#39;, &#39;ASSISTANTS&#39;, &#39;BEARDED ANARCHIST&#39;, &#39;POCKMARKED ANARCHIST&#39;, &#39;BIZZLEBEK&#39;, &#39;BURGEL&#39;, &#39;GABRIELA&#39;, &#39;CHIEF CLERK&#39;, &#39;OSKAR&#39;, &#39;MURNAU&#39;, &#39;KEEPER&#39;, &#39;LUDWIG&#39;, &#39;DENHAM&#39;, &#39;LORD DARROW&#39;, &#39;ENGLEHORN&#39;, &#39;MR GINTING&#39;, &#39;BREE&#39;, &#39;ARLYN&#39;, &#39;TRINA&#39;, &#39;MR. FABER&#39;, &#39;SPANGLER&#39;, &#39;LELA&#39;, &#39;TRASK&#39;, &#39;KLUTE&#39;, &quot;CABLE&#39;S VOICE&quot;, &#39;STREIGER&#39;, &#39;ALVAREZ&#39;, &#39;GRESSEN&#39;, &#39;SHAUNESSY&#39;, &quot;O&#39;CONNOR&quot;, &#39;SATURDAY FATHER&#39;, &quot;SHAUNESSY&#39;S VOICE&quot;, &#39;SURGEON&#39;, &#39;BODYGUARD&#39;, &#39;TENZIN GYATSO&#39;, &#39;LUKHANGWA&#39;, &#39;GENERAL CHIANG&#39;, &#39;GENERAL CHIANG CHIN-WU&#39;, &#39;KASHAG MEMBER&#39;, &#39;LHAMO&#39;, &#39;LING RINPOCHE&#39;, &#39;LOBSANG&#39;, &#39;LORD CHAMBERLAIN&#39;, &#39;MAO TSE TUNG&#39;, &#39;NOBLE BOY&#39;, &#39;NORBU THUNDRUP&#39;, &#39;TAKSTER RINPOCHE&#39;, &#39;TAKTRA RINPOCHE&#39;, &#39;TIBETAN WOMAN&#39;, &#39;BICKERMAN&#39;, &#39;KEOUGH&#39;, &#39;GARE&#39;, &#39;OKUBO&#39;, &#39;CLARICE&#39;, &#39;ARDELIA&#39;, &#39;CHILTON&#39;, &#39;MR. YOW&#39;, &#39;MR. GUMB&#39;, &#39;PILCHER&#39;, &#39;DR. LECTER&#39;, &#39;DR. DANIELSON&#39;, &#39;SEN. MARTIN&#39;, &#39;RODEN&#39;, &#39;HEYWARD&#39;, &#39;MAGUA&#39;, &#39;SERGEANT MAJOR&#39;, &#39;MONTCALM&#39;, &#39;SENTRY&#39;, &#39;BECK&#39;, &#39;SIXPACK&#39;, &quot;WILLIE&#39;S VOICE&quot;, &#39;DEJESUS&#39;, &#39;BACON&#39;, &#39;SOAP&#39;, &#39;SAMOAN JO&#39;, &#39;HATCHET&#39;, &#39;JD&#39;, &#39;BIG CHRIS&#39;, &quot;JOHN O&#39;DRISCOLL&quot;, &#39;DOG&#39;, &#39;LITTLE CHRIS&#39;, &#39;PLANK&#39;, &#39;J&#39;, &#39;TRAFFIC WARDEN&#39;, &#39;PALOMA&#39;, &#39;AMADO&#39;, &#39;PILAR&#39;, &#39;ATHENA&#39;, &#39;PRISCILLA&#39;, &#39;CHUCHO&#39;, &#39;CODY&#39;, &#39;ELADIO&#39;, &#39;YOUNG MERCEDES&#39;, &#39;FENTON&#39;, &#39;H.L.&#39;, &#39;MARISOL&#39;, &#39;MINNIE&#39;, &#39;YOUNG OTIS&#39;, &#39;YOUNG SAM&#39;, &#39;YOUNG PILAR&#39;, &#39;BUTTERFIELD&#39;, &#39;VALENTIN&#39;, &#39;DOROTHEA&#39;, &#39;CULTISTS&#39;, &#39;EDDISON&#39;, &#39;VINOVICH&#39;, &#39;TOFFLER&#39;, &#39;NIX&#39;, &#39;RECEPTION&#39;, &#39;FATHER JAMES&#39;, &#39;MR. SILBERMAN&#39;, &#39;DEFENSE ATTORNEY&#39;, &#39;VIZNICK&#39;, &#39;DR. ALLEN&#39;, &#39;LAREAUX&#39;, &#39;FATHER FRANK&#39;, &#39;TOWNSEND&#39;, &#39;MRS. QUINTANA&#39;, &#39;CAMILLE&#39;, &#39;NONA&#39;, &#39;COACH MILLER&#39;, &#39;ZEKE&#39;, &#39;KYRA&#39;, &#39;QUINCY&#39;, &#39;SIDRA&#39;, &#39;SHAWNEE&#39;, &#39;AVI&#39;, &#39;JIM KURRING&#39;, &#39;CLAUIDA&#39;, &#39;COCKTAIL WAITRESS&#39;, &#39;WORM&#39;, &#39;DIXON&#39;, &#39;THURSTON&#39;, &#39;SOLOMON&#39;, &#39;DR. LANDON&#39;, &#39;FEMALE VOICE&#39;, &#39;GWENOVIER&#39;, &#39;MIDDLE AGED GUY&#39;, &#39;KLIGMAN&#39;, &#39;YOUNG PHARMACY KID&#39;, &#39;PINK DOT GIRL&#39;, &quot;D&#39;ARTAGNAN&quot;, &#39;ARAMIS&#39;, &#39;ATHOS&#39;, &#39;PORTHOS&#39;, &#39;PHILLIPPE&#39;, &#39;MAN IN THE IRON MASK&#39;, &#39;PIERRE&#39;, &#39;MARVOSA&#39;, &#39;D.T.&#39;, &#39;LURCH&#39;, &#39;ZYDOWSKI&#39;, &#39;TUBBS&#39;, &#39;BLOOM&#39;, &#39;CHESTER&#39;, &#39;DOLLARHYDE&#39;, &#39;REBA&#39;, &#39;RED DRAGON&#39;, &#39;LOUNDS&#39;, &#39;DR. CHILTON&#39;, &#39;LECKTOR&#39;, &#39;GRADUATE STUDENT&#39;, &#39;SPRINGFIELD&#39;, &#39;SPURGEN&#39;, &#39;MAYNARD&#39;, &#39;LYNNE&#39;, &#39;JACK BURNS&#39;, &#39;LAWLER&#39;, &#39;ZMUDA&#39;, &#39;YOGI&#39;, &#39;OLD DOCTOR&#39;, &#39;BOOKER&#39;, &#39;TONY CLIFTON&#39;, &#39;JANICE&#39;, &#39;SAD SACK&#39;, &#39;AGENT SMITH&#39;, &#39;AGENT JONES&#39;, &#39;MORPHEUS&#39;, &#39;SWITCH&#39;, &#39;APOC&#39;, &#39;CHOI&#39;, &#39;NEO&#39;, &#39;CYPHER&#39;, &#39;TRINITY&#39;, &#39;TANK&#39;, &#39;ORACLE&#39;, &#39;BOY #1&#39;, &#39;BOY #2&#39;, &#39;JOHNNY BOY&#39;, &#39;GIOVANNI&#39;, &#39;MARIO&#39;, &#39;DREW&#39;, &#39;PARRISH&#39;, &#39;QUINCE&#39;, &#39;AMBROSE&#39;, &#39;BONTECOU&#39;, &#39;COYLE&#39;, &#39;SLOANE&#39;, &#39;EASTER&#39;, &#39;NATALIE&#39;, &#39;DODD&#39;, &#39;MRS. JANKIS&#39;, &quot;LEONARD&#39;S WIFE&quot;, &#39;LEONARD\t\t\t\t\t\t\t  *&#39;, &#39;CROCKETT&#39;, &#39;CASTILLO&#39;, &#39;FUJIMA&#39;, &#39;COLEMAN&#39;, &#39;EL TIBURON&#39;, &#39;JOS� YERO&#39;, &#39;TRUDY&#39;, &#39;MONTOYA&#39;, &#39;CASS&#39;, &#39;RICH LADY&#39;, &#39;RATSO&#39;, &#39;TOWNY&#39;, &quot;O&#39;DANIEL&quot;, &#39;MARINE&#39;, &#39;VETERAN&#39;, &#39;ERICH&#39;, &#39;ZIAT&#39;, &#39;YESIL&#39;, &#39;MANNY&#39;, &#39;SIRI&#39;, &#39;SINDELL&#39;, &#39;LIBBY&#39;, &#39;STAMP&#39;, &#39;NYAH&#39;, &#39;MCCLOY&#39;, &#39;ETHAN&#39;, &#39;WALLIS&#39;, &quot;BILLY&#39;S VOICE&quot;, &#39;SWANBECK&#39;, &#39;NEKHORVICH&#39;, &#39;KASIMOV&#39;, &#39;ANATOLY&#39;, &#39;KITTRIDGE&#39;, &#39;PHELPS&#39;, &#39;KRIEGER&#39;, &#39;GUARD RANDALL&#39;, &#39;MATTHIAS&#39;, &#39;AVA&#39;, &#39;MR. JOHNNY&#39;, &#39;COSMO&#39;, &#39;FELIX&#39;, &#39;RONNY&#39;, &#39;SHY WAITER&#39;, &#39;PERRY&#39;, &quot;PERRY&#39;S VOICE&quot;, &quot;ROSE&#39;S VOICE&quot;, &#39;BEDEVERE&#39;, &#39;SOOTHSAYER&#39;, &#39;TALL KNIGHT&#39;, &#39;BLACK KNIGHT&#39;, &#39;GOD&#39;, &#39;FIRST VILLAGER&#39;, &#39;BODY&#39;, &#39;LARGE MAN&#39;, &#39;BRIDGEKEEPER&#39;, &#39;LAUNCELOT&#39;, &#39;CART DRIVER&#39;, &#39;CONCORDE&#39;, &#39;FIRST GUARD&#39;, &#39;ZOOT&#39;, &#39;GALAHAD&#39;, &#39;PIGLET&#39;, &#39;OTHER KNIGHTS&#39;, &#39;SINGERS&#39;, &#39;BROWN&#39;, &#39;ASSISTANT DRESSER&#39;, &#39;DISRAELI&#39;, &#39;BERTIE&#39;, &quot;BERTIE&#39;S VALET&quot;, &#39;PONSONBY&#39;, &#39;DEAN WELLSELLY&#39;, &#39;JENNER&#39;, &#39;LADY ELY&#39;, &#39;PRINCESS ALEXANDRA&#39;, &#39;DIFFORD&#39;, &#39;STILTS&#39;, &quot;ALEX&#39;S MOTHER&quot;, &#39;HOTEL MANAGER&#39;, &#39;COCO&#39;, &#39;DARK-HAIRED WOMAN&#39;, &#39;SERGEANT BAXTER&#39;, &#39;MIDDLE-AGED WOMAN&#39;, &#39;PARAMOUNT GUARD&#39;, &#39;DETECTIVE HARRY MCKNIGHT&#39;, &#39;DETECTIVE NEAL DOMGAARD&#39;, &#39;LANEY&#39;, &#39;ANNOUNCER&#39;, &#39;ZACH&#39;, &#39;SAUNDRA&#39;, &#39;FRED THOMISON&#39;, &#39;JOHN C. MCCAY&#39;, &#39;VADA&#39;, &#39;HILLARY&#39;, &#39;MR. OWETT&#39;, &#39;BOY#2&#39;, &#39;DR WELTY&#39;, &#39;MR. BIXLER&#39;, &#39;NURSE RANDALL&#39;, &#39;THOMAS J&#39;, &#39;DIGGER&#39;, &#39;JULIANNE&#39;, &#39;ALBUQUERQUE&#39;, &#39;LINNEA&#39;, &#39;BARBARA JEAN&#39;, &#39;BARNETT&#39;, &#39;TRIPLETTE&#39;, &#39;OPAL&#39;, &#39;L.A. JOAN&#39;, &#39;SUELEEN&#39;, &#39;MALLORY&#39;, &#39;MCCLUSKY&#39;, &#39;SCAGNETTI&#39;, &#39;MOVIE MALLORY&#39;, &#39;MOVIE MICKEY&#39;, &#39;WURLITZER&#39;, &#39;PITNEY&#39;, &#39;DUFF&#39;, &#39;EFFIE&#39;, &#39;UNDERTAKER&#39;, &#39;JOCKO&#39;, &#39;REVEREND DAWSON&#39;, &#39;OMAR&#39;, &#39;3JANE&#39;, &#39;RIVIERA&#39;, &#39;CASE&#39;, &#39;AEROL&#39;, &#39;ARMITAGE&#39;, &#39;BAO/WINTERMUTE&#39;, &#39;RATZ&#39;, &#39;MCCOY&#39;, &#39;MAELCOM&#39;, &#39;DIXIE&#39;, &#39;LINDA LEE&#39;, &#39;JULIUS/WINTERMUTE&#39;, &#39;ALDYS&#39;, &#39;GIBBY&#39;, &#39;MONTY&#39;, &#39;LOCK&#39;, &#39;BARREL&#39;, &#39;SHOCK&#39;, &#39;EVIL SCIENTIST&#39;, &#39;VARIOUS PEOPLE&#39;, &#39;KERRY&#39;, &#39;MRS. POLETTI&#39;, &#39;KINCAID&#39;, &#39;LORENZO&#39;, &#39;THIEF&#39;, &#39;SPIKE&#39;, &#39;MALE LEAD&#39;, &#39;RITZ MAN&#39;, &#39;SECURITY&#39;, &#39;TARQUIN&#39;, &#39;BIG NURSE&#39;, &#39;MCMURPHY&#39;, &#39;BROMDEN&#39;, &#39;CHESWICK&#39;, &#39;FREDRICKSON&#39;, &#39;SEFELT&#39;, &#39;SCANLON&#39;, &#39;NURSE PILBOW&#39;, &#39;PATIENTS&#39;, &#39;TABER&#39;, &#39;TURKLE&#39;, &#39;NURSE ITSU&#39;, &#39;MISS PILBOW&#39;, &#39;NIGHT SUPERVISOR&#39;, &#39;CONCIERGE&#39;, &quot;DAMON&#39;S MOTHER&quot;, &#39;DWAYNE&#39;, &#39;PHONE&#39;, &#39;HIM&#39;, &#39;BIG MAC&#39;, &#39;COUNSEL&#39;, &#39;CHARLEY&#39;, &#39;FATHER BARRY&#39;, &#39;EDIE&#39;, &#39;GLOVER&#39;, &#39;J.P.&#39;, &#39;SKINS&#39;, &#39;MRS. COLLINS&#39;, &#39;MUTT&#39;, &#39;PRINCESS OF DARKNESS&#39;, &#39;THE MUMMY&#39;, &#39;THE WOLF MAN&#39;, &#39;CHINO&#39;, &quot;CHINO&#39;S VOICE&quot;, &#39;BURDON&#39;, &#39;GLENN&#39;, &#39;PUP&#39;, &#39;HEJIRA&#39;, &#39;MOSELLE&#39;, &#39;WHITE BOY BOB&#39;, &#39;RAFE&#39;, &#39;BRITISH AIR COMMANDER&#39;, &#39;COMA&#39;, &#39;MECHANIC&#39;, &#39;DORIE&#39;, &#39;YAMAMOTO&#39;, &#39;GENDA&#39;, &#39;ROOSEVELT&#39;, &#39;GENERAL MARSHALL&#39;, &#39;NISHIKURA&#39;, &#39;PEGGY&#39;, &#39;MADDY&#39;, &#39;MR. KELCHER&#39;, &#39;MRS. KELCHER&#39;, &#39;ROSALIE&#39;, &#39;YOLANDER&#39;, &#39;RUDMAN&#39;, &#39;MARJORIE&#39;, &#39;GEOFF&#39;, &#39;SEIDMAN&#39;, &#39;KENTON&#39;, &#39;ANTHEA&#39;, &#39;DR. ARMBRUSTER&#39;, &#39;LAIRD&#39;, &#39;MRS. FINLEY&#39;, &#39;JUDGE GARNETT&#39;, &#39;RIDDICK&#39;, &#39;PARIS&#39;, &#39;FRY&#39;, &#39;JOHNS&#39;, &#39;IMAM&#39;, &#39;SHAZZA&#39;, &#39;ZAIUS&#39;, &#39;GALEN&#39;, &#39;HONORIUS&#39;, &#39;JULIUS&#39;, &#39;LUCIUS&#39;, &#39;MAXIMUS&#39;, &#39;ELIAS&#39;, &#39;BIG HAROLD&#39;, &#39;RHAH&#39;, &#39;WOLFE&#39;, &#39;LERNER&#39;, &#39;KILLAINE&#39;, &#39;GOBLE&#39;, &#39;CLARENDON&#39;, &#39;MAGRUDER&#39;, &#39;GORE&#39;, &#39;MCKECHNIE&#39;, &#39;CARMEN&#39;, &#39;GOLD&#39;, &#39;MR. PENFIELD&#39;, &#39;UTAH&#39;, &#39;BODHI&#39;, &#39;FIBERGLASS&#39;, &#39;HARP&#39;, &#39;DILLON&#39;, &#39;PHILIPS&#39;, &#39;RAMIREZ&#39;, &#39;BRIDGET&#39;, &#39;VIVIAN&#39;, &#39;KROSS&#39;, &#39;MR. THOMAS&#39;, &#39;STUCKEY&#39;, &#39;LANDLORD&#39;, &#39;SALESWOMAN&#39;, &#39;ALBINO&#39;, &#39;BUTTERCUP&#39;, &#39;HUMPERDINCK&#39;, &#39;MAN IN BLACK&#39;, &#39;FEZZIK&#39;, &#39;VIZZINI&#39;, &#39;INIGO&#39;, &#39;YELLIN&#39;, &#39;RUGEN&#39;, &#39;MIRACLE MAX&#39;, &#39;BIALYSTOCK&#39;, &#39;DE BRIS&#39;, &#39;BLOOM AND DRUNK&#39;, &#39;LIEBKIND&#39;, &#39;ULLA&#39;, &#39;LITTLE OLD LADY&#39;, &#39;BIALYSTOCK AND BLOOM&#39;, &#39;LSD&#39;, &#39;GOEBBELS&#39;, &#39;ARBOGAST&#39;, &#39;CAR DEALER&#39;, &quot;CAROLINE&#39;S VOICE&quot;, &quot;LOWERY&#39;S VOICE&quot;, &#39;MRS. CHAMBERS&#39;, &quot;NORMAN&#39;S VOICE&quot;, &#39;2ND EMBALMER&#39;, &#39;1ST EMBALMER&#39;, &#39;2ND OFFICER&#39;, &#39;BUCKLEY&#39;, &#39;GOOF&#39;, &#39;MRS. BUCKLEY&#39;, &#39;NIKOLAS&#39;, &#39;L�ONE&#39;, &#39;MARC&#39;, &#39;THE SICK-ROOM&#39;, &#39;THE DRAWING-ROOM&#39;, &#39;SPARROW&#39;, &#39;FLORENCE&#39;, &#39;IGOR&#39;, &#39;FIRST DETECTIVE&#39;, &#39;WINTON&#39;, &#39;GOLATILY&#39;, &#39;WORTH&#39;, &#39;PENTCHO&#39;, &#39;MIA&#39;, &#39;BROTHER&#39;, &#39;WASKI&#39;, &#39;DADDY&#39;, &#39;DOLL&#39;, &#39;WILLCOX HILLYER&#39;, &#39;DR. MARTINSON&#39;, &#39;DAVE WILKIE&#39;, &#39;DR. WINTON&#39;, &#39;&quot;SCHOOL-MARM&quot;&#39;, &#39;KITTLE&#39;, &#39;BILLY-BOY&#39;, &#39;NENA&#39;, &#39;CAPTAIN ALBERT&#39;, &#39;D.A. RAVICH&#39;, &#39;ZIMMERMANN&#39;, &#39;POP-SWEET&#39;, &#39;ACKBAR&#39;, &#39;BOUSHH&#39;, &#39;JERJERROD&#39;, &#39;WEDGE&#39;, &#39;NINEDENINE&#39;, &#39;FAMILY&#39;, &#39;RIFF RAFF&#39;, &#39;DR SCOTT&#39;, &#39;GUESTS&#39;, &#39;MAGENTA&#39;, &#39;APOLLO&#39;, &#39;JERGENS&#39;, &#39;COMMENTATOR&#39;, &#39;CHIPPED TOOTH&#39;, &#39;CLEANER&#39;, &#39;COMMENTATOR #2&#39;, &#39;COMMENTATOR #1&#39;, &#39;DIPPER&#39;, &#39;GAZZO&#39;, &#39;REPORTER #2&#39;, &#39;BABY HERMAN&#39;, &#39;VALIANT&#39;, &#39;BETTY BOOP&#39;, &#39;ROGER RABBIT&#39;, &#39;DOOM&#39;, &#39;JESSICA RABBIT&#39;, &#39;LT. SANTINO&#39;, &#39;MAROON&#39;, &#39;ABRAHAM&#39;, &#39;ROMEO&#39;, &#39;BALTHASAR&#39;, &#39;MERCUTIO&#39;, &#39;BENVOLIO&#39;, &#39;CAPULET&#39;, &#39;TYBALT&#39;, &#39;CRUSTY&#39;, &#39;FATHER LAWRENCE&#39;, &#39;LADY CAPULET&#39;, &#39;DAPPER GENT&#39;, &#39;DEIRDRE&#39;, &#39;EDVARD&#39;, &#39;FRANCOIS&#39;, &#39;MIKHI&#39;, &#39;SWEDE&#39;, &#39;JEAN-PIERRE&#39;, &#39;BOOTH&#39;, &quot;EARL&#39;S MOTHER&quot;, &#39;CAPTAIN DIEL&#39;, &#39;CRAPS DEALER&#39;, &#39;DOORMAN #1&#39;, &#39;RICKY TAN&#39;, &#39;HOSTESS&#39;, &#39;STEVEN REIGN&#39;, &#39;SPECIAL AGENT STERLING&#39;, &#39;SUPERINDENDENT CHIN&#39;, &#39;MASTER FU&#39;, &#39;DIEL&#39;, &#39;WHITNEY&#39;, &#39;RUSS&#39;, &#39;LAFONTAINE&#39;, &quot;SANG&#39;S VOICE&quot;, &#39;SOON YOUNG&#39;, &#39;FISHER&#39;, &#39;MRS. PRESSMAN&#39;, &#39;MRS. TROUT&#39;, &#39;WHEEDLE&#39;, &#39;DET. WHEEDLE&#39;, &#39;JONAH&#39;, &#39;DR. MARCIA FIELDSTONE&#39;, &#39;LULU&#39;, &#39;RAM�N&#39;, &#39;ESPERANZA&#39;, &#39;ESTELLA&#39;, &#39;HARTWELL&#39;, &#39;DANNY/TOM&#39;, &#39;BOOKMAN&#39;, &#39;COLETTE&#39;, &#39;TRAHN&#39;, &#39;VERNE&#39;, &#39;POOH-BEAR&#39;, &#39;GARCETTI&#39;, &#39;KUJO&#39;, &#39;COLONEL ANDERSON&#39;, &#39;UPHAM&#39;, &#39;REIBEN&#39;, &#39;SUPPLY SERGEANT&#39;, &#39;SARGE&#39;, &#39;AGENT SIMS&#39;, &#39;ASSISTANT&#39;, &#39;DC&#39;, &quot;COURT&#39;S ATTORNEY&quot;, &#39;U.S. ATTORNEY&#39;, &#39;MRS COURT&#39;, &#39;GUY 2&#39;, &#39;MISS EVANS&#39;, &#39;VALHERE&#39;, &#39;SCHINDLER&#39;, &#39;BRINNLITZ GUY 2&#39;, &#39;EMILIE&#39;, &#39;GESTAPO&#39;, &#39;GOETH&#39;, &#39;PFEFFERBERG&#39;, &#39;LOWENSTEIN&#39;, &#39;RASCH&#39;, &#39;SCHERNER&#39;, &#39;TOFFEL&#39;, &#39;CAPTAIN TYLER&#39;, &#39;CICI&#39;, &#39;GIRL ON PHONE&#39;, &#39;DAWNIE&#39;, &#39;COTTON&#39;, &#39;DEBBIE SALT&#39;, &#39;HALLIE&#39;, &#39;IN THE THEATER&#39;, &#39;ON SCREEN&#39;, &#39;MAUREEN&#39;, &#39;ANGELINA&#39;, &#39;TYSON&#39;, &#39;DETECTIVE KINCAID&#39;, &#39;ROMAN&#39;, &#39;SHERIFF BURKE&#39;, &#39;TATUM&#39;, &#39;GIRL #1&#39;, &#39;GIRL #2&#39;, &#39;MR. PRESCOTT&#39;, &#39;MILLS&#39;, &#39;SOMERSET&#39;, &#39;CRAZED MAN&#39;, &#39;DELIVERYMAN&#39;, &#39;JOHN DOE&#39;, &#39;MRS GOULD&#39;, &#39;GREENHILL&#39;, &#39;MOSE&#39;, &#39;FUTTERMAN&#39;, &#39;KEEFER&#39;, &#39;MRS. JORGENSEN&#39;, &#39;JORGENSEN&#39;, &#39;MRS. LINDNER&#39;, &#39;LINDNER&#39;, &#39;PROF. ROTH&#39;, &#39;ALLEYN&#39;, &#39;BOATMAN&#39;, &#39;BURBAGE&#39;, &#39;MARLOWE&#39;, &#39;HENSLOWE&#39;, &#39;DR. MOTH&#39;, &#39;FENNYMAN&#39;, &#39;VIOLA&#39;, &#39;VIOLA AS ROMEO&#39;, &#39;NOL AS BENVOLIO&#39;, &#39;WESSEX&#39;, &#39;SAM AS JULIET&#39;, &#39;RALPH AS NURSE&#39;, &#39;ROSALINE&#39;, &#39;SIR ROBERT&#39;, &#39;TILNEY&#39;, &#39;URCHIN&#39;, &#39;VIOLA AS THOMAS&#39;, &#39;LUMSDEN&#39;, &#39;ANJANETTE&#39;, &quot;GEORGE&#39;S VOICE&quot;, &quot;FELICIA&#39;S VOICE&quot;, &#39;LORNA&#39;, &#39;PETTIS&#39;, &quot;TINA&#39;S VOICE&quot;, &quot;JILL&#39;S VOICE&quot;, &#39;IZZY&#39;, &#39;SID ROTH&#39;, &#39;POPE&#39;, &#39;PRODUCER&#39;, &#39;HALLORAN&#39;, &#39;HERMIE&#39;, &#39;ULLMAN&#39;, &#39;WATSON&#39;, &#39;UNCLE AL&#39;, &#39;NAN&#39;, &#39;MOTHER SUPERIOR&#39;, &quot;BISHOP O&#39;HARA&quot;, &#39;CHARLENE&#39;, &#39;CHOIR&#39;, &#39;LAWANDA&#39;, &#39;RONELLES&#39;, &#39;MARY PATRICK&#39;, &#39;MARY LAZARUS&#39;, &#39;MARY ROBERT&#39;, &#39;MARY PATRICK AND ROBERT&#39;, &#39;TATE&#39;, &quot;O&#39;HARA&quot;, &#39;BALTUS&#39;, &#39;ICHABOD&#39;, &#39;BROM&#39;, &#39;DOCTOR LANCASTER&#39;, &#39;FATHER STEENWYCK&#39;, &#39;HARDENBROOK&#39;, &#39;HIGH CONSTABLE&#39;, &#39;KILLIAN&#39;, &#39;PHILIPSE&#39;, &#39;YOUNG MASBATH&#39;, &#39;KATRINA&#39;, &#39;LADY VAN TASSEL&#39;, &#39;VAN RIPPER&#39;, &#39;OLD CRONE&#39;, &#39;THIRD MAN&#39;, &#39;YOUNG ICHABOD&#39;, &#39;SCOOTER&#39;, &#39;WOOLRIDGE&#39;, &#39;MELINDA&#39;, &#39;RASHID&#39;, &#39;AUGGIE&#39;, &#39;VINNIE&#39;, &#39;AUNT EM&#39;, &#39;CYRUS&#39;, &#39;FELICITY&#39;, &#39;KABUO&#39;, &#39;NELS&#39;, &#39;DR. WHITMAN&#39;, &#39;HOOKS&#39;, &#39;ETTA&#39;, &#39;GILLANDERS&#39;, &#39;HATSUE&#39;, &#39;ISHMAEL&#39;, &#39;MAPLES&#39;, &#39;WHALEY&#39;, &#39;OLE&#39;, &#39;LEVANT&#39;, &#39;SUSAN MARIE&#39;, &#39;CHURCH&#39;, &#39;MEKUM&#39;, &#39;BELLHOP&#39;, &#39;BIENSTOCK&#39;, &#39;SPATS&#39;, &#39;FIRST HENCHMAN&#39;, &#39;POLIAKOFF&#39;, &#39;OSGOOD&#39;, &#39;NELLIE&#39;, &#39;MOZARELLA&#39;, &#39;TOOTHPICK CHARLIE&#39;, &#39;PARADISE&#39;, &#39;TJ&#39;, &#39;WOODY&#39;, &#39;DAVID LEE&#39;, &quot;DAVID&#39;S IMAGES&quot;, &quot;CAMILLE&#39;S VOICE OVER&quot;, &#39;MRS. BOATWRIGHT&#39;, &#39;NATHAN LEE&#39;, &#39;MRS BOATWRIGHT&#39;, &#39;JOSIE MAE&#39;, &#39;MR HOWARD&#39;, &#39;SHERIFF YOUNG&#39;, &#39;BIG THING&#39;, &quot;KYLE&#39;S MOTHER&quot;, &#39;CANADIAN MINISTER OF MOVIES&#39;, &#39;DOCTOR PANGLOSS&#39;, &#39;CARTMAN&#39;, &#39;MR. GARRISON&#39;, &#39;THE MOLE&#39;, &quot;CARTMAN&#39;S MOTHER&quot;, &#39;MR. MACKEY&#39;, &#39;SATAN&#39;, &#39;SADDAM HUSSEIN&#39;, &quot;STAN&#39;S MOTHER&quot;, &#39;PRINCIPAL VICTORIA&#39;, &#39;TERRANCE&#39;, &#39;PHILLIP&#39;, &#39;DELBERT&#39;, &#39;ALFIE&#39;, &#39;ALFREDA&#39;, &#39;BREEZE&#39;, &#39;KASTLE&#39;, &#39;MRS. JACKSON&#39;, &#39;EDMUNDS&#39;, &#39;NAVY SEAMAN&#39;, &#39;BLUE LEADER&#39;, &#39;CONTROLLER&#39;, &#39;INTERCOM VOICE&#39;, &#39;DELADIER&#39;, &#39;DIZZY&#39;, &#39;GILLESPIE&#39;, &#39;RASCZAK&#39;, &#39;INTELLIGENCE OFFICER&#39;, &#39;SUGAR WATKINS&#39;, &#39;ZIM&#39;, &#39;PSYCH OFFICER&#39;, &#39;RODGER YOUNG&#39;, &#39;&quot;ILIA&quot;&#39;, &#39;DECKER&#39;, &#39;ILIA&#39;, &#39;SONAK&#39;, &quot;SCOTT&#39;S INTERCOM VOICE&quot;, &#39;DOC WILSON&#39;, &#39;FIRST A.D.&#39;, &#39;COSTUME DESIGNER&#39;, &#39;MORRIS&#39;, &#39;SPUD&#39;, &#39;UBERTO&#39;, &#39;ANNABELLE&#39;, &#39;DR. SWEIKERT&#39;, &#39;SCOOBY&#39;, &#39;FERN&#39;, &#39;CONAN&#39;, &#39;CONSUELO&#39;, &#39;MR SCOTT&#39;, &#39;MR. DEMARCO&#39;, &#39;PAM&#39;, &#39;ALONZO&#39;, &#39;FILMORE&#39;, &#39;OLO&#39;, &#39;SEN. FILMORE&#39;, &#39;STOCKTON&#39;, &#39;PRESIDENT MUFFLEY&#39;, &#39;AMBASSADOR DE SADE&#39;, &#39;GENERAL SCHMUCK&#39;, &#39;MAJOR MANDRAKE&#39;, &#39;COLONEL &quot;BAT&quot; GUANO&#39;, &#39;COLONEL GUANO&#39;, &#39;COLONEL PUNTRICH&#39;, &#39;SWITCHBOARD OPERATOR&#39;, &#39;GENERAL &quot;BUCK&quot; SCHMUCK&#39;, &#39;GENERAL FACEMAN&#39;, &#39;GENERAL JACK D. RIPPER&#39;, &#39;GENERAL RIPPER&#39;, &#39;MAJOR KONG&#39;, &#39;LT. BALLMUFF&#39;, &#39;LT. QUIFFER&#39;, &#39;LT. ZOGG&#39;, &#39;LT. TOEJAM&#39;, &#39;VON KLUTZ&#39;, &#39;BEE-BEE&#39;, &#39;SOOZE&#39;, &#39;BUFF&#39;, &#39;NAZEER&#39;, &#39;PONY&#39;, &#39;SCUFF&#39;, &quot;SOOZE&#39;S MOM&quot;, &#39;KANSAS&#39;, &#39;CLEO&#39;, &#39;LOAN OFFICER&#39;, &#39;DIM SUM CHARLIE&#39;, &#39;GRANDMOTHER&#39;, &#39;MRS. HILL&#39;, &#39;DEMILLE&#39;, &#39;1ST ASSISTANT&#39;, &#39;GILLIS&#39;, &#39;DE MILLE&#39;, &#39;NO. 1&#39;, &#39;MORINO&#39;, &#39;HEAD OF HOMICIDE&#39;, &#39;HOLMBY HILLS CAPTAIN&#39;, &#39;ZALTAR&#39;, &#39;ALURA&#39;, &#39;SELENA&#39;, &#39;ELDERLY MAN&#39;, &#39;SUPERGIRL&#39;, &#39;ZOR-EL&#39;, &#39;MR. DANVERS&#39;, &#39;NIGEL&#39;, &#39;LANA&#39;, &#39;SUPERMAN&#39;, &#39;LORELEI&#39;, &#39;MISS HENDERSON&#39;, &#39;LUTHOR&#39;, &#39;FIRST CONTROLLER&#39;, &#39;SECOND CONTROLLER&#39;, &#39;ZOD&#39;, &#39;SPOKESMAN&#39;, &#39;SECOND REPORTER&#39;, &#39;URSA&#39;, &#39;LACY&#39;, &#39;HOWLER&#39;, &#39;WARFIELD&#39;, &#39;NUCLEAR MAN&#39;, &#39;JOR-EL&#39;, &#39;FIRST ELDER&#39;, &#39;RISA&#39;, &#39;HARTLEY&#39;, &#39;STEWARDESS&#39;, &#39;BARTHA&#39;, &quot;D&#39;ANGELO&quot;, &#39;ELWELL&#39;, &#39;HUNSECKER&#39;, &#39;KELLO&#39;, &#39;TEMPLE&#39;, &#39;WELDON&#39;, &#39;DYSON&#39;, &#39;TARISSA&#39;, &#39;TERMINATOR&#39;, &#39;SILBERMAN&#39;, &#39;VIDEO SARAH&#39;, &#39;VIDEO SILBERMAN&#39;, &#39;EMMI&#39;, &#39;DYMSHITZ&#39;, &#39;FURTW�NGLER&#39;, &#39;RODE&#39;, &#39;SCHLEE&#39;, &#39;WERNER&#39;, &#39;BREEN&#39;, &#39;VUKOVICH&#39;, &#39;ALAN BAER&#39;, &#39;BUSINESSMAN 2&#39;, &#39;COUNSELOR&#39;, &#39;FEINGOLD&#39;, &#39;PLUMP GUY&#39;, &#39;SUTHERLAND&#39;, &#39;NELL&#39;, &#39;MARROW&#39;, &#39;MR. DUDLEY&#39;, &#39;MRS. DUDLEY&#39;, &#39;ADHARA&#39;, &#39;CREEP&#39;, &#39;FEATHER&#39;, &#39;FIELDING&#39;, &#39;GRAMMS&#39;, &#39;UNCLE JOHN&#39;, &#39;BIRDY&#39;, &#39;CARCANOGUES&#39;, &#39;CREIGHTON&#39;, &#39;DIEDRICKSON&#39;, &#39;RIEDENSCHNEIDER&#39;, &#39;KREBS&#39;, &#39;PERSKY&#39;, &quot;D&#39;AGOSTA&quot;, &#39;BEAUREGARD&#39;, &#39;CUTHBERT&#39;, &#39;PENDERGAST&#39;, &#39;IPPOLITO&#39;, &#39;FROCK&#39;, &#39;KAWAKITA&#39;, &#39;DR. ZIEWZIC&#39;, &#39;CHRISTOF&#39;, &#39;SIMEON&#39;, &#39;DAUGHTER&#39;, &#39;GUARD 2&#39;, &#39;GUARD 1&#39;, &#39;MARLON&#39;, &#39;MERYL&#39;, &#39;2ND BOY&#39;, &#39;SCULLY&#39;, &#39;MULDER&#39;, &#39;BARMAID&#39;, &#39;BYERS&#39;, &#39;CIGARETTE SMOKING MAN&#39;, &#39;DR. BRONSCHWEIG&#39;, &#39;WELL-MANICURED MAN&#39;, &#39;FIELD AGENT&#39;, &#39;KURTZWEIL&#39;, &#39;YOUNG NAVAL GUARD&#39;, &#39;SKINNER&#39;, &#39;STRUGHOLD&#39;, &#39;MIRIAM&#39;, &#39;NOVAK&#39;, &#39;TEDDY LEE&#39;, &#39;RAMSEY&#39;, &#39;MARTINS&#39;, &#39;POPESCU&#39;, &#39;CALLOWAY&#39;, &#39;RUSSIAN&#39;, &#39;CRABBIN&#39;, &#39;WINKEL&#39;, &#39;U.S.M.P.&#39;, &#39;DAFFY&#39;, &#39;ETIENNE&#39;, &#39;FRANCOISE&#39;, &#39;12-YEAR-OLD DANNY&#39;, &#39;RAV ZINGESSER&#39;, &#39;CARLETON&#39;, &#39;BRAND&#39;, &quot;CARLA&#39;S VOICE&quot;, &#39;MRS. MOEBIUS&#39;, &quot;LINDA&#39;S VOICE&quot;, &#39;LINA&#39;, &#39;FIRST WAITER&#39;, &#39;DRAKE&#39;, &#39;HATE COUNSELOR&#39;, &#39;RABBI&#39;, &#39;BONITA&#39;, &#39;JOHANA&#39;, &#39;ENZO&#39;, &#39;NOIREUTER&#39;, &#39;UNCLE LOUIS&#39;, &#39;NOVELLI&#39;, &#39;HAMMER&#39;, &#39;MRS. CARVER&#39;, &#39;TIKVA&#39;, &#39;MOHAMMED&#39;, &#39;SANTA&#39;, &#39;TINY TIM&#39;, &#39;BRUNTON&#39;, &#39;CLO-CLO&#39;, &#39;GALBRAITH&#39;, &#39;ROSITA&#39;, &#39;ELOISE&#39;, &#39;KIKI&#39;, &#39;ROBLES&#39;, &#39;LOMBARD&#39;, &#39;DIRECTORY ENQUIRIES OPERATOR&#39;, &#39;EFFEMINATE WAITER&#39;, &#39;FRIEDMAN&#39;, &#39;GIANT&#39;, &#39;HYATT OPERATOR&#39;, &#39;MRS SPITZ&#39;, &#39;MAN�S VOICE&#39;, &#39;RHIAN&#39;, &#39;OLD COWBOY&#39;, &#39;NATHALIE&#39;, &#39;THE ITALIAN&#39;, &#39;MOREAU&#39;, &#39;MAN WITH ITALIAN ACCENT&#39;, &#39;MAN ON DAIS&#39;, &#39;AULON&#39;, &#39;JEANNE&#39;, &#39;DUNOIS&#39;, &#39;BEAUPERE&#39;, &#39;YOLANDE&#39;, &#39;CAUCHON&#39;, &#39;BURGUNDY&#39;, &#39;DIJON&#39;, &#39;TREMOILLE&#39;, &quot;D&#39;ESTIVET&quot;, &#39;REGNAULT&#39;, &#39;XAINTRAILLES&#39;, &#39;LA HIRE&#39;, &#39;GILLES&#39;, &#39;JEAN LE MAISTRE&#39;, &#39;JEAN MIDI&#39;, &#39;MAITRE MAURICE&#39;, &#39;BENEK&#39;, &#39;SZPILMAN&#39;, &#39;DOROTA&#39;, &#39;MICHAL&#39;, &#39;GEBCZYNSKI&#39;, &#39;HALINA&#39;, &#39;HENRYK&#39;, &#39;JANINA&#39;, &#39;JEHUDA&#39;, &#39;JUREK&#39;, &quot;KITTEN&#39;S VOICE&quot;, &quot;PUPPYDOG&#39;S VOICE&quot;, &#39;MAJOREK&#39;, &#39;SZALAS&#39;, &#39;THE GERMAN CAPTAIN&#39;, &#39;NESSIE&#39;, &#39;AUNT MORAG&#39;, &#39;STEWART&#39;, &#39;FLORA&#39;, &#39;HIRA&#39;, &#39;BAINES&#39;, &#39;BILLIE&#39;, &#39;SNYDER&#39;, &#39;SINGLETON&#39;, &#39;STRANGER&#39;, &#39;TWIST&#39;, &#39;BOUDREAU&#39;, &#39;HOOKER&#39;, &#39;LONNEGAN&#39;, &#39;COMBS&#39;, &#39;GRANGER&#39;, &#39;EIRIE KID&#39;, &#39;GARFIELD&#39;, &#39;NILES&#39;, &#39;GONDORFF&#39;, &#39;GUNMAN&#39;, &#39;POLK&#39;, &#39;RILEY&#39;, &#39;1ST REPORTER&#39;, &#39;GILBERT&#39;, &#39;WYNANT&#39;, &#39;MACAULAY&#39;, &#39;DR. WALTON&#39;, &#39;GUILD&#39;, &#39;NUNHEIM&#39;, &#39;MORELLI&#39;, &#39;PEPPLER&#39;, &#39;JAEGER&#39;, &#39;WOODS&#39;, &#39;1ST VOICE&#39;, &#39;2ND VOICE&#39;, &#39;THX&#39;, &#39;LUH&#39;, &#39;PTO&#39;, &#39;NIN&#39;, &#39;SEN&#39;, &#39;TWA&#39;, &#39;SRT&#39;, &#39;BEV&#39;, &#39;DISPATCHER VOICE&#39;, &#39;GLASS&#39;, &#39;POOCH&#39;, &#39;SWAN&#39;, &#39;PLUCHINSKY&#39;, &#39;WINTERS&#39;, &#39;RICE&#39;, &#39;BOLSHEVIK&#39;, &#39;MARIETTE&#39;, &#39;CLOSE SHOT  GASTON&#39;, &#39;FRAN�OIS&#39;, &#39;GIRON&#39;, &quot;MARIETTE&#39;S VOICE&quot;, &quot;GASTON&#39;S VOICE&quot;, &#39;BODINE&#39;, &#39;LIZZY&#39;, &#39;BUELL&#39;, &#39;LOVEJOY&#39;, &#39;FABRIZIO&#39;, &#39;FLEET&#39;, &#39;HITCHINS&#39;, &#39;ISMAY&#39;, &#39;LIGHTOLLER&#39;, &#39;LOTHER&#39;, &#39;SUMMERS&#39;, &#39;MCKINNEY&#39;, &#39;BALLINGER&#39;, &#39;SHORTIE&#39;, &#39;DENBY&#39;, &#39;PURSER&#39;, &#39;STEWARD&#39;, &#39;BEHAN&#39;, &#39;CURLY BILL&#39;, &#39;DAKE&#39;, &#39;VERMILLION&#39;, &#39;MATTIE&#39;, &#39;MCMASTERS&#39;, &#39;VIRGIL&#39;, &#39;M&#39;, &#39;ADMIRAL ROEBUCK&#39;, &#39;MINISTER JOHNSTONE&#39;, &#39;HARMSWAY&#39;, &#39;BOND&#39;, &#39;CAPTAIN CHEONG&#39;, &#39;MONEYPENNY&#39;, &#39;Q&#39;, &#39;CAPTAIN MORTON&#39;, &#39;DOMINIQUE&#39;, &#39;JENNY WU&#39;, &#39;EXECUTIVE SECRETARY&#39;, &#39;FIRST OFFICER&#39;, &#39;HELMSMAN&#39;, &#39;YUNG&#39;, &#39;STAMPER&#39;, &#39;NUMBER THREE&#39;, &#39;BABE BROTHER&#39;, &#39;MARSH&#39;, &#39;HATTIE&#39;, &#39;MR. BAKER&#39;, &#39;OLD JOHN&#39;, &#39;MRS. DAVIS&#39;, &#39;BO PEEP&#39;, &#39;HAMM&#39;, &#39;MR. POTATO HEAD&#39;, &#39;SLINKY&#39;, &#39;SARGENT&#39;, &#39;FINN&#39;, &#39;JONATHON&#39;, &#39;A.D.A. KELLY&#39;, &#39;JAVIER&#39;, &#39;SOCIAL WORKER&#39;, &#39;CASTRO&#39;, &#39;FRANCISCO&#39;, &#39;SALAZAR&#39;, &#39;MARQUEZ&#39;, &#39;SKETCH&#39;, &#39;SHERIDAN&#39;, &#39;SPECIAL-AGENT-IN-CHARGE&#39;, &#39;BEGBIE&#39;, &#39;SICK BOY&#39;, &#39;RENTON&#39;, &#39;GAV&#39;, &#39;MAN 1&#39;, &#39;SWANNEY&#39;, &#39;SYBOK&#39;, &#39;BEING&#39;, &quot;CHEKOV&#39;S IMAGE&quot;, &#39;COMMANDERS IMAGE&#39;, &#39;RIDER&#39;, &quot;J&#39;ONN&quot;, &#39;VIXIS&#39;, &#39;KLAA&#39;, &#39;FLYNN&#39;, &#39;LORA&#39;, &#39;DILLINGER&#39;, &#39;BIT&#39;, &#39;MCP&#39;, &#39;DUMONT&#39;, &#39;TRON&#39;, &#39;YORI&#39;, &#39;SARK&#39;, &#39;FAISIL&#39;, &#39;TRILBY&#39;, &#39;GIB&#39;, &#39;MALIK&#39;, &#39;ALABAMA&#39;, &#39;DREXL&#39;, &#39;BIG D&#39;, &#39;ELVIS&#39;, &#39;COCCOTTI&#39;, &#39;RAVENCROFT&#39;, &#39;DIMES&#39;, &#39;KRINKLE&#39;, &#39;NICHOLSON&#39;, &#39;KANDI&#39;, &#39;ASTROPHYSICIST&#39;, &#39;ENGINEER&#39;, &#39;FALE&#39;, &#39;BOTANIST&#39;, &#39;RAILLY&#39;, &#39;DR. FLETCHER&#39;, &#39;MICROBIOLOGIST&#39;, &#39;DR. MASON&#39;, &#39;FRANKI&#39;, &#39;WOMAN CABBIE&#39;, &#39;BLIND MAN&#39;, &#39;DARRELL&#39;, &#39;FLO&#39;, &#39;MR. VESCI&#39;, &#39;MR. ARKADY&#39;, &#39;SERGEI&#39;, &#39;ANCIENT SECRETARY&#39;, &#39;BUSINESS MAN&#39;, &quot;ELIJAH&#39;S MOTHER&quot;, &#39;WALKIE&#39;, &#39;MAN IN SCRUBS&#39;, &#39;LITTLE BILL&#39;, &#39;SKINNY&#39;, &#39;DELILAH&#39;, &#39;ENGLISH BOB&#39;, &#39;MUNNY&#39;, &#39;WW&#39;, &#39;LITTLE SUE&#39;, &#39;BAER&#39;, &#39;KUJAN&#39;, &#39;BODI&#39;, &#39;KOVASH&#39;, &#39;KEATON&#39;, &#39;VERBAL&#39;, &#39;FENSTER&#39;, &#39;HOCKNEY&#39;, &#39;KOBAYASHI&#39;, &#39;REDFOOT&#39;, &#39;RAB IN&#39;, &#39;RABIN&#39;, &#39;VOICE #1&#39;, &#39;VOICE #2&#39;, &#39;MIDGE&#39;, &#39;ELSTER&#39;, &#39;SCOTTIE&#39;, &quot;ELSTER&#39;S VOICE&quot;, &#39;MANAGERESS&#39;, &#39;POP LEIBEL&#39;, &#39;MOORE&#39;, &#39;SUIT&#39;, &#39;MICHEAL&#39;, &#39;BARRY MORRIS&#39;, &#39;JUDGE TOWER&#39;, &#39;MR. FISHER&#39;, &#39;ENEDINA&#39;, &#39;DON AMALIO&#39;, &#39;POCA&#39;, &#39;DON JAIME&#39;, &#39;VIRIDIANA&#39;, &#39;HOBBLY&#39;, &#39;LUCIA&#39;, &#39;PEASANT&#39;, &#39;MONCHO&#39;, &#39;PELON&#39;, &#39;ALEXIEV&#39;, &#39;DEANE&#39;, &#39;COX&#39;, &#39;MADISON&#39;, &#39;LINDENMEYER&#39;, &#39;SID 6.7&#39;, &#39;BREAN&#39;, &#39;AMES&#39;, &#39;MR. YOUNG&#39;, &#39;SCHUMANN&#39;, &#39;ANGLE&#39;, &#39;FAD KING&#39;, &#39;CAIN&#39;, &#39;JOHNNY GREEN&#39;, &#39;SECOND MEDIA GUY&#39;, &#39;GEKKO&#39;, &#39;LYNCH&#39;, &#39;MARV&#39;, &#39;DARIEN&#39;, &#39;MANNHEIM&#39;, &#39;OLLIE&#39;, &#39;WILDMAN&#39;, &#39;WILMORE&#39;, &#39;CHINA&#39;, &#39;MR LINCOLN&#39;, &#39;INSPECTOR ROBERTS&#39;, &#39;JENKINS&#39;, &#39;MRS WEBSTER&#39;, &#39;SIR WILFRED&#39;, &#39;MARKS MOTHER&#39;, &#39;DR. DRAYTON&#39;, &#39;MRS. TEMPLETON&#39;, &#39;MR. FEUR&#39;, &#39;MRS. FEUR&#39;, &#39;MRS. FRANK&#39;, &#39;GIFFORD&#39;, &#39;CARLOTTA&#39;, &#39;SUZANNE&#39;, &#39;LASHER&#39;, &#39;LASHER THE MAN&#39;, &quot;MAN&#39;S VOICE [IN HER HEAD]&quot;, &quot;ROWAN&#39;S VOICE [IN HER HEAD]&quot;, &#39;DEZERAE&#39;, &#39;STECKLER&#39;, &#39;MIK&#39;, &#39;PRINCIPAL MERKIN&#39;, &#39;ZUKERMAN&#39;, &#39;ARTEMUS&#39;, &#39;PEMBERTON&#39;, &#39;MIGUELITO&#39;, &#39;RICHARDS&#39;, &#39;WALTERS&#39;, &#39;AIRK&#39;, &#39;MADMARTIGAN&#39;, &#39;CHERLINDREA&#39;, &#39;WILLOW&#39;, &#39;HIGH ALDWIN&#39;, &#39;SORSHA&#39;, &#39;RAZIEL&#39;, &#39;RANON&#39;, &#39;ROOL&#39;, &#39;TEEMO&#39;, &#39;BOOK&#39;, &#39;HOCHSTETLER&#39;, &#39;SCHAEFFER&#39;, &#39;LOCAL MAN&#39;, &#39;MCELROY&#39;, &#39;UNCLE HENRY&#39;, &#39;HICKORY&#39;, &#39;BARRISTER&#39;, &quot;OZ&#39;S VOICE&quot;, &#39;WITCH&#39;, &#39;GLINDA&#39;, &#39;MISS GULCH&#39;, &#39;TIN MAN&#39;, &#39;TIN MAN -- SCARECROW AND DOROTHY&#39;, &#39;LION&#39;, &#39;HUNK&#39;, &#39;SCARECROW&#39;, &#39;CHRISTMAS&#39;, &#39;DOCTOR GREATREX&#39;, &#39;LACHAISE&#39;, &#39;RENARD&#39;, &#39;ELEKTRA&#39;, &#39;ZUKOVSKY&#39;, &#39;ADAMSON&#39;, &#39;ANALYST&#39;, &#39;HYDE&#39;, &#39;RORSCHACH&#39;, &#39;DR. LONG&#39;, &#39;VEIDT&#39;, &#39;DR. MANHATTAN&#39;, &#39;DREIBERG&#39;, &#39;JON&#39;, &#39;SCHMIDT&#39;, &#39;MOLOCH&#39;, &#39;XANDER&#39;, &#39;GIBBONS&#39;, &#39;SAM TANNICK&#39;, &#39;JEFE&#39;, &#39;PETRA&#39;, &#39;YORGI&#39;, &#39;SHAVERS&#39;, &#39;SKY&#39;, &#39;SLOVO&#39;, &#39;VIRG&#39;, &#39;STORM&#39;, &#39;BEAST&#39;, &#39;MAGNETO&#39;, &#39;SABRETOOTH&#39;, &#39;CORNELIUS WALDMAN&#39;, &#39;BURGOMEISTER&#39;, &#39;CARLSON&#39;, &#39;HERR FALKSTEIN&#39;, &#39;MONSTER&#39;, &#39;FRAU BLUCHER&#39;, &#39;MEDICAL STUDENT&#39;, &#39;OLD VIOLINIST&#39;, &#39;BLOOMFIELD&#39;, &#39;BOY-PULLEN&#39;, &#39;CHELMSFORD&#39;, &#39;NORRIS-NEWMAN&#39;, &#39;DURNFORD&#39;, &#39;CREALOCK&#39;, &#39;STUART SMITH&#39;, &#39;COGHILL&#39;, &#39;MELVILL&#39;, &#39;VEREKER&#39;]
+Number of characters:  5356
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now need to get the dictionary of words that are spoken by all characters. We will make use of the Natural
+Language Toolkit for tokenising our sentences. This can take some time to compute as this dictionary will be
+quite long.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+
+<span class="n">dictionary</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+        <span class="c1"># let&#39;s set t &gt; 2 so that we remove stopwords and things like I, we, he, of, etc.</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dictionary</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">dictionary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to C:\Users\pa-
+[nltk_data]     legg\AppData\Roaming\nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_1512</span>\<span class="mf">707660509.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="c1"># let&#39;s set t &gt; 2 so that we remove stopwords and things like I, we, he, of, etc.</span>
+<span class="ne">---&gt; </span><span class="mi">10</span>         <span class="k">if</span> <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dictionary</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>             <span class="n">dictionary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our dictionary contains 73925 words that appear in the movie dialog dataset. We now create a Numpy matrix
+that is 73925 by 304713, that will hold our relation data. For each row of the data, we get the text, and now we
+flag whether or not a word appears in the sentence, using our matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">),</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+ <span class="n">line</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span>
+ <span class="n">tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+ <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+ <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+ <span class="n">index</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+ <span class="n">matrix</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### We can inspect text that a particular user has said</span>
+<span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ID4&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;MR. POTATO HEAD&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### We can find all sentences that contain the keyword &#39;cake&#39;, and find</span>
+ <span class="n">related</span> <span class="n">keywords</span>
+<span class="n">keyword</span> <span class="o">=</span> <span class="s1">&#39;cake&#39;</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">related_words</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)):</span>
+ <span class="n">text</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="n">c</span><span class="p">]][</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span>
+ <span class="n">tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+ <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+ <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+ <span class="n">related_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+ 
+<span class="n">count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">related_words</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">count</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we see that if we search the term cake, then we can find related words such as piece and birthday.
+Let’s try another example where we now group all text based on user, to identify which user is most likely to
+have said our search term.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">unique_characters</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ID4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">user_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_characters</span><span class="p">)])</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+ <span class="n">line</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span>
+ <span class="n">user</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="s1">&#39;ID4&#39;</span><span class="p">]</span>
+ <span class="n">user_id</span> <span class="o">=</span> <span class="n">unique_characters</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+ <span class="n">tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+ <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+ <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+ <span class="n">index</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+ <span class="n">user_matrix</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="n">user_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Given a keyword, we can find who is the most likely to have said thi</span>
+<span class="n">s</span>
+<span class="n">keyword</span> <span class="o">=</span> <span class="s1">&#39;Woody&#39;</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">user_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)):</span>
+ <span class="nb">print</span> <span class="p">(</span><span class="n">unique_characters</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="n">c</span><span class="p">]]</span> <span class="o">+</span> <span class="s2">&quot; : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">user_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">cols</span><span class="p">[</span>
+<span class="n">c</span><span class="p">]]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Given two keywords, we can find who is the most likely to have said</span>
+ <span class="n">this</span>
+<span class="n">keywords</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Woody&#39;</span><span class="p">,</span> <span class="s1">&#39;lunchbox&#39;</span><span class="p">]</span>
+<span class="n">indexes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">:</span>
+ <span class="n">i</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+ <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">user_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+ 
+<span class="nb">print</span> <span class="p">(</span><span class="n">cols</span><span class="p">)</span>
+<span class="n">final_cols</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+ <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+ <span class="n">final_cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">final_cols</span><span class="p">)):</span>
+ <span class="nb">print</span> <span class="p">(</span><span class="n">unique_characters</span><span class="p">[</span><span class="n">final_cols</span><span class="p">[</span><span class="n">c</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="activity-09-recommender.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Activity 9 - Recommender Systems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="activity-11-video.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Activity 11 - File Visualisation and Video Visualisation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Phil Legg
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

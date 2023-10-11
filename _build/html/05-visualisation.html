@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>5: Visualisation &#8212; Security Data Analytics and Visualisation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '05-visualisation';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6: Visual Analytics" href="06-visualanalytics.html" />
+    <link rel="prev" title="4: Machine Learning" href="04-machinelearning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-toc.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uwecyber.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/uwecyber.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-toc.html">
+                    Security Data Analytics and Visualisation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-intro.html">1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-workflow.html">2: A Pipeline Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-statistics.html">3: Statistical Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-machinelearning.html">4: Machine Learning</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5: Visualisation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-visualanalytics.html">6: Visual Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07-textanalytics.html">7: Text Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-fileandimageanalysis.html">8: File, Image and Video Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-furtherresearch.html">9: Future Research Directions</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-01-intro.html">Activity 1 - Python Primer</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-02-hello.html">Activity 2 - Hello, Security Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-03-clustering.html">Activity 3 - Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-04-regression.html">Activity 4 - Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-05-neuralnet.html">Activity 5 - Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-06-visualisation.html">Activity 6 - Visualisation</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-07-violinplot.html">Activity 7 - Violin Plots and Parallel Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-08-interaction.html">Activity 8 - Interaction and Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-09-recommender.html">Activity 9 - Recommender Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-10-text.html">Activity 10: Text Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-11-video.html">Activity 11 - File Visualisation and Video Visualisation</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book/issues/new?title=Issue%20on%20page%20%2F05-visualisation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/05-visualisation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5: Visualisation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5: Visualisation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-techniques">Visualisation Techniques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-for-cyber-security">Visualisation for Cyber Security</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-channels">Visual Channels</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visualisation">
+<h1>5: Visualisation<a class="headerlink" href="#visualisation" title="Permalink to this heading">#</a></h1>
+<section id="visualisation-techniques">
+<h2>Visualisation Techniques<a class="headerlink" href="#visualisation-techniques" title="Permalink to this heading">#</a></h2>
+<p>Here we will give a brief overview of different visualisation techniques, highlighting where they are effective and how they should be used.</p>
+<p><strong><a class="reference external" href="https://bl.ocks.org/mbostock/3884955">Multi-series Line Chart</a>:</strong> Line charts are effective for time-series data, where the horizontal x-axis would denote time, and the y-axis would denote some numerical attribute. With colour-coding, we can depict multiple lines on the same chart, where the purpose is for comparison between two or more observed measures.</p>
+<p><img alt="Alt text" src="_images/image18.png" /></p>
+<p><strong><a class="reference external" href="https://bl.ocks.org/mbostock/3885304">Bar Chart</a>:</strong> This depicts numerical attributes for different discrete classes along the x-axis, rather than some continuous value. This could be some count obtained for various countries, or observations of different malware varients. Height of the bar denotes the numerical value.</p>
+<p><img alt="Alt text" src="_images/image19.png" /></p>
+<p><strong><a class="reference external" href="https://bl.ocks.org/mbostock/3887118">Scatter Plot</a>:</strong> This is useful for comparing two different numerical attributes together, for example the number of bedrooms in a house and the associated house price. Another example may be the RAM and CPU usage of infected and benign workstations, for studying behaviour differences in a malware investigation. The scatter plot helps to identify the relationship between two indendepent variables, often referred to as the correlation between two variables. Highly correlated variables will share some statistical pattern (e.g., either that they increase or decrease together which would be a postive correlation, or that when one increases the other decreases – and visa versa – which would be a negative correlation).</p>
+<p><img alt="Alt text" src="_images/image20.png" /></p>
+<p><strong><a class="reference external" href="https://bl.ocks.org/mbostock/4063269">Bubble Chart</a>:</strong> This is actually very similar to a bar chart, in that it shows different classes or categorical attributes, and it shows a numerical value associated with this – however here rather than a bar we use a bubble. Firstly, the plot is more visually appealing than a bar chart, and so may be more suitable for engaging the desired audience. Secondly, there is no sense of order – a bar chart runs left to right, whereas bubbles are dynamic and can place wherever, be it automatically or manually. Finally, bubble charts are arguably more compact than bar charts – where a very tall bar may result in lots of white space. However, bubble charts are known to be misleading. Firstly, is the numerical quantity mapped to the diameter, the radius, or the area of each bubble? In theory, you could use any of these geometric properties of the shape, resulting in different scaling of each entry. Secondly, how easy is it to compare one bubble to the next beyond whether it is larger or smaller, for example, how easily can I identify where an attribute to twice the value of another? In such scenarios the bar chart is more suitable – comparing two lengths when side-by-side is much easier than comparing two “bubbles” – be it by diameter, radius or area – when they are arbitrarily placed on the plot. As mentioned, the bubble chart is about creating an impactful visualisation that captures the attention of the audience, rather than providing a scientific analysis tool.</p>
+<p><img alt="Alt text" src="_images/image21.png" /></p>
+<p><strong><a class="reference external" href="https://bl.ocks.org/mbostock/4062045">Force-Directed Graph</a>:</strong> We discussed how a scatter plot can show relationships between attributes, however this tends to be for a one-to-one mapping between two variables. How do we show one-to-many relationships? Force-directed graphs help, where points are connected by edges, and there may exist a one-to-one or one-to-many relationship between points. A prime example is a social network graph, where nodes are people and edges are whether the two people know each other (i.e., are connected). The same can apply to computers on a network. They are described as force-directed since nodes are not positioned with a fixed x and y point like on a scatter plot, but instead, nodes are positioned using a physics-based force algorithm that will treat each connection like elastic where connected points will be pulled closer together. This force layout helps to further draw out relationships between nodes, especially when a high number of nodes are depicted. However, force-directed networks should be used carefully. In a situation where many nodes are all connected together, this creates strong forces pulling together and essentially forms a cluster – often described as a ‘hairball’. If you want to show many connected nodes together, you should consider how to best filter the data so that it can remain informative.</p>
+<p><img alt="Alt text" src="_images/image22.png" /></p>
+<p><strong><a class="reference external" href="https://bl.ocks.org/jasondavies/1341281">Parallel Coordinates</a>:</strong> Whilst scatter plots are useful, they are limited to 2 or 3 dimensional spaces. Can we visualise information that may be higher dimensionality? Parallel coordinates achieve this, where each vertical line represents a data axis (like the x and y of a scatter plot would), however rather than denoting a point on each axis, we use a line to connect a pair of axes. We do this for each pair as the axes are displayed, so that a single data instance is essentially depicted by a line that crossed each axis. We can identify correlations between pairs of neighbouring axes – do the lines all go up or down together, or do they cross over? As in other chart types, we can colour code by class. We can also filter (or brush) axes, much like we may set a region of a scatter plot. Parallel coordinates are therefore very effective – however they may be unfamiliar to some users, and so there is a learning curve to overcome. Another limitation is that correlations can only be assessed on neighbouring axes – some implementations allows axis reordering however this can create additional overhead for the analyst.</p>
+<p><img alt="Alt text" src="_images/image23.png" /></p>
+<p><strong><a class="reference external" href="https://bl.ocks.org/mbostock/4063582">Treemap</a> and <a class="reference external" href="https://bl.ocks.org/kerryrodden/766f8f6d31f645c39f488a0befa1e3c8">Sunburst</a>:</strong> Treemaps are excellent for depicting hierarchy. They were initially developed for conveying information about computer files and folder structure. Each entry is scaled based on the numerical value being considered (e.g., file size). Since a group of files may exist within the same folder, we can group them together and therefore show the collective size of the folder also (shown either by a bounding box, or by colour coding). Since the full rectangular area denotes the full space available (e.g., the entire hard drive), it can show size in relation to the full disk, and means that available space is also shown (essentially as a blank area of the chart). The sunburst is a similar concept, except it is mapped to a circle rather than a rectangular area. The hiararchical structure works outwards in the sunburst, and so is not as compact as the treemap, however, it does show proportion well just like the treemap and it does so in a striking and visually appealing way, therefore making it good for audience engagement. Some modern operating systems (e.g., Ubuntu) use the sunburst to show disk space analysis.</p>
+<p><img alt="Alt text" src="_images/image24.png" />
+<img alt="Alt text" src="_images/image25.png" /></p>
+<p><strong><a class="reference external" href="http://bl.ocks.org/kevinschaul/8213691">Star Plots</a>:</strong> The final visualisation type we will consider here is the star plot. These essentially map multiple attributes in a small and compact format, often referred to as a glyph (where a glyph is a small depiction of multi-variate data). In this example, 8 attributes are mapped in each glyph. The mapping is similar to how a parallel coordinates plot works, except here the layout is radial rather than left-to-right.</p>
+<p><img alt="Alt text" src="_images/image26.png" /></p>
+</section>
+<section id="visualisation-for-cyber-security">
+<h2>Visualisation for Cyber Security<a class="headerlink" href="#visualisation-for-cyber-security" title="Permalink to this heading">#</a></h2>
+<p>Having introduced differe forms of visualisation, here we will now look at how these can be used for the purpose of cyber security. Of course, this is not an exhaustive set, but will help to illlustrate the effectiveness of visualisation techniques for analysing large complex data, which is essentially what we aim to do as part of understanding and defending large corporate networks. For more details, and further examples, I recommend looking at the two books: Applied Security Visualization by Raffael Marty and Security Data Visualisation by Greg Conti, as well as the primary text for the course.</p>
+<p><img alt="Alt text" src="_images/image27.png" /></p>
+<p>In this example, we see parallel coordinates being used to depict network traffic across a set of 7 attributes. This image shows a comparison between regular wireless network traffic, compared against a WEP key cracking attack against the network. We can see the difference between the two activities clearly in the two images, where essentially the WEP cracking attack is scanning all available ports and uilising a single protocol. The approach is detailed further in the paper, <a class="reference external" href="https://ieeexplore.ieee.org/document/5718652">“Visualizing Networking Activity using Parallel Coordinates”</a> by Tricaud et al.</p>
+<p>In the paper <a class="reference external" href="https://pdfs.semanticscholar.org/66b8/1e4fe80511154703385d5d4ab2abc6164140.pdf">“Fast detection and visualization of network attacks on parallel coordinates”</a> by Choi et al., they propose the use of parallel coordinates for network traffic analysis, but use this to define small glyphs that are indicative of network behaviours. The distinguishable shape of the data plots can be treated as a signature here, to easily recognise behaivours such as worm, port scan, or DDoS.</p>
+<p><img alt="Alt text" src="_images/image28.png" /></p>
+<p>As mentioned earlier, similar to this is the star glyph, which maps axes in a radial manner to create a connected polygon, where the length from the centre to each point denotes a variable. In the example shown here, we have 8 attributes about network packet captures mapped, and so we can show individual packets as glyphs for comparison. Glyphs are widely used in various applications, for example, insider threat detection. This example shows 18 individuals from a company and their behaviours during a 12 month period. Even with such volume data, some differences can be identified (suspicious cases are highlighted with the grey circle, two of these users are denoted in blue as potentially malicious).</p>
+<p><img alt="Alt text" src="_images/image29.png" />
+<img alt="Alt text" src="_images/image30.png" />
+<img alt="Alt text" src="_images/image31.png" /></p>
+<p>We have mentioned node-link diagrams (also referred to as force-directed) for social media analysis and network profiling. Here we show three images to convey this further. In particular, we can see the complexity of the node-link diagrams as more nodes are included, and where a central node has many connections, we start to see the hairball effect mentioned earlier. This is where good visual analytics planning is required to have appropriate forms of filtering and selection to make the chart useable.</p>
+<p><img alt="Alt text" src="_images/image32.png" />
+<img alt="Alt text" src="_images/image33.png" />
+<img alt="Alt text" src="_images/image34.png" /></p>
+<p>Treemaps were discussed earlier, and here we see snort alerts mapped against a tree map to show the volume of alert types, where alerts will naturally exist as part of a group (i.e., within a hierarchy).</p>
+<p><img alt="Alt text" src="_images/image35.png" /></p>
+<p>A final example to consider is the use of visualisation for binary file analysis (we will discuss this in further detail later in the course). Greg Conti shows an excellent example of this, where binary data is mappped to pixel values to produce an image of the data. We can examine what the same image may look like using different image compression schemes (e.g., bmp, png, gif, jpeg), as well as how a Microsoft Word document may appear once password-protected or encrypted (here we see that the password-protected file does not encrypt the original data).</p>
+<p><img alt="Alt text" src="_images/image36.png" />
+<img alt="Alt text" src="_images/image37.png" />
+<img alt="Alt text" src="_images/image38.png" /></p>
+</section>
+<section id="visual-channels">
+<h2>Visual Channels<a class="headerlink" href="#visual-channels" title="Permalink to this heading">#</a></h2>
+<p>The final point to cover in this session is on visual channels. All visualisations are made up of visual channels, and so we need to ensure that these channels are used effectively. Some examples of channels would be colour, size, orientation, shape, texture, opacity. Spatial positioning is also a visual channel – for example how data is mapped to an axis or positioned within a space. How do we know which channels should map to which data attribute? There are no fixed rules as such – but as we discussed some of the weaknesses in visualisations earlier, we need to consider what may work best for our data. Mapping a single numerical value to a circle for example can cause confusion. We need to think about the type of data being shown. There are 4 fours we need to recognise: nominal, ordinal, interval, or ratio. Nominal data can be text labels (e.g., name) or categories (e.g., car type) – there may not be a specific order to these – we may use alphabetical ordering but that is purely for convenience. Ordinal data does have some order to it, however the difference between each possible value is unknown or not exact (for example, a threat level scale or a likert scale). Interval data is ordered and the interval between each data point is known – for example, temperature values. Ratio data is the same, however it has an absolute zero. Temperatures can be negative, however a packet size or a count of some data would be a ratio as you would not have a negative value for this.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="further-reading">
+<h1>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/7312772">P. A. Legg, “Visualizing the insider threat: challenges and tools for identifying malicious user activity,” 2015 IEEE Symposium on Visualization for Cyber Security (VizSec), 2015, pp. 1-7, doi: 10.1109/VIZSEC.2015.7312772.</a></p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04-machinelearning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4: Machine Learning</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06-visualanalytics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6: Visual Analytics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5: Visualisation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-techniques">Visualisation Techniques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-for-cyber-security">Visualisation for Cyber Security</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-channels">Visual Channels</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Phil Legg
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

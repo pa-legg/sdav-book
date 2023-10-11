@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1: Introduction &#8212; Security Data Analytics and Visualisation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01-intro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2: A Pipeline Process" href="02-workflow.html" />
+    <link rel="prev" title="Security Data Analytics and Visualisation" href="00-toc.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-toc.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uwecyber.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/uwecyber.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-toc.html">
+                    Security Data Analytics and Visualisation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-workflow.html">2: A Pipeline Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-statistics.html">3: Statistical Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-machinelearning.html">4: Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="05-visualisation.html">5: Visualisation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-visualanalytics.html">6: Visual Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07-textanalytics.html">7: Text Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-fileandimageanalysis.html">8: File, Image and Video Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-furtherresearch.html">9: Future Research Directions</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-01-intro.html">Activity 1 - Python Primer</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-02-hello.html">Activity 2 - Hello, Security Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-03-clustering.html">Activity 3 - Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-04-regression.html">Activity 4 - Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-05-neuralnet.html">Activity 5 - Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-06-visualisation.html">Activity 6 - Visualisation</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-07-violinplot.html">Activity 7 - Violin Plots and Parallel Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-08-interaction.html">Activity 8 - Interaction and Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-09-recommender.html">Activity 9 - Recommender Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-10-text.html">Activity 10: Text Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-11-video.html">Activity 11 - File Visualisation and Video Visualisation</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book/issues/new?title=Issue%20on%20page%20%2F01-intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/01-intro.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1: Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-visualisation">What about Visualisation?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-do-we-mean-by-cyber-security-data-analytics">So, what do we mean by cyber security data analytics?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-driven-storytelling">Data-driven Storytelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-and-cyber-security">AI and Cyber Security</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>1: Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<p>Data analytics is increasingly used as a first line of defence in cyber security – and yet many organisations are still to embrace this – partly due to a lack of resourcing and partly due to a lack of knowledge for what kind of security analysis they may even require. Fundamentally, we all live in a highly digital world, where we interact online, or we interact with other physical systems that are connected online, and where all these interactions result in more data being collected – from networking traffic to system and user logs – our computers generate massive volumes of data every minute. Now consider the different forms of digital equipment that are also connected and generating data – from laptops to smartphones, servers to light bulbs, payment card systems to CCTV, and anything else that may be Internet-enabled – we now have a wealth of data logs capturing a whole host of activities from these devices, that enable our technology-driven world.</p>
+<p>So, what happens when these devices do not perform as expected? What if our laptop suffers a malware attack, our CCTV is taken offline by a Denial of Service attack, or an employee downloads confidential records and copies these to a removable drive? Security data analytics is concerned with how we protect our systems and information from potential threats, through enhanced understanding of our systems and the data that underpins these.</p>
+<section id="what-about-visualisation">
+<h2>What about Visualisation?<a class="headerlink" href="#what-about-visualisation" title="Permalink to this heading">#</a></h2>
+<p>Analysing data is one thing – communicating this analysis to make well-informed decisions is another all together. Visualisation techniques enable us to make greater understanding of complex data, and ultimately allow us to make better decisions about our data.</p>
+<ul class="simple">
+<li><p><strong>Exploratory visualisation</strong> is where visualisation methods may be used to explore a dataset to uncover some unknown traits or characteristics. It may not even be known what is being sought after initially, however through filtering and selection, the analyst may then discover new details within the data.</p></li>
+<li><p><strong>Explanatory visualisation</strong> is used to communicate these findings to somebody else. A particular chart or graph may be used that emphasises some characteristic of the data so that this is clearly visible for others and so that it provides contextual meaning to explain the situation.</p></li>
+</ul>
+<p>We can think about exploratory visualisation as supporting our analysis of data, and explanatory visualisation as supporting our presentation of data.</p>
+<blockquote>
+<div><p><span style="font-size:20px"><em>“The greatest value of a picture is when it forces us to notice what we never expected to see” John W. Tukey, 1977</em></span></p>
+</div></blockquote>
+<p>What kind of data are we talking about?
+Just as the security domain is broad, so to are the forms of data that may inform security. At the core is context – what are we trying to find out, and what data may help us to answer this question clearly? Furthermore, how do we then respond or act as a result of this information?</p>
+<p>We can think of data as the lowest level of a broader pyramid, where data informs information, information informs knowledge, and knowledge informs wisdom. Data in isolation may not be meaningful, however combined with other data, may help to build up towards these higher levels. This is often referred to as the <a class="reference external" href="https://en.wikipedia.org/wiki/DIKW_pyramid">DIKW pyramid</a>), or the <a class="reference external" href="https://informationisbeautiful.net/2010/data-information-knowledge-wisdom/">Hierarchy of Visual Understanding</a>.</p>
+</section>
+<section id="so-what-do-we-mean-by-cyber-security-data-analytics">
+<h2>So, what do we mean by cyber security data analytics?<a class="headerlink" href="#so-what-do-we-mean-by-cyber-security-data-analytics" title="Permalink to this heading">#</a></h2>
+<p>For an organisation to be secure, a clear understanding of the operational environment is required. This is often described as <a class="reference external" href="https://en.wikipedia.org/wiki/Situation_awareness">situational awareness</a>, which is the perception of environmental elements and events, the comprehension of their meaning, and the projection of their future states. Increasingly, organisations are deploying <strong>security operations centres (SOC)</strong>, where analysts will seek to identify suspicious behaviour and understand the context and relevance to the organisational mission, often using <strong>Security Information and Event Management (SIEM)</strong> systems.</p>
+<p>Technology underpins modern organisations and having insight into the business operational environment is crucial to protect it. As a first stage, ensuring the safe and correct operation of our computer systems, and our networking infrastructure is a good place to start. Network traffic data (e.g., packet captures) can help to indicate what data has been communicated over a network, and what actions have been carried out as a result of this (e.g., access to a particular URL, or downloading of large files). Intrusion Detection Systems (IDS) are commonly used to inspect networking inbound and outbound network traffic, to identify suspicious activities. IDSs will generate log files, and these logs constitute another informative data attribute. Similarly, firewall rules can help understand how the network is configured, and Intrusion Prevention Systems (IPS) will make decisions and act on IDS activity to prevent potential harm.</p>
+<p>The remit of cyber security is far and wide and goes beyond traditional computers and network security. A holistic view is required of what we want to protect, and what attack vectors may be used to gain access. Therefore, aspects such as physical security, people security, and process security also need to be understood. Physical security may require CCTV, IoT sensor monitoring or GPS tracking. People security may require text analytics of social media and email usage. Process security may require analysis of business process models, supply chain security, organisational hierarchy information, and operational practice. Technology continues to influence how we conduct business across the globe, and therefore we need to ensure that we understand our threat landscape and have clear monitoring in place to understand potential harms. In many cases, we are interested in spatial-temporal data, i.e., in what location did the activity occur and at what time? Given our highly connected society, location is becoming increasingly challenging (are we looking at the location of the attacker, the location of the data, the location of the breached system?), and as for time, devices are logging activities faster than we can humanly inspect them. There is then the need for big data cyber security analytics – to make this flow of data manageable and insightful, to highlight key attributes in the data, and to enable informed decisions to be made to respond and react to potential threats.</p>
+<blockquote>
+<div><p><span style="font-size:20px"><em>Security is about understanding systems, the people, and the processes that act upon these systems, such that they remain secure.</em></span></p>
+</div></blockquote>
+<p>Can we ever be fully secure? Probably not, but with greater insight of observed activities, we can manage this more effectively. Data analytics and visualisation techniques are one step towards achieving this.</p>
+<p><img alt="Alt text" src="_images/image2.jpeg" /></p>
+</section>
+<section id="data-driven-storytelling">
+<h2>Data-driven Storytelling<a class="headerlink" href="#data-driven-storytelling" title="Permalink to this heading">#</a></h2>
+<p>We discussed earlier the idea that data visualisation can be used for exploratory and explanatory uses. In the latter, we may want to tell a story about our data, often described as Data-Driven Storytelling. So what makes for a good data story? There are five aspects that may be pertinent to the story.</p>
+<ul class="simple">
+<li><p><strong>Trend:</strong> We may want to observe the historical or seasonal pattern of observations within our data, such as when do most people log on during the day, or what the monthly variation of demand on our servers is.</p></li>
+<li><p><strong>Novelty:</strong> We are looking to find something new within our data observation, such as a new trend in our data.</p></li>
+<li><p><strong>Outlier:</strong> We are looking to find where something occurs differently within an existing trend in our data.</p></li>
+<li><p><strong>Forecasting:</strong> We want to determine what the future forecast of our data may be based on our historical observations.</p></li>
+<li><p><strong>Debunking:</strong> We want to determine how our data supports or disproves a possible theory of what is happening.</p></li>
+</ul>
+<p>Typically, in security, we are looking for novelty and outliers, based on the historical trend, to then provide a forecast of what may be if we do not intervene. Where we can couple observations against either “known-bad” activities (e.g., malware attacks), or show that observations are clearly deviating from “known-good” activities (e.g., insider threat), we can provide some insight into the underlying activity to determine whether action is required.</p>
+</section>
+<section id="ai-and-cyber-security">
+<h2>AI and Cyber Security<a class="headerlink" href="#ai-and-cyber-security" title="Permalink to this heading">#</a></h2>
+<p>DarkTrace, CheckPoint, Symantec, Sophos, FireEye, Cynet, Fortinet, Vectra, and Cylance. These are just a handful of vendors that now use Artificial Intelligence and Machine Learning as a part of their products and services for cyber security defence – there are plenty others too, but this just gives you <a class="reference external" href="https://www.comparitech.com/blog/information-security/leading-ai-cybersecurity-companies/">an impression of the direction that the industry is moving in</a>.</p>
+<p>Cyber security requires a holistic view to identify what should be protected, and how may it be vulnerable to attack. The volume of data generated by today’s systems means that humans cannot analyse this raw data effectively. With AI and machine learning techniques, we can filter and manage data observations, whilst visualisation can help human analysts understand and communicate about observations and appropriate responsive actions.</p>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://journalofbigdata.springeropen.com/articles/10.1186/s40537-020-00318-5">Sarker, I.H., Kayes, A.S.M., Badsha, S. et al. Cybersecurity data science: an overview from machine learning perspective. J Big Data 7, 41 (2020). https://doi.org/10.1186/s40537-020-00318-5</a></p></li>
+<li><p><a class="reference external" href="https://online.datasciencedojo.com/blogs/how-data-science-has-changed-cybersecurity">Maayan, G. How Data Science Has Changed Cybersecurity. Datasciencedojo (2020).</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=x1B9WrRPtOc">BARC GmbH. Big Data Security Analytics — Key Findings of the Study — YouTube (2017).</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="00-toc.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Security Data Analytics and Visualisation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02-workflow.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2: A Pipeline Process</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-visualisation">What about Visualisation?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-do-we-mean-by-cyber-security-data-analytics">So, what do we mean by cyber security data analytics?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-driven-storytelling">Data-driven Storytelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-and-cyber-security">AI and Cyber Security</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Phil Legg
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

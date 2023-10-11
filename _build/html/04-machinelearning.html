@@ -1,0 +1,578 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>4: Machine Learning &#8212; Security Data Analytics and Visualisation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04-machinelearning';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5: Visualisation" href="05-visualisation.html" />
+    <link rel="prev" title="3: Statistical Analysis" href="03-statistics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-toc.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uwecyber.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/uwecyber.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-toc.html">
+                    Security Data Analytics and Visualisation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-intro.html">1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-workflow.html">2: A Pipeline Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-statistics.html">3: Statistical Analysis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4: Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="05-visualisation.html">5: Visualisation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-visualanalytics.html">6: Visual Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07-textanalytics.html">7: Text Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-fileandimageanalysis.html">8: File, Image and Video Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-furtherresearch.html">9: Future Research Directions</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-01-intro.html">Activity 1 - Python Primer</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-02-hello.html">Activity 2 - Hello, Security Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-03-clustering.html">Activity 3 - Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-04-regression.html">Activity 4 - Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-05-neuralnet.html">Activity 5 - Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-06-visualisation.html">Activity 6 - Visualisation</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-07-violinplot.html">Activity 7 - Violin Plots and Parallel Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-08-interaction.html">Activity 8 - Interaction and Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-09-recommender.html">Activity 9 - Recommender Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-10-text.html">Activity 10: Text Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-11-video.html">Activity 11 - File Visualisation and Video Visualisation</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book/issues/new?title=Issue%20on%20page%20%2F04-machinelearning.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/04-machinelearning.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4: Machine Learning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4: Machine Learning</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning">What is Machine Learning?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-optimisation">Search Optimisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-of-learning">Methods of Learning</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning">
+<h1>4: Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this heading">#</a></h1>
+<section id="what-is-machine-learning">
+<h2>What is Machine Learning?<a class="headerlink" href="#what-is-machine-learning" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://expertsystem.com/machine-learning-definition/">Machine learning</a> is a domain within artificial intelligence (AI) that provides systems with an ability to learn from experience of data observations <strong>without being explicitly programmed</strong>. What this means is that we do not need to explicitly program the rules that may help us to differentiate between categories within our data, instead we determine how the data will be presented (i.e., what are the features of the data), and we allow the machine to determine a way of organising this information. Machine learning focuses on the development of computer programs that can access data and use it learn for themselves. We can essentially think of three components: an input (the data), a function, and an output. The machine is trying to learn the function that can map inputs to some form of output, which is achieved by minimising some <strong>error measure</strong> (sometimes described as maximising a fitness function). One possible approach is to consider the difference between the expected output and the predicted output as the error measure.</p>
+<blockquote>
+<div><p><span style="font-size:20px">A decision model that is not explicitly programmed, but instead is learnt through the training of example data.</span></p>
+</div></blockquote>
+<p><img alt="Alt text" src="_images/04-catdog.gif" /></p>
+<p><strong>Supervised Learning:</strong> This is where we have a set of data observations, and we provide labels about each of these observations to inform the machine what the data essentially represents. For example, if we have a set of images that we wish to classify into groups, we can state that the output is what the image depicts (for example, is it a cat or a dog?). The input to the system is the raw image data assessed based on the colour pixel intensity values. The output of the system is a label of either ‘cat’ or ‘dog’. The function that converts pixel data to a label is what the machine attempts to learn. This is often described as <strong>classification</strong> since we are classifying the data into a series of groups. This exact same concept can be extended to many other applications, such as classifying malicious and benign software, or malware families, or even classifying types of users of a system.</p>
+<p><strong>Unsupervised Learning:</strong> This is where data is provided much like before however no training labels are given. Leading from our earlier example then, we may have image data of cats and dogs, however we do not have each image labelled as such. Here, the system attempts to learn a suitable way of <strong>clustering</strong> the data, under some mathematically assumptions. As an example, this could be distance-based, where it may be assumed that observations of the same type may appear close together in feature space. A scatter plot could then be used to explore the learnt separation of the data, to assess whether the groupings of the data make sense from some intuitive perspective. This can be a really powerful technique for dealing with a large volume of data fairly quickly, where labelling each data observation is not an option due to time constraints. Furthermore, some approaches may combine unsupervised learning as an initial data processing stage, to then support more efficient labelling to inform a supervised process.</p>
+<p>Other forms of learning also exist, such as <strong>semi-supervised</strong> (where the system may only be informed on a subset of samples, as identified through some means which could be unsupervised), <strong>active learning</strong> (which involves a human-in-the-loop to label a small subset of data based on some underlying data attributes), and <strong>reinforcement learning</strong> (which is learning based on trial-and-error, popular for learning to play video games or robotic navigation).</p>
+<p>Important to discuss also is the notion of training and testing. Typically, we develop a machine learning classifier based on training data. This is data that is representative of the problem domain that we are addressing, and our system may observe this data many times as part of adjusting the function that is calculated to map inputs to outputs correctly. Once we have completed sufficient iterations of this, such that the accuracy of mapping inputs to outputs on the training data is relatively high (ie., a high accuracy score is achieved), we would then test the model using a test dataset, that contains samples that were not in the training data, but are drawn form the same distribution. If we can achieve a high accuracy using the testing data also, then our model can be considered to be <strong>generalisable</strong>. Where the model performs high for training data but low for testing data, this can be described as <strong>overfitting</strong> our model to the training data. This is an important concept to grasp as the purpose of machine learning is to develop a system that can generalise to new data observations, and predict outputs on these, based on historical data patterns.</p>
+</section>
+<section id="search-optimisation">
+<h2>Search Optimisation<a class="headerlink" href="#search-optimisation" title="Permalink to this heading">#</a></h2>
+<p>Earlier we introduced the concept of minimising some error measure, or error function. We can think about this as trying to find some minimum point on a curve – the challenge is that we do not know the minimum point ahead of time. Suppose we are at the yellow point on the curve, and we can look either one place left or right. By stepping along we can find the minimum point on the curve, however the notion of step size is important to realise. Too small a step size would mean that the time taken is too large. Too large a step size would mean that we overstep our intended solution. Furthermore, in most challenges the curve may not be a simple as a standard U-shape. Imagine a rock face, where there are ridges and nooks along the surface. We can think of these as local minima, where the point either side is greater - and so therefore have we found the mimimum point? The true mimimum is often described as the global minimum. Search optimisation aims to find the global minimum solution, in a way that can traverse this space efficiently, and can overcome local minima that may conceal the correct solution.</p>
+<p><img alt="Alt text" src="_images/04-gradient.png" /></p>
+</section>
+<section id="methods-of-learning">
+<h2>Methods of Learning<a class="headerlink" href="#methods-of-learning" title="Permalink to this heading">#</a></h2>
+<p><strong><a class="reference external" href="https://en.wikipedia.org/wiki/Linear_regression">Linear Regression</a>:</strong> Widely used in statistics, linear regression is an approach for modelling the relationship between a dependent variable and one or more explanatory, or independent, variables. This essentially gives a continuous value prediction of some outcome, based on a set of numerical inputs. For example, imagine I want to predict house prices in my local area. If I know number of bedrooms and listed price, I can develop a mathematical model to express this, where number of bedrooms is the input, and price is the output. For any number of bedrooms within my distribution, I can then predict the output price. Of course, the model may be wrong, and would likely require more attributes, such as garden size, access to schooling, whether there is a driveway, and many other factors. We see here how multiple inputs variables will inform a single output value. I could model whether a network packet is malicious or benign in a similar fashion, where multiple inputs inform a single numerical output. The important thing to note here, is that this will only model a linear relationship – i.e., there is strong linear correlation between the inputs and the output, and so this is often too simplistic for many real-world challenges, but does at least provide a useful starting point. Linear regression can be expressed in the form: y = mx + c, where m is the gradient of the line, and c is the y-intercept of the line. We can calculate the Mean Squared Error (MSE) to measure how closely the data fits the line, where the smaller this value is, the closer the fit.</p>
+<p><img alt="Alt text" src="_images/image14.png" /></p>
+<p><strong><a class="reference external" href="https://en.wikipedia.org/wiki/Cluster_analysis">Clustering</a>:</strong> Here we want to observe when different observations form groupings of similar behaviour. We have discussed earlier the idea of clustering malware as malicious or benign. Similarly, we may have some data that is unlabelled, and we want to assign some labels to this. A popular method for this is known as k-means clustering, which will aim to identify k unique clusters within a given dataset, where data points are grouped together based on their collective mean values. Essentially, we begin with k randomised points, and for each point within our data, we determine which of our k points the data is closest to, so that we can assign a label. Once we have assigned a label to all data points, we update our k points so that each k point is the centroid of the group – which essentially is the mean in both the x and y axis, assuming we are dealing with 2 attributes in our data. We continue this process until we find a solution where the k points no longer change, and therefore our solution has stablised. We could essentially say we have minimised the error (the distance required to update the values). The practical session will delve into clustering further.</p>
+<p><img alt="Alt text" src="_images/image16.png" />
+<img alt="Alt text" src="_images/image15.png" /></p>
+<p><strong><a class="reference external" href="https://en.wikipedia.org/wiki/Support_vector_machine">Support Vector Machines</a>:</strong> Similar to how we have described our clustering approach above, SVM works through iterative search to find an optimal solution. Likewise, just as linear regresssion provides a line-of-best-fit through the data, SVM aims to fit a line that provides a decision boundary so that data points can be classified. Specifically, we measure the <a class="reference external" href="https://en.wikipedia.org/wiki/Euclidean_distance">euclidean distances</a> between data points nearest to the decision boundary. The objective is to maximise the distance between points and the decision bounary. The euclidean distance essentially measures the distance as a diagonal distance (think about the long side of a triangle, and how you would calculate this distance using Pythagorean Therorem). We can use the same formula as described earlier for linear regression, y = mx + c, to characterise the decision boundary line.</p>
+<p><strong><a class="reference external" href="https://en.wikipedia.org/wiki/Dimensionality_reduction">Dimensionality Reduction</a>:</strong> Earlier we commented that our search optimisation may be in some higher dimensional space. We often use 2D or 3D visualisations to convey them simply because we can not easily observe dimensionlity higher than this. Yet, some dataset that has 100 different numerical attributes about each data instances could be considered to be a high dimensional dataset (100-dimensional). Is there a meaningful way that we can visualise this data to identify data instances that mayshare similarities, or at least may make it easier to summarise the key characteristics of the data instance. Dimensional reduction aims to achieve this, such that we can preserve the structure of the data in a low dimensional space that can be easier understood and visualised.</p>
+<p>Principal Component Analysis (PCA) is a widely used method of dimensionality reduction. For a given dataset, it essentially seeks to find the direction (or vector) of greatest variance through the data.  Suppose we have some points in 2-dimensions. We can fit a line through this data, much like we have seen already. Then, we could treat this line as a new “axis” for our data, and essentially map our points against where they occur on this line. We could also imagine a similar approach if we wanted to map 3-dimensional points to 2-dimensions, by finding a plane that all points could be mapped on to (where we say plane, imagine this as a flat piece of paper being held at some orientation within our 3-dimensional points, and then placing a dot on our page where each point occurs). Other methods of dimensionality reduction include t-distributed stochastic neighbourhood embedding (t-SNE), and uniform manifold and projection (UMAP). Dimensionality reduction is useful as part of unsupervised learning, where we want to cluster data but have no training labels to inform our process.</p>
+<p><strong><a class="reference external" href="https://en.wikipedia.org/wiki/Artificial_neural_network">Neural Networks</a>:</strong> Probably the most commonly described form of machine learning in use today is the neural network. The name derives from the notion of synapses in the brain firing when they receive a signal, where many signals contribute towards whether a synapse should fire or not. Here, we have an input layer (red) which takes in some attributes about our data -  for example, a set of numerical features that have been derived. For classification, the output layer would relate to the possible output classes of the data, where the highest scoring node would be the predicted class. In between are a set of hidden nodes that the machine will attempt to learn a suitable numerical value for, such that input nodes map to the expected output nodes. We do this using <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">matrix multiplication</a>. We will show this further in the practical session. The important detail to know is that neural networks are calculated as <em>y = sigmoid (Wx + b)</em>, where <em>x</em> is my input vector (e.g., 5 numerical values in a 5-by-1 column), <em>W</em> is a weights matrix (where the matrix has the same number of columns as the number of rows in our input vector), and <em>b</em> is a bias vector that is added as a constant. The sigmoid function then scales our resulting vector so that our values remain within our set bounds (either -1 and +1, or 0 and 1). What we have described is often considered as a feed-forward network. Since our model is likely to incorrectly predict our data initially, we need a method for updating the weight values in our hidden nodes, since these essentially dictate how our input relates to our output. This is done using a technique called <a class="reference external" href="https://en.wikipedia.org/wiki/Backpropagation">backpropagation</a>. This essentially works like the search optimisation technique described earlier, where we seek to minimise the distance between the predicted values and our expected values, which is achieved through the process of training the neural network.</p>
+<p><img alt="Alt text" src="_images/image17.png" /></p>
+<p>For our purpose here, we want to understand what different techniques exist for machine learning. Here we are not going to focus too much on the underlying mathematics used, although it is important to understand how these methods operate and why. Neural networks have formed the basis of much modern machine learning research. The concept of <a class="reference external" href="https://en.wikipedia.org/wiki/Deep_learning">Deep Learning</a> comes from having many hidden node layers in a neural network structure, such that it is a deep neural network. Furthermore, there now exist a wealth of different architectures based upon the notion of deep learning. <a class="reference external" href="https://en.wikipedia.org/wiki/Convolutional_neural_network">Convolutional Neural Networks</a> have become particularly popular for image analysis tasks. This is because instead of having single vector inputs, they use square regions as input, which means they are much better at preserving spatial attributes such as the relationship between pixels in an image. The final method to mention here is <a class="reference external" href="https://en.wikipedia.org/wiki/Recurrent_neural_network">Recurrent Neural Networks</a>, which are designed to work on sequential forms of data. Whereas our previous learning models have treated each data instances as a discrete observation, in a recurrent model, each instance of data is dependent on what came before. A common example is language modelling – so similar to subsequence anomalies discussed in Section 3, our model could learn that the input phrase “The quick brown fox jumps over the lazy” is completed by the word “dog”.</p>
+<p>We have covered a lot of ground in this section, but hopefully this helps to give you a brief introduction to the diferent machine learning models that are used. In particular, we have seen how each model takes an input, performs some processing or operation, and provides an output. We have also seen how this is based on minimising or maximising some function over time through the process of training to achieve the final output. It is important to think about the task to be solved as to which method is most appropriate – are we hoping to predict a class (classification), a continuous value (regression), a group (clustering), or some complex non-linear function (neural network)?</p>
+<p>As a slightly aside, when using machine learning for the purpose of cyber security, it is vital that we consider the case where an adversary is able to manipulate the performance of our model. You may have seen examples of this, where image recognition systems can be made to misclassify objects, despite a well-trained model being used. Think about the impact here for up-and-coming domains such as autonomous vehicles and healthcare. This is why when we think about AI for cyber security it is fundamental that we also think about the cyber security of AI. We are merely scratching the surface here, however there is much research activity in the area of <a class="reference external" href="https://en.wikipedia.org/wiki/Adversarial_machine_learning">adversarial learning</a>.</p>
+<p>We have covered a lot in this section, and it is worth taking the time to reflect on the different techniques used in machine learning for cyber security. The practical sessions that accompany this chapter will show you how the implement clustering, linear regression, and neural networks, using Python and the Jupyter Notebook environment, to give you a feel for how the inner workings of these concepts perform. This will also help develop your understanding when using off-the-shelf libraries such as scikit-learn, to understand how the algorithms scale up and perform on larger datasets.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="further-reading">
+<h1>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0167404818305546">M. Rhode, P. Burnap and K. Jones, “Early-stage malware prediction using recurrent neural networks”. Computers &amp; Security, Volume 77, August 2018, Pages 578-594.</a></p></li>
+<li><p><a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/8899533">A. Mills, T. Spyridopoulos and P. Legg, “Efficient and Interpretable Real-Time Malware Detection Using Random-Forest,” 2019 International Conference on Cyber Situational Awareness, Data Analytics And Assessment (Cyber SA), 2019, pp. 1-8, doi: 10.1109/CyberSA.2019.8899533.</a></p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03-statistics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3: Statistical Analysis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05-visualisation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">5: Visualisation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4: Machine Learning</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning">What is Machine Learning?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-optimisation">Search Optimisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-of-learning">Methods of Learning</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Phil Legg
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

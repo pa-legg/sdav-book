@@ -1,0 +1,1756 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Activity 7 - Violin Plots and Parallel Coordinates &#8212; Security Data Analytics and Visualisation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'activity-07-violinplot';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Activity 8 - Interaction and Animation" href="activity-08-interaction.html" />
+    <link rel="prev" title="Activity 6 - Visualisation" href="activity-06-visualisation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-toc.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uwecyber.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/uwecyber.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-toc.html">
+                    Security Data Analytics and Visualisation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-intro.html">1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-workflow.html">2: A Pipeline Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-statistics.html">3: Statistical Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-machinelearning.html">4: Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="05-visualisation.html">5: Visualisation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-visualanalytics.html">6: Visual Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07-textanalytics.html">7: Text Analytics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-fileandimageanalysis.html">8: File, Image and Video Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-furtherresearch.html">9: Future Research Directions</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-01-intro.html">Activity 1 - Python Primer</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="activity-02-hello.html">Activity 2 - Hello, Security Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-03-clustering.html">Activity 3 - Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-04-regression.html">Activity 4 - Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-05-neuralnet.html">Activity 5 - Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-06-visualisation.html">Activity 6 - Visualisation</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Activity 7 - Violin Plots and Parallel Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-08-interaction.html">Activity 8 - Interaction and Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-09-recommender.html">Activity 9 - Recommender Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-10-text.html">Activity 10: Text Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity-11-video.html">Activity 11 - File Visualisation and Video Visualisation</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pa-legg/sdav-book/issues/new?title=Issue%20on%20page%20%2Factivity-07-violinplot.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/activity-07-violinplot.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Activity 7 - Violin Plots and Parallel Coordinates</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-comparing-benign-and-ddos-behaviours-in-network-traffic-analysis-using-cicids2017">Case Study: Comparing Benign and DDoS behaviours in network traffic analysis using CICIDS2017</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-in-dataset-and-clean-it-up">Load in dataset and clean it up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalise-each-column">Normalise each column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separate-data-based-on-class">Separate data based on class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualise-the-output">Visualise the output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#findings">Findings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-pca-decomposition-to-separate-classes">Extra: PCA decomposition to separate classes</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="activity-7-violin-plots-and-parallel-coordinates">
+<h1>Activity 7 - Violin Plots and Parallel Coordinates<a class="headerlink" href="#activity-7-violin-plots-and-parallel-coordinates" title="Permalink to this heading">#</a></h1>
+<p>This notebook will demonstrate the use of Violin Plots and Parallel Coordinates. This visualisation technique, similar to a box plot, is well suited for comparing multiple distributions, and show a curved distribution plot for each feature under consideration. Below shows a simple violin plot example using Seaborn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install seaborn</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/496158a7a967bf76c6c7055c6ba1b5270f6f50ce3527409f9d6834a3d3812b12.png" src="_images/496158a7a967bf76c6c7055c6ba1b5270f6f50ce3527409f9d6834a3d3812b12.png" />
+</div>
+</div>
+<section id="case-study-comparing-benign-and-ddos-behaviours-in-network-traffic-analysis-using-cicids2017">
+<h2>Case Study: Comparing Benign and DDoS behaviours in network traffic analysis using CICIDS2017<a class="headerlink" href="#case-study-comparing-benign-and-ddos-behaviours-in-network-traffic-analysis-using-cicids2017" title="Permalink to this heading">#</a></h2>
+<p>Let’s consider an example where we want to look at benign and malicious network traffic. We will use to CICIDS2017 dataset for this. This dataset captures in the region of 80 numerical features that characterise network activity. Each data instance has been labelled as either benign or as an attack type (we focus on DDoS here, however other attacks are present in the full dataset). What data attributes set these two classes apart? We can use violin plots to judge this visually over the entire dataset.</p>
+<section id="load-in-dataset-and-clean-it-up">
+<h3>Load in dataset and clean it up<a class="headerlink" href="#load-in-dataset-and-clean-it-up" title="Permalink to this heading">#</a></h3>
+<p>First we will load in the data set, and we will remove all Not-a-Number and Infinity values that may be present. We will also remove columns that contain only zeros (i.e., no separating features).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load in the dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv&#39;</span><span class="p">)</span>
+<span class="c1"># Remove NaN and Inf</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span>
+<span class="c1"># Remove columns with all zero values</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">(</span><span class="n">df</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
+<span class="c1"># Output table</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\pa-legg\AppData\Local\Temp\ipykernel_24464\2483369290.py:4: FutureWarning: In a future version of pandas all arguments of DataFrame.any and Series.any will be keyword-only.
+  df = df[~df.isin([np.nan, np.inf, -np.inf]).any(1)]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Flow ID</th>
+      <th>Source IP</th>
+      <th>Source Port</th>
+      <th>Destination IP</th>
+      <th>Destination Port</th>
+      <th>Protocol</th>
+      <th>Timestamp</th>
+      <th>Flow Duration</th>
+      <th>Total Fwd Packets</th>
+      <th>Total Backward Packets</th>
+      <th>...</th>
+      <th>min_seg_size_forward</th>
+      <th>Active Mean</th>
+      <th>Active Std</th>
+      <th>Active Max</th>
+      <th>Active Min</th>
+      <th>Idle Mean</th>
+      <th>Idle Std</th>
+      <th>Idle Max</th>
+      <th>Idle Min</th>
+      <th>Label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>192.168.10.5-104.16.207.165-54865-443-6</td>
+      <td>104.16.207.165</td>
+      <td>443</td>
+      <td>192.168.10.5</td>
+      <td>54865</td>
+      <td>6</td>
+      <td>7/7/2017 3:30</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0</td>
+      <td>...</td>
+      <td>20</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>192.168.10.5-104.16.28.216-55054-80-6</td>
+      <td>104.16.28.216</td>
+      <td>80</td>
+      <td>192.168.10.5</td>
+      <td>55054</td>
+      <td>6</td>
+      <td>7/7/2017 3:30</td>
+      <td>109</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>20</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>192.168.10.5-104.16.28.216-55055-80-6</td>
+      <td>104.16.28.216</td>
+      <td>80</td>
+      <td>192.168.10.5</td>
+      <td>55055</td>
+      <td>6</td>
+      <td>7/7/2017 3:30</td>
+      <td>52</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>20</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>192.168.10.16-104.17.241.25-46236-443-6</td>
+      <td>104.17.241.25</td>
+      <td>443</td>
+      <td>192.168.10.16</td>
+      <td>46236</td>
+      <td>6</td>
+      <td>7/7/2017 3:30</td>
+      <td>34</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>20</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>192.168.10.5-104.19.196.102-54863-443-6</td>
+      <td>104.19.196.102</td>
+      <td>443</td>
+      <td>192.168.10.5</td>
+      <td>54863</td>
+      <td>6</td>
+      <td>7/7/2017 3:30</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0</td>
+      <td>...</td>
+      <td>20</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>225740</th>
+      <td>192.168.10.15-72.21.91.29-61374-80-6</td>
+      <td>72.21.91.29</td>
+      <td>80</td>
+      <td>192.168.10.15</td>
+      <td>61374</td>
+      <td>6</td>
+      <td>7/7/2017 5:02</td>
+      <td>61</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>20</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>225741</th>
+      <td>192.168.10.15-72.21.91.29-61378-80-6</td>
+      <td>72.21.91.29</td>
+      <td>80</td>
+      <td>192.168.10.15</td>
+      <td>61378</td>
+      <td>6</td>
+      <td>7/7/2017 5:02</td>
+      <td>72</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>20</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>225742</th>
+      <td>192.168.10.15-72.21.91.29-61375-80-6</td>
+      <td>72.21.91.29</td>
+      <td>80</td>
+      <td>192.168.10.15</td>
+      <td>61375</td>
+      <td>6</td>
+      <td>7/7/2017 5:02</td>
+      <td>75</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>20</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>225743</th>
+      <td>192.168.10.15-8.41.222.187-61323-80-6</td>
+      <td>8.41.222.187</td>
+      <td>80</td>
+      <td>192.168.10.15</td>
+      <td>61323</td>
+      <td>6</td>
+      <td>7/7/2017 5:02</td>
+      <td>48</td>
+      <td>2</td>
+      <td>0</td>
+      <td>...</td>
+      <td>20</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>225744</th>
+      <td>192.168.10.15-8.43.72.21-61326-80-6</td>
+      <td>8.43.72.21</td>
+      <td>80</td>
+      <td>192.168.10.15</td>
+      <td>61326</td>
+      <td>6</td>
+      <td>7/7/2017 5:02</td>
+      <td>68</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>20</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>BENIGN</td>
+    </tr>
+  </tbody>
+</table>
+<p>225711 rows × 75 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What columns are left?</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="c1"># How many columns?</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Length: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Flow ID&#39;, &#39; Source IP&#39;, &#39; Source Port&#39;, &#39; Destination IP&#39;,
+       &#39; Destination Port&#39;, &#39; Protocol&#39;, &#39; Timestamp&#39;, &#39; Flow Duration&#39;,
+       &#39; Total Fwd Packets&#39;, &#39; Total Backward Packets&#39;,
+       &#39;Total Length of Fwd Packets&#39;, &#39; Total Length of Bwd Packets&#39;,
+       &#39; Fwd Packet Length Max&#39;, &#39; Fwd Packet Length Min&#39;,
+       &#39; Fwd Packet Length Mean&#39;, &#39; Fwd Packet Length Std&#39;,
+       &#39;Bwd Packet Length Max&#39;, &#39; Bwd Packet Length Min&#39;,
+       &#39; Bwd Packet Length Mean&#39;, &#39; Bwd Packet Length Std&#39;, &#39;Flow Bytes/s&#39;,
+       &#39; Flow Packets/s&#39;, &#39; Flow IAT Mean&#39;, &#39; Flow IAT Std&#39;, &#39; Flow IAT Max&#39;,
+       &#39; Flow IAT Min&#39;, &#39;Fwd IAT Total&#39;, &#39; Fwd IAT Mean&#39;, &#39; Fwd IAT Std&#39;,
+       &#39; Fwd IAT Max&#39;, &#39; Fwd IAT Min&#39;, &#39;Bwd IAT Total&#39;, &#39; Bwd IAT Mean&#39;,
+       &#39; Bwd IAT Std&#39;, &#39; Bwd IAT Max&#39;, &#39; Bwd IAT Min&#39;, &#39;Fwd PSH Flags&#39;,
+       &#39; Fwd Header Length&#39;, &#39; Bwd Header Length&#39;, &#39;Fwd Packets/s&#39;,
+       &#39; Bwd Packets/s&#39;, &#39; Min Packet Length&#39;, &#39; Max Packet Length&#39;,
+       &#39; Packet Length Mean&#39;, &#39; Packet Length Std&#39;, &#39; Packet Length Variance&#39;,
+       &#39;FIN Flag Count&#39;, &#39; SYN Flag Count&#39;, &#39; RST Flag Count&#39;,
+       &#39; PSH Flag Count&#39;, &#39; ACK Flag Count&#39;, &#39; URG Flag Count&#39;,
+       &#39; ECE Flag Count&#39;, &#39; Down/Up Ratio&#39;, &#39; Average Packet Size&#39;,
+       &#39; Avg Fwd Segment Size&#39;, &#39; Avg Bwd Segment Size&#39;,
+       &#39; Fwd Header Length.1&#39;, &#39;Subflow Fwd Packets&#39;, &#39; Subflow Fwd Bytes&#39;,
+       &#39; Subflow Bwd Packets&#39;, &#39; Subflow Bwd Bytes&#39;, &#39;Init_Win_bytes_forward&#39;,
+       &#39; Init_Win_bytes_backward&#39;, &#39; act_data_pkt_fwd&#39;,
+       &#39; min_seg_size_forward&#39;, &#39;Active Mean&#39;, &#39; Active Std&#39;, &#39; Active Max&#39;,
+       &#39; Active Min&#39;, &#39;Idle Mean&#39;, &#39; Idle Std&#39;, &#39; Idle Max&#39;, &#39; Idle Min&#39;,
+       &#39; Label&#39;],
+      dtype=&#39;object&#39;)
+Length:  75
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="normalise-each-column">
+<h3>Normalise each column<a class="headerlink" href="#normalise-each-column" title="Permalink to this heading">#</a></h3>
+<p>Each column has its own range of values - some are quite narrow, some are quite large. We often normalise data to make it easier to work with and draw comparisons - this essentially means scaling it to be within a fixed range. Here, we want to normalise each feature indepedently - essentially meaning that each column will have a minimum value of zero and a maximum value of one, and all values for that particular feature will be scaled within this range.</p>
+<p>We will use the sci-kit learn library to achieve this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import scikit learn</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="c1"># Extract only the numerical feature columns</span>
+<span class="n">subset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">7</span><span class="p">:</span><span class="mi">74</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="c1"># Define the scaler</span>
+<span class="n">min_max_scaler</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="c1"># Apply the scaler to each column of our dataframe</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">min_max_scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">subset</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">subset</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">subset</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Flow Duration</th>
+      <th>Total Fwd Packets</th>
+      <th>Total Backward Packets</th>
+      <th>Total Length of Fwd Packets</th>
+      <th>Total Length of Bwd Packets</th>
+      <th>Fwd Packet Length Max</th>
+      <th>Fwd Packet Length Min</th>
+      <th>Fwd Packet Length Mean</th>
+      <th>Fwd Packet Length Std</th>
+      <th>Bwd Packet Length Max</th>
+      <th>...</th>
+      <th>act_data_pkt_fwd</th>
+      <th>min_seg_size_forward</th>
+      <th>Active Mean</th>
+      <th>Active Std</th>
+      <th>Active Max</th>
+      <th>Active Min</th>
+      <th>Idle Mean</th>
+      <th>Idle Std</th>
+      <th>Idle Max</th>
+      <th>Idle Min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.333335e-08</td>
+      <td>0.000518</td>
+      <td>0.00000</td>
+      <td>0.000066</td>
+      <td>0.000000</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000518</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9.166671e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.416669e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.916668e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.333335e-08</td>
+      <td>0.000518</td>
+      <td>0.00000</td>
+      <td>0.000066</td>
+      <td>0.000000</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000518</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>225740</th>
+      <td>5.166669e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>225741</th>
+      <td>6.083336e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>225742</th>
+      <td>6.333337e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>225743</th>
+      <td>4.083335e-07</td>
+      <td>0.000518</td>
+      <td>0.00000</td>
+      <td>0.000066</td>
+      <td>0.000000</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000518</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>225744</th>
+      <td>5.750003e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>225711 rows × 67 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="separate-data-based-on-class">
+<h3>Separate data based on class<a class="headerlink" href="#separate-data-based-on-class" title="Permalink to this heading">#</a></h3>
+<p>We have scaled the entire dataset so that all data for each feature is scaled in a consistent manner. We now want to split our dataset based on the classes of data that exist. Here, we know we have benign and DDoS classes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output the classes</span>
+<span class="n">outcome</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39; Label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">outcome</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;BENIGN&#39; &#39;DDoS&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data based on identified classes</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39; Label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39; Label&#39;</span><span class="p">]</span>
+<span class="n">benign</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39; Label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">outcome</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">ddos</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39; Label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">outcome</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">benign</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Flow Duration</th>
+      <th>Total Fwd Packets</th>
+      <th>Total Backward Packets</th>
+      <th>Total Length of Fwd Packets</th>
+      <th>Total Length of Bwd Packets</th>
+      <th>Fwd Packet Length Max</th>
+      <th>Fwd Packet Length Min</th>
+      <th>Fwd Packet Length Mean</th>
+      <th>Fwd Packet Length Std</th>
+      <th>Bwd Packet Length Max</th>
+      <th>...</th>
+      <th>min_seg_size_forward</th>
+      <th>Active Mean</th>
+      <th>Active Std</th>
+      <th>Active Max</th>
+      <th>Active Min</th>
+      <th>Idle Mean</th>
+      <th>Idle Std</th>
+      <th>Idle Max</th>
+      <th>Idle Min</th>
+      <th>Label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.333335e-08</td>
+      <td>0.000518</td>
+      <td>0.00000</td>
+      <td>0.000066</td>
+      <td>0.000000</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9.166671e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.416669e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.916668e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.333335e-08</td>
+      <td>0.000518</td>
+      <td>0.00000</td>
+      <td>0.000066</td>
+      <td>0.000000</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>225740</th>
+      <td>5.166669e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>225741</th>
+      <td>6.083336e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>225742</th>
+      <td>6.333337e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>225743</th>
+      <td>4.083335e-07</td>
+      <td>0.000518</td>
+      <td>0.00000</td>
+      <td>0.000066</td>
+      <td>0.000000</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>BENIGN</td>
+    </tr>
+    <tr>
+      <th>225744</th>
+      <td>5.750003e-07</td>
+      <td>0.000000</td>
+      <td>0.00034</td>
+      <td>0.000033</td>
+      <td>0.000001</td>
+      <td>0.000514</td>
+      <td>0.004076</td>
+      <td>0.001552</td>
+      <td>0.0</td>
+      <td>0.000514</td>
+      <td>...</td>
+      <td>0.384615</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>BENIGN</td>
+    </tr>
+  </tbody>
+</table>
+<p>97686 rows × 68 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="visualise-the-output">
+<h3>Visualise the output<a class="headerlink" href="#visualise-the-output" title="Permalink to this heading">#</a></h3>
+<p>We now have our data split into the classes, so we can use the violin plot for each of our classes independently, and compare the two figures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">benign</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Violin Plot to show benign feature distributions&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f1d257c39482d2cc535edda98befc5dd399274ee4630defbae3102ae32a6e360.png" src="_images/f1d257c39482d2cc535edda98befc5dd399274ee4630defbae3102ae32a6e360.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ddos</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Violin Plot to show Bot feature distributions&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9daaabec7d12849659be9791f3016f51b1de20ede4054e6db832e851abb55a71.png" src="_images/9daaabec7d12849659be9791f3016f51b1de20ede4054e6db832e851abb55a71.png" />
+</div>
+</div>
+</section>
+<section id="findings">
+<h3>Findings<a class="headerlink" href="#findings" title="Permalink to this heading">#</a></h3>
+<p>Comparing the two charts, we can see that the following features are different across the two classes.</p>
+<ul class="simple">
+<li><p>Flow Duration</p></li>
+<li><p>Flow IAT (Mean, Std, Max, Min)</p></li>
+<li><p>Fwd IAT (Total, Mean, Std, Max, Min)</p></li>
+<li><p>Packet Length Variance</p></li>
+<li><p>Idle (Mean, Std, Max, Min)</p></li>
+</ul>
+<p>We now have a clearer view (as far as this dataset is concerned) with what makes for a benign packet, and what makes for a malicious DDoS packet.</p>
+</section>
+<section id="extra-pca-decomposition-to-separate-classes">
+<h3>Extra: PCA decomposition to separate classes<a class="headerlink" href="#extra-pca-decomposition-to-separate-classes" title="Permalink to this heading">#</a></h3>
+<p>Given the high dimensionality of the data, what does the data look like if we perform dimensionality reduction? Can we better separate between the two classes?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">decomposition</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39; Label&#39;</span><span class="p">]</span>
+
+<span class="n">benignX</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">outcome</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">ddosX</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">outcome</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">benignX</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">benignX</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ddosX</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">ddosX</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_24464</span>\<span class="mf">1084066119.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">decomposition</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">pca</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39; Label&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="nn">~\Anaconda3\lib\site-packages\sklearn\decomposition\_pca.py</span> in <span class="ni">fit_transform</span><span class="nt">(self, X, y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>         <span class="n">C</span><span class="o">-</span><span class="n">ordered</span> <span class="n">array</span><span class="p">,</span> <span class="n">use</span> <span class="s1">&#39;np.ascontiguousarray&#39;</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">407</span><span class="s2">         U, S, Vt = self._fit(X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">408</span><span class="s2">         U = U[:, : self.n_components_]</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span><span class="s2"> </span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\sklearn\decomposition\_pca.py</span> in <span class="ni">_fit</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">428</span><span class="s2">             )</span>
+<span class="g g-Whitespace">    </span><span class="mi">429</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">430</span><span class="s2">         X = self._validate_data(</span>
+<span class="g g-Whitespace">    </span><span class="mi">431</span><span class="s2">             X, dtype=[np.float64, np.float32], ensure_2d=True, copy=self.copy</span>
+<span class="g g-Whitespace">    </span><span class="mi">432</span><span class="s2">         )</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\sklearn\base.py</span> in <span class="ni">_validate_data</span><span class="nt">(self, X, y, reset, validate_separately, **check_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">564</span><span class="s2">             raise ValueError(&quot;Validation should be done on X, y or both.&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">565</span><span class="s2">         elif not no_val_X and no_val_y:</span>
+<span class="ne">--&gt; </span><span class="mi">566</span><span class="s2">             X = check_array(X, **check_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span><span class="s2">             out = X</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span><span class="s2">         elif no_val_X and not no_val_y:</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\sklearn\utils\validation.py</span> in <span class="ni">check_array</span><span class="nt">(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">744</span><span class="s2">                     array = array.astype(dtype, casting=&quot;unsafe&quot;, copy=False)</span>
+<span class="g g-Whitespace">    </span><span class="mi">745</span><span class="s2">                 else:</span>
+<span class="ne">--&gt; </span><span class="mi">746</span><span class="s2">                     array = np.asarray(array, order=order, dtype=dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span><span class="s2">             except ComplexWarning as complex_warning:</span>
+<span class="g g-Whitespace">    </span><span class="mi">748</span><span class="s2">                 raise ValueError(</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;BENIGN&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><em><strong>Unfortunately not</strong></em> - this is not a great surprise, our violin plot shows overlap between the features of the two classes and there is no clear decision boundary that separates the two. PCA is quite poor when there is little variance in many features (as we have here) hence why the plot has artefacts where straight lines appear. Other methods like t-SNE and UMAP may perform better but at greater computational cost.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here&#39;s an example of selecting all columns that contain the.phrase &#39;IAT&#39;</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">df3</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span> <span class="n">df2</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span> <span class="n">df2</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;IAT&quot;</span><span class="p">)</span> <span class="p">]</span> <span class="p">]</span>
+<span class="c1">#df3 = df3.iloc[:,0:cols]</span>
+
+<span class="n">df3</span><span class="p">[</span><span class="s1">&#39; Label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39; Label&#39;</span><span class="p">]</span>
+
+
+<span class="n">samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">benign3</span> <span class="o">=</span> <span class="n">df3</span><span class="p">[</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39; Label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">outcome</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">samples</span><span class="p">,:]</span>
+<span class="n">ddos3</span> <span class="o">=</span> <span class="n">df3</span><span class="p">[</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39; Label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">outcome</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">samples</span><span class="p">,:]</span>
+
+
+<span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">benign3</span><span class="p">,</span> <span class="n">ddos3</span><span class="p">])</span>
+<span class="n">df3</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">parallel_coordinates</span><span class="p">(</span><span class="n">df3</span><span class="p">,</span> <span class="s1">&#39; Label&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;#556270&#39;</span><span class="p">,</span> <span class="s1">&#39;#4ECDC4&#39;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/pa-legg/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:8: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  
+</pre></div>
+</div>
+<img alt="_images/b8990d91b32519ad1dbd7fbb42080067a1ed0f3489ba88a9a2ffc7fd20d91ef6.png" src="_images/b8990d91b32519ad1dbd7fbb42080067a1ed0f3489ba88a9a2ffc7fd20d91ef6.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="activity-06-visualisation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Activity 6 - Visualisation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="activity-08-interaction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Activity 8 - Interaction and Animation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-comparing-benign-and-ddos-behaviours-in-network-traffic-analysis-using-cicids2017">Case Study: Comparing Benign and DDoS behaviours in network traffic analysis using CICIDS2017</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-in-dataset-and-clean-it-up">Load in dataset and clean it up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalise-each-column">Normalise each column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separate-data-based-on-class">Separate data based on class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualise-the-output">Visualise the output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#findings">Findings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-pca-decomposition-to-separate-classes">Extra: PCA decomposition to separate classes</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Phil Legg
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
