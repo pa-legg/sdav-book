@@ -2,4 +2,6 @@
 
 This repository holds the ipynb files for constructing the Jupyter Book copy of "Security Data Analytics and Visualisation", taught by Professor Phil Legg at the University of the West of England.
 
-A "live" copy of the book can be viewed at [http://plegg.me.uk/sdav/book-v2](http://plegg.me.uk/sdav/book-v2)
+You can also deploy an interactive copy of the book directly in your browser using Binder:
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pa-legg/sdav-book/HEAD)
