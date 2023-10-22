@@ -3,3 +3,5 @@ matplotlib
 numpy
 pandas
 seaborn
+mpl_toolkits
+scikit-learn
