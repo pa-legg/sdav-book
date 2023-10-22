@@ -5,3 +5,5 @@ pandas
 seaborn
 mpl_toolkits
 scikit-learn
+beautifulsoup4
+scikit-video
