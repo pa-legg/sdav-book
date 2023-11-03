@@ -5,5 +5,3 @@ This repository holds the ipynb files for constructing the Jupyter Book copy of 
 You can also deploy an interactive copy of the book directly in your browser using Binder:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pa-legg/sdav-book/HEAD)
-
-This book is licensed under Creative Commons [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/)
